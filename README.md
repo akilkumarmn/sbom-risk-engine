@@ -45,7 +45,7 @@ Runs entirely in the browser. Upload a CycloneDX SBOM, a scan (Trivy JSON, Nessu
 shows its formula breakdown, the model probability and its top three contributing features. EPSS and KEV are
 fetched live (cached 24 h in localStorage) with a dated snapshot fallback. Only CVE IDs are sent to FIRST; the
 SBOM and scan never leave the page. Deployed by `.github/workflows/pages.yml` to
-`https://<github-user>.github.io/sbom-risk-engine/`.
+`https://akilkumarmn.github.io/sbom-risk-engine/`.
 
 ## API (`api/`)
 ```bash
