@@ -8,16 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0E11; --panel:#14181D; --panel-2:#191E24; --border:#232A32;
-    --text:#E7ECEF; --muted:#7C8A96; --muted-2:#576270;
-    --critical:#E5484D; --high:#F0883E; --medium:#E8C547; --low:#4FA8A8;
-    --accent:#35D0BA; --accent-dim: rgba(53,208,186,0.12);
+    --bg:#F6F8FA; --panel:#FFFFFF; --panel-2:#F2F5F8; --border:#E2E8EE;
+    --text:#16202A; --muted:#556474; --muted-2:#738291;
+    --critical:#D1343A; --high:#D9731A; --medium:#B7791F; --low:#2F8F8F;
+    --accent:#0F9D8A; --accent-dim: rgba(15,157,138,0.10);
+    --shadow: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.06);
+    --shadow-hover: 0 4px 12px rgba(16,24,40,0.08), 0 2px 4px rgba(16,24,40,0.04);
     --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.5;-webkit-font-smoothing:antialiased;}
-  body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 85% -10%, rgba(53,208,186,0.08), transparent 45%),radial-gradient(circle at -5% 20%, rgba(229,72,77,0.06), transparent 40%);pointer-events:none;z-index:0;}
+  body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 85% -10%, rgba(15,157,138,0.08), transparent 45%),radial-gradient(circle at -5% 20%, rgba(209,52,58,0.06), transparent 40%);pointer-events:none;z-index:0;}
   .wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:56px 32px 90px;}
 
   .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:18px;}
@@ -48,8 +50,8 @@
     padding:3px 9px;border-radius:20px;background:var(--accent-dim);color:var(--accent);margin-bottom:10px;}
   .dz-status{margin-top:10px;font-size:12.5px;line-height:1.5;text-align:left;padding:9px 11px;border-radius:7px;display:none;}
   .dz-status.show{display:block;}
-  .dz-status.ok{background:rgba(53,208,186,0.09);color:var(--accent);border:1px solid rgba(53,208,186,0.25);}
-  .dz-status.bad{background:rgba(229,72,77,0.09);color:var(--critical);border:1px solid rgba(229,72,77,0.25);}
+  .dz-status.ok{background:rgba(15,157,138,0.09);color:var(--accent);border:1px solid rgba(15,157,138,0.25);}
+  .dz-status.bad{background:rgba(209,52,58,0.09);color:var(--critical);border:1px solid rgba(209,52,58,0.25);}
   .dz-sample-link{background:none;border:none;font-family:var(--font-body);font-size:12px;color:var(--muted);
     text-decoration:underline;text-decoration-style:dashed;cursor:pointer;padding:0;margin-top:10px;display:inline-block;}
   .dz-sample-link:hover{color:var(--text);}
@@ -88,7 +90,7 @@
   .fuzzy-toggle input{accent-color:var(--accent);width:14px;height:14px;}
   .btn-row{display:flex;gap:10px;}
   button.primary{
-    font-family:var(--font-body);font-weight:600;font-size:13.5px;color:#05201C;
+    font-family:var(--font-body);font-weight:600;font-size:13.5px;color:#FFFFFF;
     background:var(--accent);border:none;padding:11px 20px;border-radius:8px;cursor:pointer;transition:opacity .15s;
   }
   button.primary.pending{ opacity:.5; }
@@ -96,7 +98,7 @@
     font-family:var(--font-body);font-weight:600;font-size:13.5px;color:var(--muted);
     background:var(--panel);border:1px solid var(--border);padding:11px 18px;border-radius:8px;cursor:pointer;
   }
-  button.secondary:hover{ color:var(--text); border-color:#333c46; }
+  button.secondary:hover{ color:var(--text); border-color:#C5CED7; }
 
   .log-box{
     display:none;
@@ -111,7 +113,7 @@
   @keyframes fadeIn{ to{ opacity:1; } }
 
   .error-box{
-    display:none; background: rgba(229,72,77,0.08); border:1px solid rgba(229,72,77,0.35);
+    display:none; background: rgba(209,52,58,0.08); border:1px solid rgba(209,52,58,0.35);
     color: var(--critical); border-radius:10px; padding:14px 16px; font-size:13px; margin-bottom:22px;
     font-family: var(--font-mono);
   }
@@ -135,21 +137,21 @@
   .controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:18px;}
   .segmented{display:inline-flex;background:var(--panel);border:1px solid var(--border);border-radius:9px;padding:3px;gap:2px;}
   .segmented button{font-family:var(--font-body);font-weight:600;font-size:13px;color:var(--muted);background:transparent;border:none;padding:9px 16px;border-radius:7px;cursor:pointer;transition:all .18s ease;}
-  .segmented button.active{background:var(--accent);color:#05201C;}
+  .segmented button.active{background:var(--accent);color:#FFFFFF;}
   .segmented button:not(.active):hover{color:var(--text);}
   .tier-filters{display:flex;gap:8px;flex-wrap:wrap;}
   .tier-chip{font-family:var(--font-mono);font-size:11.5px;padding:7px 12px;border-radius:7px;border:1px solid var(--border);background:var(--panel);color:var(--muted);cursor:pointer;}
-  .tier-chip[data-tier="Critical"].active{border-color:var(--critical);color:var(--critical);background:rgba(229,72,77,0.1);}
-  .tier-chip[data-tier="High"].active{border-color:var(--high);color:var(--high);background:rgba(240,136,62,0.1);}
-  .tier-chip[data-tier="Medium"].active{border-color:var(--medium);color:var(--medium);background:rgba(232,197,71,0.1);}
-  .tier-chip[data-tier="Low"].active{border-color:var(--low);color:var(--low);background:rgba(79,168,168,0.1);}
+  .tier-chip[data-tier="Critical"].active{border-color:var(--critical);color:var(--critical);background:rgba(209,52,58,0.1);}
+  .tier-chip[data-tier="High"].active{border-color:var(--high);color:var(--high);background:rgba(217,115,26,0.1);}
+  .tier-chip[data-tier="Medium"].active{border-color:var(--medium);color:var(--medium);background:rgba(183,121,31,0.1);}
+  .tier-chip[data-tier="Low"].active{border-color:var(--low);color:var(--low);background:rgba(47,143,143,0.1);}
   .tier-chip[data-tier="All"].active{border-color:var(--text);color:var(--text);background:var(--panel-2);}
   .legend-note{font-size:12.5px;color:var(--muted-2);margin-bottom:22px;}
   .legend-note .k{color:var(--accent);font-family:var(--font-mono);}
 
   .findings{display:flex;flex-direction:column;gap:10px;}
   .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px;cursor:pointer;transition:border-color .15s ease;}
-  .card:hover{border-color:#333c46;}
+  .card:hover{border-color:#C5CED7;}
   .card.open{border-color:var(--accent);}
   .row-main{display:grid;grid-template-columns:40px 1.4fr 100px 1fr 120px 90px;align-items:center;gap:16px;}
   .rank{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--muted-2);text-align:center;}
@@ -157,10 +159,10 @@
   .id-col .cname{font-weight:600;font-size:14.5px;margin-top:2px;}
   .id-col .comp{font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:3px;}
   .tier-badge{font-family:var(--font-mono);font-size:11px;font-weight:600;padding:5px 9px;border-radius:6px;text-align:center;width:fit-content;}
-  .tier-badge.Critical{background:rgba(229,72,77,0.14);color:var(--critical);}
-  .tier-badge.High{background:rgba(240,136,62,0.14);color:var(--high);}
-  .tier-badge.Medium{background:rgba(232,197,71,0.14);color:var(--medium);}
-  .tier-badge.Low{background:rgba(79,168,168,0.14);color:var(--low);}
+  .tier-badge.Critical{background:rgba(209,52,58,0.14);color:var(--critical);}
+  .tier-badge.High{background:rgba(217,115,26,0.14);color:var(--high);}
+  .tier-badge.Medium{background:rgba(183,121,31,0.14);color:var(--medium);}
+  .tier-badge.Low{background:rgba(47,143,143,0.14);color:var(--low);}
   .score-col{display:flex;align-items:center;gap:10px;}
   .score-num{font-family:var(--font-mono);font-weight:700;font-size:15px;width:44px;}
   .bar-track{flex:1;height:6px;background:var(--panel-2);border-radius:4px;overflow:hidden;}
@@ -199,17 +201,17 @@
   .card.open .detail{max-height:1100px;}
   .banner{display:none;border-radius:10px;padding:12px 16px;font-size:13px;margin:0 0 20px;font-family:var(--font-mono);line-height:1.6;}
   .banner.show{display:block;}
-  .banner.synthetic{background:rgba(229,72,77,0.10);border:1px solid rgba(229,72,77,0.45);color:var(--critical);}
-  .banner.warn{background:rgba(240,136,62,0.08);border:1px solid rgba(240,136,62,0.35);color:var(--high);}
-  .dz-optional{background:rgba(124,138,150,0.14);color:var(--muted);}
+  .banner.synthetic{background:rgba(209,52,58,0.10);border:1px solid rgba(209,52,58,0.45);color:var(--critical);}
+  .banner.warn{background:rgba(217,115,26,0.08);border:1px solid rgba(217,115,26,0.35);color:var(--high);}
+  .dz-optional{background:rgba(85,100,116,0.14);color:var(--muted);}
   .intel-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:-8px 0 22px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);}
   .intel-badge{padding:4px 9px;border-radius:6px;border:1px solid var(--border);background:var(--panel);color:var(--muted);}
-  .intel-badge.live{border-color:rgba(53,208,186,0.4);color:var(--accent);}
-  .intel-badge.snap{border-color:rgba(240,136,62,0.4);color:var(--high);}
+  .intel-badge.live{border-color:rgba(15,157,138,0.4);color:var(--accent);}
+  .intel-badge.snap{border-color:rgba(217,115,26,0.4);color:var(--high);}
   .stat .label b{color:var(--text);font-weight:600;}
   .stat .num.small{font-size:21px;}
   .ml-box{margin-top:14px;font-family:var(--font-mono);font-size:12px;background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;line-height:1.75;}
-  .ml-box .fk{color:#8B8BF5;}
+  .ml-box .fk{color:#5B5BD6;}
   .contrib{display:flex;align-items:center;gap:10px;}
   .contrib .cv{width:58px;text-align:right;}
   .contrib .cv.pos{color:var(--critical);} .contrib .cv.neg{color:var(--accent);}
@@ -222,6 +224,25 @@
   .footer{margin-top:40px;font-size:12px;color:var(--muted-2);font-family:var(--font-mono);line-height:1.8;}
   .footer a{color:var(--muted);}
   @media (max-width:980px){ .dropzones{flex-direction:column;} .stat-row{grid-template-columns:1fr 1fr;} }
+
+  /* ---- light theme polish ---- */
+  body::before{background:radial-gradient(circle at 85% -10%, rgba(15,157,138,0.07), transparent 45%),radial-gradient(circle at -5% 20%, rgba(217,115,26,0.05), transparent 40%);}
+  .dropzone,.file-guide-card,.factors-panel,.stat,.card,.log-box,.segmented,.tier-chip,button.secondary{box-shadow:var(--shadow);}
+  .dropzone{border-color:#CDD6DF;}
+  .dropzone:hover,.dropzone.drag{background:#FBFCFD;box-shadow:var(--shadow-hover);}
+  .card{transition:border-color .15s ease, box-shadow .15s ease;}
+  .card:hover{box-shadow:var(--shadow-hover);}
+  .card.open{box-shadow:0 0 0 3px rgba(15,157,138,0.12), var(--shadow-hover);}
+  .factor-chip{background:var(--panel);}
+  .formula-box,.ml-box{background:#F8FAFB;}
+  .bar-track{background:#E9EEF2;}
+  .segmented button.active{box-shadow:0 1px 2px rgba(15,157,138,0.35);}
+  button.primary{box-shadow:0 1px 2px rgba(15,157,138,0.35);}
+  button.primary:hover{filter:brightness(1.05);}
+  .stat .num{color:var(--text);}
+  .stat .num.accent{color:var(--accent);}
+  .intel-badge{background:var(--panel);}
+  code{white-space:nowrap;font-family:var(--font-mono);font-size:.92em;background:var(--panel-2);border:1px solid var(--border);padding:1px 5px;border-radius:4px;}
 </style>
 </head>
 <body>
@@ -260,27 +281,27 @@
       <div class="factors-sub">Five signals combine into the Formula + ML risk score</div>
     </div>
     <div class="factors-row" id="factorsRow">
-      <div class="factor-chip" style="--factor-color:#8B8BF5; --factor-bg:rgba(139,139,245,0.14);">
+      <div class="factor-chip" style="--factor-color:#5B5BD6; --factor-bg:rgba(91,91,214,0.14);">
         <div class="fc-top"><div class="fc-icon">ƒ</div><div class="fc-label">ML exploitation likelihood</div></div>
         <div class="fc-desc" id="mlCardDesc">Gradient-boosted classifier trained on NVD CVEs with CISA KEV as the label. Loading model card…</div>
         <div class="fc-weight">50% of Likelihood</div>
       </div>
-      <div class="factor-chip" style="--factor-color:#F0883E; --factor-bg:rgba(240,136,62,0.14);">
+      <div class="factor-chip" style="--factor-color:#D9731A; --factor-bg:rgba(217,115,26,0.14);">
         <div class="fc-top"><div class="fc-icon">%</div><div class="fc-label">EPSS</div></div>
         <div class="fc-desc">Probability this CVE is exploited in the next 30 days, from FIRST.org's published model, fetched live.</div>
         <div class="fc-weight">30% of Likelihood · Formula: 65%</div>
       </div>
-      <div class="factor-chip" style="--factor-color:#E5484D; --factor-bg:rgba(229,72,77,0.14);">
+      <div class="factor-chip" style="--factor-color:#D1343A; --factor-bg:rgba(209,52,58,0.14);">
         <div class="fc-top"><div class="fc-icon">⚠</div><div class="fc-label">Exploit / KEV</div></div>
         <div class="fc-desc">Listed on CISA's Known Exploited Vulnerabilities catalog (fetched live). The Cap-1 formula also uses public PoC availability.</div>
         <div class="fc-weight">20% of Likelihood · Formula: 35%</div>
       </div>
-      <div class="factor-chip" style="--factor-color:#35D0BA; --factor-bg:rgba(53,208,186,0.14);">
+      <div class="factor-chip" style="--factor-color:#0F9D8A; --factor-bg:rgba(15,157,138,0.14);">
         <div class="fc-top"><div class="fc-icon">◈</div><div class="fc-label">Blast radius + asset</div></div>
         <div class="fc-desc">SBOM fan-in (how many components depend on this one) and, if supplied, the tier and exposure of the services it runs in.</div>
         <div class="fc-weight">50% of Impact × criticality</div>
       </div>
-      <div class="factor-chip" style="--factor-color:#E8C547; --factor-bg:rgba(232,197,71,0.14);">
+      <div class="factor-chip" style="--factor-color:#B7791F; --factor-bg:rgba(183,121,31,0.14);">
         <div class="fc-top"><div class="fc-icon">⇄</div><div class="fc-label">Scope</div></div>
         <div class="fc-desc">CVSS scope changed: exploiting it lets an attacker reach components beyond the vulnerable one.</div>
         <div class="fc-weight">×1.15 multiplier</div>
