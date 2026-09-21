@@ -1,0 +1,4 @@
+component,version,cve_id,cvss_base,cvss_vector,description,host
+log4j-core,2.14.1,CVE-2021-44228,10.0,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H,"JNDI lookup, remote code execution",payment-api
+spring-core,5.3.9,CVE-2022-22965,9.8,,"Data binding, ""Spring4Shell""",
+openssl,1.1.1k,CVE-2022-0778,7.5,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H,Infinite loop,

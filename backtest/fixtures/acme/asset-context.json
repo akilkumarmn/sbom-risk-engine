@@ -1,0 +1,119 @@
+{
+  "_comment": "Asset context for the acme sample. Tier 1/2/3 -> Impact x1.5/1.25/1.0, internet_facing -> x1.2. Services map to SBOM components (name@version) or scanner hosts.",
+  "services": {
+    "payment-api": {
+      "tier": 1,
+      "criticality": "Critical",
+      "internet_facing": true,
+      "handles_pii": true,
+      "components": [
+        "log4j-core@2.14.1",
+        "jackson-databind@2.9.8",
+        "guava@31.1",
+        "fastjson@1.2.47",
+        "tomcat-embed-core@9.0.30"
+      ]
+    },
+    "checkout-service": {
+      "tier": 1,
+      "criticality": "Critical",
+      "internet_facing": true,
+      "handles_pii": true,
+      "components": [
+        "log4j-core@2.14.1",
+        "spring-core@5.3.9",
+        "jackson-databind@2.9.8",
+        "tomcat-embed-core@9.0.30"
+      ]
+    },
+    "auth-service": {
+      "tier": 1,
+      "criticality": "Critical",
+      "internet_facing": true,
+      "handles_pii": true,
+      "components": [
+        "log4j-core@2.14.1",
+        "bouncycastle@1.60",
+        "shiro-core@1.2.4",
+        "tomcat-embed-core@9.0.30"
+      ]
+    },
+    "order-service": {
+      "tier": 2,
+      "criticality": "High",
+      "internet_facing": false,
+      "handles_pii": false,
+      "components": [
+        "log4j-core@2.14.1",
+        "commons-collections@3.2.1",
+        "tomcat-embed-core@9.0.30"
+      ]
+    },
+    "user-profile-service": {
+      "tier": 2,
+      "criticality": "High",
+      "internet_facing": true,
+      "handles_pii": true,
+      "components": [
+        "spring-core@5.3.9",
+        "snakeyaml@1.26",
+        "tomcat-embed-core@9.0.30"
+      ]
+    },
+    "legacy-partner-portal": {
+      "tier": 3,
+      "criticality": "Medium",
+      "internet_facing": true,
+      "handles_pii": false,
+      "components": [
+        "struts2-core@2.3.31",
+        "commons-collections@3.2.1",
+        "xstream@1.4.6"
+      ]
+    },
+    "internal-admin-tool": {
+      "tier": 3,
+      "criticality": "Low",
+      "internet_facing": false,
+      "handles_pii": false,
+      "components": [
+        "spring-core@5.3.9",
+        "snakeyaml@1.26",
+        "commons-io@2.6",
+        "xstream@1.4.6"
+      ]
+    },
+    "batch-job-runner": {
+      "tier": 3,
+      "criticality": "Medium",
+      "internet_facing": false,
+      "handles_pii": false,
+      "components": [
+        "openssl@1.1.1k",
+        "guava@31.1",
+        "postgresql-jdbc@42.2.5"
+      ]
+    },
+    "reporting-service": {
+      "tier": 3,
+      "criticality": "Low",
+      "internet_facing": false,
+      "handles_pii": false,
+      "components": [
+        "jackson-databind@2.9.8",
+        "openssl@1.1.1k",
+        "fastjson@1.2.47",
+        "postgresql-jdbc@42.2.5"
+      ]
+    },
+    "notification-service": {
+      "tier": 3,
+      "criticality": "Medium",
+      "internet_facing": false,
+      "handles_pii": false,
+      "components": [
+        "netty-codec-http@4.1.42"
+      ]
+    }
+  }
+}

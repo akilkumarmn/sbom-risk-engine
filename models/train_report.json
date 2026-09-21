@@ -1,0 +1,638 @@
+{
+  "trained_at": "2026-09-21T16:56:27+00:00",
+  "snapshot_date": "2026-09-21",
+  "data_source": "public-feeds",
+  "algo": "lightgbm",
+  "split": {
+    "train_years": [
+      2019,
+      2023
+    ],
+    "val_year": 2024,
+    "test_year": 2025,
+    "by": "NVD published date"
+  },
+  "counts": {
+    "train": {
+      "n": 108024,
+      "kev": 784,
+      "kev_rate": 0.007257646448937273
+    },
+    "val": {
+      "n": 39944,
+      "kev": 160,
+      "kev_rate": 0.004005607850991388
+    },
+    "test": {
+      "n": 47969,
+      "kev": 197,
+      "kev_rate": 0.0041068189872626075
+    }
+  },
+  "features": [
+    "cvss_base",
+    "cvss_missing",
+    "av_N",
+    "av_A",
+    "av_L",
+    "av_P",
+    "ac_L",
+    "ac_H",
+    "pr_N",
+    "pr_L",
+    "pr_H",
+    "ui_N",
+    "ui_R",
+    "s_U",
+    "s_C",
+    "c_H",
+    "c_L",
+    "c_N",
+    "i_H",
+    "i_L",
+    "i_N",
+    "a_H",
+    "a_L",
+    "a_N",
+    "cwe_79",
+    "cwe_787",
+    "cwe_89",
+    "cwe_125",
+    "cwe_20",
+    "cwe_352",
+    "cwe_22",
+    "cwe_416",
+    "cwe_78",
+    "cwe_862",
+    "cwe_120",
+    "cwe_200",
+    "cwe_434",
+    "cwe_287",
+    "cwe_476",
+    "cwe_269",
+    "cwe_119",
+    "cwe_863",
+    "cwe_77",
+    "cwe_190",
+    "cwe_400",
+    "cwe_284",
+    "cwe_306",
+    "cwe_94",
+    "cwe_502",
+    "cwe_798",
+    "cwe_918",
+    "cwe_276",
+    "cwe_732",
+    "cwe_362",
+    "cwe_other",
+    "vendor_kev_rate",
+    "product_kev_rate",
+    "ref_total",
+    "ref_exploit",
+    "ref_patch",
+    "ref_vendor_advisory",
+    "dom_exploitdb",
+    "dom_github",
+    "dom_packetstorm",
+    "dom_zdi",
+    "desc_len",
+    "kw_rce",
+    "kw_unauth",
+    "kw_deser",
+    "kw_ssrf",
+    "kw_auth_bypass",
+    "poc_github",
+    "poc_exploitdb"
+  ],
+  "feature_labels": {
+    "cvss_base": "CVSS base score",
+    "cvss_missing": "No CVSS v3 vector",
+    "av_N": "Network attack vector",
+    "av_A": "Adjacent attack vector",
+    "av_L": "Local attack vector",
+    "av_P": "Physical attack vector",
+    "ac_L": "Low attack complexity",
+    "ac_H": "High attack complexity",
+    "pr_N": "No privileges required",
+    "pr_L": "Low privileges required",
+    "pr_H": "High privileges required",
+    "ui_N": "No user interaction",
+    "ui_R": "User interaction required",
+    "s_U": "Scope unchanged",
+    "s_C": "Scope changed",
+    "c_H": "High confidentiality impact",
+    "c_L": "Low confidentiality impact",
+    "c_N": "No confidentiality impact",
+    "i_H": "High integrity impact",
+    "i_L": "Low integrity impact",
+    "i_N": "No integrity impact",
+    "a_H": "High availability impact",
+    "a_L": "Low availability impact",
+    "a_N": "No availability impact",
+    "cwe_79": "CWE-79",
+    "cwe_787": "CWE-787",
+    "cwe_89": "CWE-89",
+    "cwe_125": "CWE-125",
+    "cwe_20": "CWE-20",
+    "cwe_352": "CWE-352",
+    "cwe_22": "CWE-22",
+    "cwe_416": "CWE-416",
+    "cwe_78": "CWE-78",
+    "cwe_862": "CWE-862",
+    "cwe_120": "CWE-120",
+    "cwe_200": "CWE-200",
+    "cwe_434": "CWE-434",
+    "cwe_287": "CWE-287",
+    "cwe_476": "CWE-476",
+    "cwe_269": "CWE-269",
+    "cwe_119": "CWE-119",
+    "cwe_863": "CWE-863",
+    "cwe_77": "CWE-77",
+    "cwe_190": "CWE-190",
+    "cwe_400": "CWE-400",
+    "cwe_284": "CWE-284",
+    "cwe_306": "CWE-306",
+    "cwe_94": "CWE-94",
+    "cwe_502": "CWE-502",
+    "cwe_798": "CWE-798",
+    "cwe_918": "CWE-918",
+    "cwe_276": "CWE-276",
+    "cwe_732": "CWE-732",
+    "cwe_362": "CWE-362",
+    "cwe_other": "Other CWE",
+    "vendor_kev_rate": "Vendor's historical KEV rate",
+    "product_kev_rate": "Product's historical KEV rate",
+    "ref_total": "Number of references",
+    "ref_exploit": "References tagged Exploit",
+    "ref_patch": "References tagged Patch",
+    "ref_vendor_advisory": "Vendor advisories",
+    "dom_exploitdb": "Exploit-DB reference",
+    "dom_github": "GitHub reference",
+    "dom_packetstorm": "Packet Storm reference",
+    "dom_zdi": "ZDI reference",
+    "desc_len": "Description length",
+    "kw_rce": "Mentions code execution",
+    "kw_unauth": "Mentions unauthenticated",
+    "kw_deser": "Mentions deserialization",
+    "kw_ssrf": "Mentions SSRF",
+    "kw_auth_bypass": "Mentions authentication bypass",
+    "poc_github": "Public PoC on GitHub (<=30d)",
+    "poc_exploitdb": "Exploit-DB entry (<=30d)"
+  },
+  "calibration": {
+    "method": "platt_on_validation_year",
+    "a": 0.7865018529035847,
+    "b": -4.060529225126314,
+    "val_base_rate": 0.004005607850991388
+  },
+  "best_iteration": 245,
+  "table1": [
+    {
+      "ranker": "cvss",
+      "name": "CVSS base score",
+      "n": 47969,
+      "positives": 197,
+      "auc_roc": 0.7627933190267987,
+      "pr_auc": 0.016487238617564383,
+      "effort_to_cover_90": 0.6001334195000938,
+      "mean_rank_of_positives": 11430.837563451776,
+      "precision_at_100": 0.08641975308641975,
+      "precision_at_500": 0.038400488400488396,
+      "recall_at_1000": 0.12380456542893092
+    },
+    {
+      "ranker": "epss",
+      "name": "EPSS (FIRST)",
+      "n": 47969,
+      "positives": 197,
+      "auc_roc": 0.9719568436537172,
+      "pr_auc": 0.4639898316108184,
+      "effort_to_cover_90": 0.05006358273051346,
+      "mean_rank_of_positives": 1438.6776649746193,
+      "precision_at_100": 0.69,
+      "precision_at_500": 0.23,
+      "recall_at_1000": 0.6649746192893401
+    },
+    {
+      "ranker": "model_no_epss",
+      "name": "Our model, without EPSS",
+      "n": 47969,
+      "positives": 197,
+      "auc_roc": 0.9157045033282032,
+      "pr_auc": 0.21494670672763644,
+      "effort_to_cover_90": 0.24595050970418394,
+      "mean_rank_of_positives": 4125.964467005077,
+      "precision_at_100": 0.41,
+      "precision_at_500": 0.152,
+      "recall_at_1000": 0.49746192893401014
+    },
+    {
+      "ranker": "model_with_epss",
+      "name": "Our model, with EPSS",
+      "n": 47969,
+      "positives": 197,
+      "auc_roc": 0.9838932475791312,
+      "pr_auc": 0.5494167656879028,
+      "effort_to_cover_90": 0.039108590964998226,
+      "mean_rank_of_positives": 868.4517766497462,
+      "precision_at_100": 0.73,
+      "precision_at_500": 0.278,
+      "recall_at_1000": 0.8020304568527918
+    },
+    {
+      "ranker": "logreg_no_epss",
+      "name": "Logistic regression (explainability baseline)",
+      "n": 47969,
+      "positives": 197,
+      "auc_roc": 0.9194597561768655,
+      "pr_auc": 0.12811878721639322,
+      "effort_to_cover_90": 0.20807187975567554,
+      "mean_rank_of_positives": 3946.568527918782,
+      "precision_at_100": 0.26,
+      "precision_at_500": 0.094,
+      "recall_at_1000": 0.4416243654822335
+    },
+    {
+      "ranker": "model_time_features",
+      "name": "Our model + time features (diagnostic)",
+      "n": 47969,
+      "positives": 197,
+      "auc_roc": 0.8909730271241869,
+      "pr_auc": 0.0780569144392261,
+      "effort_to_cover_90": 0.3602743438470679,
+      "mean_rank_of_positives": 5307.436548223351,
+      "precision_at_100": 0.25,
+      "precision_at_500": 0.09246153846153846,
+      "recall_at_1000": 0.3394348625251188
+    }
+  ],
+  "table1_cvss_scored_subset": [
+    {
+      "ranker": "cvss",
+      "name": "CVSS base score",
+      "n": 45336,
+      "positives": 197,
+      "auc_roc": 0.7489568319313282,
+      "pr_auc": 0.01648723861756438,
+      "effort_to_cover_90": 0.6349876477854244,
+      "mean_rank_of_positives": 11430.837563451776,
+      "precision_at_100": 0.08641975308641975,
+      "precision_at_500": 0.038400488400488396,
+      "recall_at_1000": 0.12380456542893092
+    },
+    {
+      "ranker": "epss",
+      "name": "EPSS (FIRST)",
+      "n": 45336,
+      "positives": 197,
+      "auc_roc": 0.9717788808691663,
+      "pr_auc": 0.47086248641540607,
+      "effort_to_cover_90": 0.05005955532027528,
+      "mean_rank_of_positives": 1372.8730964467004,
+      "precision_at_100": 0.7,
+      "precision_at_500": 0.23,
+      "recall_at_1000": 0.6700507614213198
+    },
+    {
+      "ranker": "model_no_epss",
+      "name": "Our model, without EPSS",
+      "n": 45336,
+      "positives": 197,
+      "auc_roc": 0.9119419395228477,
+      "pr_auc": 0.21496714718131307,
+      "effort_to_cover_90": 0.25877889535909654,
+      "mean_rank_of_positives": 4073.8527918781724,
+      "precision_at_100": 0.41,
+      "precision_at_500": 0.152,
+      "recall_at_1000": 0.49746192893401014
+    },
+    {
+      "ranker": "model_with_epss",
+      "name": "Our model, with EPSS",
+      "n": 45336,
+      "positives": 197,
+      "auc_roc": 0.9836949218224181,
+      "pr_auc": 0.5541936554779792,
+      "effort_to_cover_90": 0.040122639844715015,
+      "mean_rank_of_positives": 834.994923857868,
+      "precision_at_100": 0.74,
+      "precision_at_500": 0.28,
+      "recall_at_1000": 0.8071065989847716
+    },
+    {
+      "ranker": "logreg_no_epss",
+      "name": "Logistic regression (explainability baseline)",
+      "n": 45336,
+      "positives": 197,
+      "auc_roc": 0.915315725829623,
+      "pr_auc": 0.12812163903359944,
+      "effort_to_cover_90": 0.22008999470619375,
+      "mean_rank_of_positives": 3921.56345177665,
+      "precision_at_100": 0.26,
+      "precision_at_500": 0.094,
+      "recall_at_1000": 0.4416243654822335
+    },
+    {
+      "ranker": "model_time_features",
+      "name": "Our model + time features (diagnostic)",
+      "n": 45336,
+      "positives": 197,
+      "auc_roc": 0.8863196175873217,
+      "pr_auc": 0.07809420902578912,
+      "effort_to_cover_90": 0.3761469913534498,
+      "mean_rank_of_positives": 5230.418781725888,
+      "precision_at_100": 0.25,
+      "precision_at_500": 0.09248060075093868,
+      "recall_at_1000": 0.3395488014840886
+    }
+  ],
+  "test_auc": 0.9157045033282032,
+  "test_pr_auc": 0.21494670672763644,
+  "importance_kind": "gain",
+  "importance": [
+    {
+      "feature": "vendor_kev_rate",
+      "label": "Vendor's historical KEV rate",
+      "value": 2056930.4880504608
+    },
+    {
+      "feature": "dom_packetstorm",
+      "label": "Packet Storm reference",
+      "value": 605877.9692153931
+    },
+    {
+      "feature": "product_kev_rate",
+      "label": "Product's historical KEV rate",
+      "value": 381372.02541923523
+    },
+    {
+      "feature": "cvss_base",
+      "label": "CVSS base score",
+      "value": 289245.03223991394
+    },
+    {
+      "feature": "desc_len",
+      "label": "Description length",
+      "value": 285786.49548721313
+    },
+    {
+      "feature": "poc_github",
+      "label": "Public PoC on GitHub (<=30d)",
+      "value": 254348.817363739
+    },
+    {
+      "feature": "ref_total",
+      "label": "Number of references",
+      "value": 197281.91817855835
+    },
+    {
+      "feature": "ref_vendor_advisory",
+      "label": "Vendor advisories",
+      "value": 186947.91661834717
+    },
+    {
+      "feature": "ref_patch",
+      "label": "References tagged Patch",
+      "value": 136821.84382247925
+    },
+    {
+      "feature": "i_H",
+      "label": "High integrity impact",
+      "value": 122927.60871696472
+    },
+    {
+      "feature": "kw_unauth",
+      "label": "Mentions unauthenticated",
+      "value": 60145.569469451904
+    },
+    {
+      "feature": "ref_exploit",
+      "label": "References tagged Exploit",
+      "value": 45391.62074279785
+    },
+    {
+      "feature": "cwe_78",
+      "label": "CWE-78",
+      "value": 31612.428785324097
+    },
+    {
+      "feature": "c_H",
+      "label": "High confidentiality impact",
+      "value": 31002.304260253906
+    },
+    {
+      "feature": "dom_github",
+      "label": "GitHub reference",
+      "value": 19567.1296710968
+    }
+  ],
+  "shap_mean_abs": [
+    {
+      "feature": "product_kev_rate",
+      "label": "Product's historical KEV rate",
+      "value": 0.6079243232329693
+    },
+    {
+      "feature": "cvss_base",
+      "label": "CVSS base score",
+      "value": 0.5920729209508319
+    },
+    {
+      "feature": "ref_vendor_advisory",
+      "label": "Vendor advisories",
+      "value": 0.44465531526805435
+    },
+    {
+      "feature": "ref_total",
+      "label": "Number of references",
+      "value": 0.357188684063106
+    },
+    {
+      "feature": "vendor_kev_rate",
+      "label": "Vendor's historical KEV rate",
+      "value": 0.35313600635465325
+    },
+    {
+      "feature": "dom_github",
+      "label": "GitHub reference",
+      "value": 0.31559484643597935
+    },
+    {
+      "feature": "desc_len",
+      "label": "Description length",
+      "value": 0.24736626726599933
+    },
+    {
+      "feature": "cwe_other",
+      "label": "Other CWE",
+      "value": 0.21305425494629557
+    },
+    {
+      "feature": "cwe_79",
+      "label": "CWE-79",
+      "value": 0.21291077277871295
+    },
+    {
+      "feature": "ref_exploit",
+      "label": "References tagged Exploit",
+      "value": 0.2033045128772064
+    },
+    {
+      "feature": "ui_N",
+      "label": "No user interaction",
+      "value": 0.180474779426437
+    },
+    {
+      "feature": "kw_unauth",
+      "label": "Mentions unauthenticated",
+      "value": 0.17456988706988066
+    },
+    {
+      "feature": "c_N",
+      "label": "No confidentiality impact",
+      "value": 0.1436174172210224
+    },
+    {
+      "feature": "c_H",
+      "label": "High confidentiality impact",
+      "value": 0.14314648784637354
+    },
+    {
+      "feature": "poc_github",
+      "label": "Public PoC on GitHub (<=30d)",
+      "value": 0.1295303465945902
+    }
+  ],
+  "logreg_coefficients": [
+    {
+      "feature": "av_P",
+      "label": "Physical attack vector",
+      "coef": -0.9555861359566843
+    },
+    {
+      "feature": "cwe_476",
+      "label": "CWE-476",
+      "coef": -0.8343763678832656
+    },
+    {
+      "feature": "product_kev_rate",
+      "label": "Product's historical KEV rate",
+      "coef": 0.7177148984037908
+    },
+    {
+      "feature": "vendor_kev_rate",
+      "label": "Vendor's historical KEV rate",
+      "coef": 0.4785639895614636
+    },
+    {
+      "feature": "dom_github",
+      "label": "GitHub reference",
+      "coef": -0.42054350614260716
+    },
+    {
+      "feature": "cwe_79",
+      "label": "CWE-79",
+      "coef": -0.3700493433659164
+    },
+    {
+      "feature": "ref_exploit",
+      "label": "References tagged Exploit",
+      "coef": 0.35058263748036417
+    },
+    {
+      "feature": "poc_github",
+      "label": "Public PoC on GitHub (<=30d)",
+      "coef": 0.3345072561503315
+    },
+    {
+      "feature": "cwe_918",
+      "label": "CWE-918",
+      "coef": 0.30418264338855544
+    },
+    {
+      "feature": "c_H",
+      "label": "High confidentiality impact",
+      "coef": 0.3029028670753458
+    },
+    {
+      "feature": "cwe_352",
+      "label": "CWE-352",
+      "coef": -0.27936866817921874
+    },
+    {
+      "feature": "kw_unauth",
+      "label": "Mentions unauthenticated",
+      "coef": 0.2768794170551644
+    },
+    {
+      "feature": "ref_vendor_advisory",
+      "label": "Vendor advisories",
+      "coef": 0.26730991982771996
+    },
+    {
+      "feature": "cwe_276",
+      "label": "CWE-276",
+      "coef": -0.25923472986688784
+    },
+    {
+      "feature": "cwe_416",
+      "label": "CWE-416",
+      "coef": 0.24619373732297475
+    }
+  ],
+  "features_meta": {
+    "built_at": "2026-09-21T16:55:01+00:00",
+    "n_cves": 306644,
+    "years": [
+      2015,
+      2026
+    ],
+    "kev": {
+      "catalogVersion": "2026.09.18",
+      "dateReleased": "2026-09-18T19:00:05.0974Z",
+      "count": 1716
+    },
+    "kev_cves_in_nvd": 1560,
+    "epss_current": {
+      "model_version": "v2026.06.15",
+      "score_date": "2026-09-21T12:03:23Z"
+    },
+    "epss_freeze": {
+      "model_version": "v2023.03.01",
+      "score_date": "2025-01-01T00:00:00+0000"
+    },
+    "freeze_date": "2025-01-01",
+    "poc_github_cves": 10845,
+    "exploitdb_cves": 25086,
+    "cvss_missing": 14327,
+    "fetch": {
+      "fetched_at": "2026-09-21T16:46:01+00:00",
+      "files": {
+        "nvd": [
+          "CVE-2015.json.xz",
+          "CVE-2016.json.xz",
+          "CVE-2017.json.xz",
+          "CVE-2018.json.xz",
+          "CVE-2019.json.xz",
+          "CVE-2020.json.xz",
+          "CVE-2021.json.xz",
+          "CVE-2022.json.xz",
+          "CVE-2023.json.xz",
+          "CVE-2024.json.xz",
+          "CVE-2025.json.xz",
+          "CVE-2026.json.xz"
+        ],
+        "kev": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+        "epss": [
+          "epss_current.csv.gz",
+          "epss_2025-01-01.csv.gz"
+        ]
+      }
+    },
+    "data_source": "public-feeds"
+  },
+  "notes": [
+    "EPSS baseline and the with-EPSS variant use the *current* EPSS file, which already reflects post-publication exploitation activity; treat them as an optimistic upper bound. The time-frozen comparison is the backtest.",
+    "Tie-aware metrics: expected values under random tie-breaking (CVSS has large tied blocks)."
+  ]
+}

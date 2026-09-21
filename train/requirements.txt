@@ -1,0 +1,9 @@
+# Training / export / backtest (CI: .github/workflows/retrain.yml)
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.4
+scipy>=1.11
+lightgbm>=4.3
+matplotlib>=3.8
+pyarrow>=15
+requests>=2.31

@@ -1,0 +1,483 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "sbom.cdx.json",
+  "ArtifactType": "cyclonedx",
+  "_comment": "Hand-authored stand-in. CVSS is intentionally omitted: the backtest and dashboard take CVSS from the NVD feed. Regenerate with scripts/build_fixtures.sh (syft + trivy) for reported results.",
+  "Results": [
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2016-3081",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.3.28.1",
+          "Status": "fixed",
+          "Title": "struts2: RCE via method: prefix when Dynamic Method Invocation is enabled"
+        },
+        {
+          "VulnerabilityID": "CVE-2017-5638",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.3.32",
+          "Status": "fixed",
+          "Title": "struts2: RCE via Content-Type header in Jakarta Multipart parser"
+        },
+        {
+          "VulnerabilityID": "CVE-2018-11776",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.3.35",
+          "Status": "fixed",
+          "Title": "struts2: RCE via namespace value when alwaysSelectFullNamespace is true"
+        },
+        {
+          "VulnerabilityID": "CVE-2019-0230",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.5.22",
+          "Status": "fixed",
+          "Title": "struts2: forced double OGNL evaluation leading to RCE"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-17530",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.5.26",
+          "Status": "fixed",
+          "Title": "struts2: forced OGNL evaluation on raw user input in tag attributes"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-31805",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.5.30",
+          "Status": "fixed",
+          "Title": "struts2: incomplete fix for CVE-2020-17530 (forced OGNL evaluation)"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-50164",
+          "PkgID": "org.apache.struts:struts2-core:2.3.20",
+          "PkgName": "org.apache.struts:struts2-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-core@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.5.33",
+          "Status": "fixed",
+          "Title": "struts2: file upload path traversal leading to RCE"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-4438",
+          "PkgID": "org.apache.struts:struts2-rest-plugin:2.3.20",
+          "PkgName": "org.apache.struts:struts2-rest-plugin",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.3.28.1",
+          "Status": "fixed",
+          "Title": "struts2-rest-plugin: RCE via OGNL expression"
+        },
+        {
+          "VulnerabilityID": "CVE-2017-9805",
+          "PkgID": "org.apache.struts:struts2-rest-plugin:2.3.20",
+          "PkgName": "org.apache.struts:struts2-rest-plugin",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20",
+            "BOMRef": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20"
+          },
+          "InstalledVersion": "2.3.20",
+          "FixedVersion": "2.3.34",
+          "Status": "fixed",
+          "Title": "struts2-rest-plugin: XStream deserialization RCE in XStreamHandler"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-1000031",
+          "PkgID": "commons-fileupload:commons-fileupload:1.3.1",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1",
+            "BOMRef": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1"
+          },
+          "InstalledVersion": "1.3.1",
+          "FixedVersion": "1.3.3",
+          "Status": "fixed",
+          "Title": "commons-fileupload: DiskFileItem deserialization can lead to RCE"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-3092",
+          "PkgID": "commons-fileupload:commons-fileupload:1.3.1",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1",
+            "BOMRef": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1"
+          },
+          "InstalledVersion": "1.3.1",
+          "FixedVersion": "1.3.2",
+          "Status": "fixed",
+          "Title": "commons-fileupload: denial of service via long boundary string"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-24998",
+          "PkgID": "commons-fileupload:commons-fileupload:1.3.1",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1",
+            "BOMRef": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1"
+          },
+          "InstalledVersion": "1.3.1",
+          "FixedVersion": "1.5",
+          "Status": "fixed",
+          "Title": "commons-fileupload: denial of service via unlimited number of request parts"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-29425",
+          "PkgID": "commons-io:commons-io:2.4",
+          "PkgName": "commons-io:commons-io",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-io/commons-io@2.4",
+            "BOMRef": "pkg:maven/commons-io/commons-io@2.4"
+          },
+          "InstalledVersion": "2.4",
+          "FixedVersion": "2.7",
+          "Status": "fixed",
+          "Title": "commons-io: limited path traversal in FileNameUtils.normalize"
+        },
+        {
+          "VulnerabilityID": "CVE-2015-7501",
+          "PkgID": "commons-collections:commons-collections:3.2.1",
+          "PkgName": "commons-collections:commons-collections",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-collections/commons-collections@3.2.1",
+            "BOMRef": "pkg:maven/commons-collections/commons-collections@3.2.1"
+          },
+          "InstalledVersion": "3.2.1",
+          "FixedVersion": "3.2.2",
+          "Status": "fixed",
+          "Title": "commons-collections: InvokerTransformer deserialization RCE"
+        },
+        {
+          "VulnerabilityID": "CVE-2015-6420",
+          "PkgID": "commons-collections:commons-collections:3.2.1",
+          "PkgName": "commons-collections:commons-collections",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-collections/commons-collections@3.2.1",
+            "BOMRef": "pkg:maven/commons-collections/commons-collections@3.2.1"
+          },
+          "InstalledVersion": "3.2.1",
+          "FixedVersion": "3.2.2",
+          "Status": "fixed",
+          "Title": "commons-collections: deserialization of untrusted data"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-39144",
+          "PkgID": "com.thoughtworks.xstream:xstream:1.4.10",
+          "PkgName": "com.thoughtworks.xstream:xstream",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10",
+            "BOMRef": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10"
+          },
+          "InstalledVersion": "1.4.10",
+          "FixedVersion": "1.4.18",
+          "Status": "fixed",
+          "Title": "xstream: remote code execution via manipulated input stream"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-21344",
+          "PkgID": "com.thoughtworks.xstream:xstream:1.4.10",
+          "PkgName": "com.thoughtworks.xstream:xstream",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10",
+            "BOMRef": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10"
+          },
+          "InstalledVersion": "1.4.10",
+          "FixedVersion": "1.4.16",
+          "Status": "fixed",
+          "Title": "xstream: arbitrary code execution via crafted XML"
+        },
+        {
+          "VulnerabilityID": "CVE-2019-12384",
+          "PkgID": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+          "PkgName": "com.fasterxml.jackson.core:jackson-databind",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+            "BOMRef": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8"
+          },
+          "InstalledVersion": "2.9.8",
+          "FixedVersion": "2.9.9.1",
+          "Status": "fixed",
+          "Title": "jackson-databind: logback-core gadget deserialization"
+        },
+        {
+          "VulnerabilityID": "CVE-2019-14379",
+          "PkgID": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+          "PkgName": "com.fasterxml.jackson.core:jackson-databind",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+            "BOMRef": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8"
+          },
+          "InstalledVersion": "2.9.8",
+          "FixedVersion": "2.9.9.2",
+          "Status": "fixed",
+          "Title": "jackson-databind: ehcache gadget deserialization RCE"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-36518",
+          "PkgID": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+          "PkgName": "com.fasterxml.jackson.core:jackson-databind",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+            "BOMRef": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8"
+          },
+          "InstalledVersion": "2.9.8",
+          "FixedVersion": "2.12.6.1",
+          "Status": "fixed",
+          "Title": "jackson-databind: denial of service via deeply nested JSON"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-44228",
+          "PkgID": "org.apache.logging.log4j:log4j-core:2.14.1",
+          "PkgName": "org.apache.logging.log4j:log4j-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+            "BOMRef": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"
+          },
+          "InstalledVersion": "2.14.1",
+          "FixedVersion": "2.15.0",
+          "Status": "fixed",
+          "Title": "log4j-core: RCE via JNDI lookup in log messages (Log4Shell)"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45046",
+          "PkgID": "org.apache.logging.log4j:log4j-core:2.14.1",
+          "PkgName": "org.apache.logging.log4j:log4j-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+            "BOMRef": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"
+          },
+          "InstalledVersion": "2.14.1",
+          "FixedVersion": "2.16.0",
+          "Status": "fixed",
+          "Title": "log4j-core: incomplete fix for CVE-2021-44228 in non-default configurations"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45105",
+          "PkgID": "org.apache.logging.log4j:log4j-core:2.14.1",
+          "PkgName": "org.apache.logging.log4j:log4j-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+            "BOMRef": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"
+          },
+          "InstalledVersion": "2.14.1",
+          "FixedVersion": "2.17.0",
+          "Status": "fixed",
+          "Title": "log4j-core: denial of service via uncontrolled recursion in lookups"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-44832",
+          "PkgID": "org.apache.logging.log4j:log4j-core:2.14.1",
+          "PkgName": "org.apache.logging.log4j:log4j-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+            "BOMRef": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"
+          },
+          "InstalledVersion": "2.14.1",
+          "FixedVersion": "2.17.1",
+          "Status": "fixed",
+          "Title": "log4j-core: RCE via JDBC Appender when attacker controls configuration"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22965",
+          "PkgID": "org.springframework:spring-beans:5.3.9",
+          "PkgName": "org.springframework:spring-beans",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-beans@5.3.9",
+            "BOMRef": "pkg:maven/org.springframework/spring-beans@5.3.9"
+          },
+          "InstalledVersion": "5.3.9",
+          "FixedVersion": "5.3.18",
+          "Status": "fixed",
+          "Title": "spring-beans: RCE via data binding on JDK 9+ (Spring4Shell)"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-1938",
+          "PkgID": "org.apache.tomcat.embed:tomcat-embed-core:9.0.30",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30",
+            "BOMRef": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30"
+          },
+          "InstalledVersion": "9.0.30",
+          "FixedVersion": "9.0.31",
+          "Status": "fixed",
+          "Title": "tomcat: AJP connector file read/inclusion (Ghostcat)"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-9484",
+          "PkgID": "org.apache.tomcat.embed:tomcat-embed-core:9.0.30",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30",
+            "BOMRef": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30"
+          },
+          "InstalledVersion": "9.0.30",
+          "FixedVersion": "9.0.35",
+          "Status": "fixed",
+          "Title": "tomcat: RCE via session persistence deserialization"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-42889",
+          "PkgID": "org.apache.commons:commons-text:1.9",
+          "PkgName": "org.apache.commons:commons-text",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.commons/commons-text@1.9",
+            "BOMRef": "pkg:maven/org.apache.commons/commons-text@1.9"
+          },
+          "InstalledVersion": "1.9",
+          "FixedVersion": "1.10.0",
+          "Status": "fixed",
+          "Title": "commons-text: variable interpolation RCE (Text4Shell)"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-1471",
+          "PkgID": "org.yaml:snakeyaml:1.26",
+          "PkgName": "org.yaml:snakeyaml",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.yaml/snakeyaml@1.26",
+            "BOMRef": "pkg:maven/org.yaml/snakeyaml@1.26"
+          },
+          "InstalledVersion": "1.26",
+          "FixedVersion": "2.0",
+          "Status": "fixed",
+          "Title": "snakeyaml: Constructor deserialization RCE"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25857",
+          "PkgID": "org.yaml:snakeyaml:1.26",
+          "PkgName": "org.yaml:snakeyaml",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.yaml/snakeyaml@1.26",
+            "BOMRef": "pkg:maven/org.yaml/snakeyaml@1.26"
+          },
+          "InstalledVersion": "1.26",
+          "FixedVersion": "1.31",
+          "Status": "fixed",
+          "Title": "snakeyaml: denial of service via nested depth"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-42392",
+          "PkgID": "com.h2database:h2:1.4.197",
+          "PkgName": "com.h2database:h2",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.h2database/h2@1.4.197",
+            "BOMRef": "pkg:maven/com.h2database/h2@1.4.197"
+          },
+          "InstalledVersion": "1.4.197",
+          "FixedVersion": "2.0.206",
+          "Status": "fixed",
+          "Title": "h2: JNDI lookup RCE via H2 console"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-23221",
+          "PkgID": "com.h2database:h2:1.4.197",
+          "PkgName": "com.h2database:h2",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.h2database/h2@1.4.197",
+            "BOMRef": "pkg:maven/com.h2database/h2@1.4.197"
+          },
+          "InstalledVersion": "1.4.197",
+          "FixedVersion": "2.1.210",
+          "Status": "fixed",
+          "Title": "h2: RCE via JDBC URL in H2 console"
+        },
+        {
+          "VulnerabilityID": "CVE-2018-10237",
+          "PkgID": "com.google.guava:guava:20.0",
+          "PkgName": "com.google.guava:guava",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.google.guava/guava@20.0",
+            "BOMRef": "pkg:maven/com.google.guava/guava@20.0"
+          },
+          "InstalledVersion": "20.0",
+          "FixedVersion": "24.1.1",
+          "Status": "fixed",
+          "Title": "guava: unbounded memory allocation in AtomicDoubleArray/CompoundOrdering"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-8908",
+          "PkgID": "com.google.guava:guava:20.0",
+          "PkgName": "com.google.guava:guava",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.google.guava/guava@20.0",
+            "BOMRef": "pkg:maven/com.google.guava/guava@20.0"
+          },
+          "InstalledVersion": "20.0",
+          "FixedVersion": "32.0.0",
+          "Status": "fixed",
+          "Title": "guava: temporary directory created with insecure permissions"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-10683",
+          "PkgID": "dom4j:dom4j:1.6.1",
+          "PkgName": "dom4j:dom4j",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/dom4j/dom4j@1.6.1",
+            "BOMRef": "pkg:maven/dom4j/dom4j@1.6.1"
+          },
+          "InstalledVersion": "1.6.1",
+          "FixedVersion": "2.0.3",
+          "Status": "fixed",
+          "Title": "dom4j: XXE because external entities are enabled by default"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-13956",
+          "PkgID": "org.apache.httpcomponents:httpclient:4.5.2",
+          "PkgName": "org.apache.httpcomponents:httpclient",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2",
+            "BOMRef": "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2"
+          },
+          "InstalledVersion": "4.5.2",
+          "FixedVersion": "4.5.13",
+          "Status": "fixed",
+          "Title": "httpclient: incorrect handling of malformed authority in request URIs"
+        }
+      ]
+    }
+  ]
+}

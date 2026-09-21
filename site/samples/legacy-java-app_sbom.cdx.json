@@ -1,0 +1,617 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3c2d9f7e-5b0a-4c1e-9a55-legacy000001",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-12-31T12:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "hand-authored stand-in (regenerate with scripts/build_fixtures.sh)"
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:maven/org.apache.struts/struts2-showcase@2.3.20?type=war",
+      "group": "org.apache.struts",
+      "name": "struts2-showcase",
+      "version": "2.3.20",
+      "purl": "pkg:maven/org.apache.struts/struts2-showcase@2.3.20?type=war"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+      "group": "org.apache.struts",
+      "name": "struts2-core",
+      "version": "2.3.20",
+      "purl": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20",
+      "group": "org.apache.struts",
+      "name": "struts2-rest-plugin",
+      "version": "2.3.20",
+      "purl": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.struts.xwork/xwork-core@2.3.20",
+      "group": "org.apache.struts.xwork",
+      "name": "xwork-core",
+      "version": "2.3.20",
+      "purl": "pkg:maven/org.apache.struts.xwork/xwork-core@2.3.20",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/ognl/ognl@3.0.6",
+      "group": "ognl",
+      "name": "ognl",
+      "version": "3.0.6",
+      "purl": "pkg:maven/ognl/ognl@3.0.6",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "3"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.freemarker/freemarker@2.3.22",
+      "group": "org.freemarker",
+      "name": "freemarker",
+      "version": "2.3.22",
+      "purl": "pkg:maven/org.freemarker/freemarker@2.3.22",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1",
+      "group": "commons-fileupload",
+      "name": "commons-fileupload",
+      "version": "1.3.1",
+      "purl": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/commons-io/commons-io@2.4",
+      "group": "commons-io",
+      "name": "commons-io",
+      "version": "2.4",
+      "purl": "pkg:maven/commons-io/commons-io@2.4",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "3"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.commons/commons-lang3@3.2",
+      "group": "org.apache.commons",
+      "name": "commons-lang3",
+      "version": "3.2",
+      "purl": "pkg:maven/org.apache.commons/commons-lang3@3.2",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "3"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/commons-collections/commons-collections@3.2.1",
+      "group": "commons-collections",
+      "name": "commons-collections",
+      "version": "3.2.1",
+      "purl": "pkg:maven/commons-collections/commons-collections@3.2.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10",
+      "group": "com.thoughtworks.xstream",
+      "name": "xstream",
+      "version": "1.4.10",
+      "purl": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-databind",
+      "version": "2.9.8",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8",
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-core",
+      "version": "2.9.8",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+      "group": "org.apache.logging.log4j",
+      "name": "log4j-core",
+      "version": "2.14.1",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1",
+      "group": "org.apache.logging.log4j",
+      "name": "log4j-api",
+      "version": "2.14.1",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-beans@5.3.9",
+      "group": "org.springframework",
+      "name": "spring-beans",
+      "version": "5.3.9",
+      "purl": "pkg:maven/org.springframework/spring-beans@5.3.9",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-core@5.3.9",
+      "group": "org.springframework",
+      "name": "spring-core",
+      "version": "5.3.9",
+      "purl": "pkg:maven/org.springframework/spring-core@5.3.9",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30",
+      "group": "org.apache.tomcat.embed",
+      "name": "tomcat-embed-core",
+      "version": "9.0.30",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.commons/commons-text@1.9",
+      "group": "org.apache.commons",
+      "name": "commons-text",
+      "version": "1.9",
+      "purl": "pkg:maven/org.apache.commons/commons-text@1.9",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.yaml/snakeyaml@1.26",
+      "group": "org.yaml",
+      "name": "snakeyaml",
+      "version": "1.26",
+      "purl": "pkg:maven/org.yaml/snakeyaml@1.26",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.h2database/h2@1.4.197",
+      "group": "com.h2database",
+      "name": "h2",
+      "version": "1.4.197",
+      "purl": "pkg:maven/com.h2database/h2@1.4.197",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.google.guava/guava@20.0",
+      "group": "com.google.guava",
+      "name": "guava",
+      "version": "20.0",
+      "purl": "pkg:maven/com.google.guava/guava@20.0",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/dom4j/dom4j@1.6.1",
+      "group": "dom4j",
+      "name": "dom4j",
+      "version": "1.6.1",
+      "purl": "pkg:maven/dom4j/dom4j@1.6.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2",
+      "group": "org.apache.httpcomponents",
+      "name": "httpclient",
+      "version": "4.5.2",
+      "purl": "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.httpcomponents/httpcore@4.4.4",
+      "group": "org.apache.httpcomponents",
+      "name": "httpcore",
+      "version": "4.4.4",
+      "purl": "pkg:maven/org.apache.httpcomponents/httpcore@4.4.4",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/junit/junit@4.12",
+      "group": "junit",
+      "name": "junit",
+      "version": "4.12",
+      "purl": "pkg:maven/junit/junit@4.12",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:maven/org.apache.struts/struts2-showcase@2.3.20?type=war",
+      "dependsOn": [
+        "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+        "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+        "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+        "pkg:maven/org.springframework/spring-beans@5.3.9",
+        "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30",
+        "pkg:maven/org.apache.commons/commons-text@1.9",
+        "pkg:maven/org.yaml/snakeyaml@1.26",
+        "pkg:maven/com.h2database/h2@1.4.197",
+        "pkg:maven/com.google.guava/guava@20.0",
+        "pkg:maven/dom4j/dom4j@1.6.1",
+        "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2",
+        "pkg:maven/junit/junit@4.12"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.struts/struts2-core@2.3.20",
+      "dependsOn": [
+        "pkg:maven/org.apache.struts.xwork/xwork-core@2.3.20",
+        "pkg:maven/org.freemarker/freemarker@2.3.22",
+        "pkg:maven/commons-fileupload/commons-fileupload@1.3.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.struts/struts2-rest-plugin@2.3.20",
+      "dependsOn": [
+        "pkg:maven/commons-collections/commons-collections@3.2.1",
+        "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.struts.xwork/xwork-core@2.3.20",
+      "dependsOn": [
+        "pkg:maven/ognl/ognl@3.0.6",
+        "pkg:maven/org.apache.commons/commons-lang3@3.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/ognl/ognl@3.0.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.freemarker/freemarker@2.3.22",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/commons-fileupload/commons-fileupload@1.3.1",
+      "dependsOn": [
+        "pkg:maven/commons-io/commons-io@2.4"
+      ]
+    },
+    {
+      "ref": "pkg:maven/commons-io/commons-io@2.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.commons/commons-lang3@3.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/commons-collections/commons-collections@3.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+      "dependsOn": [
+        "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-beans@5.3.9",
+      "dependsOn": [
+        "pkg:maven/org.springframework/spring-core@5.3.9"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-core@5.3.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.30",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.commons/commons-text@1.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.yaml/snakeyaml@1.26",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.h2database/h2@1.4.197",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.google.guava/guava@20.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/dom4j/dom4j@1.6.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2",
+      "dependsOn": [
+        "pkg:maven/org.apache.httpcomponents/httpcore@4.4.4"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.httpcomponents/httpcore@4.4.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/junit/junit@4.12",
+      "dependsOn": []
+    }
+  ]
+}

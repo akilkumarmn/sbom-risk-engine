@@ -1,0 +1,216 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "acme-commerce-platform:3.4.0",
+  "ArtifactType": "container_image",
+  "Results": [
+    {
+      "Target": "acme-commerce-platform (java)",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2021-44228",
+          "PkgName": "log4j-core",
+          "InstalledVersion": "2.14.1",
+          "FixedVersion": "2.17.1",
+          "Title": "log4j-core: Remote code execution via JNDI lookup (Log4Shell)",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 10
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22965",
+          "PkgName": "spring-core",
+          "InstalledVersion": "5.3.9",
+          "FixedVersion": "5.3.18",
+          "Title": "spring-core: Remote code execution via data binding (Spring4Shell)",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 9.8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2019-12384",
+          "PkgName": "jackson-databind",
+          "InstalledVersion": "2.9.8",
+          "FixedVersion": "2.9.9",
+          "Title": "jackson-databind: Polymorphic deserialization gadget chain",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 8.1
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2017-5638",
+          "PkgName": "struts2-core",
+          "InstalledVersion": "2.3.31",
+          "FixedVersion": "2.3.32",
+          "Title": "struts2-core: OGNL injection RCE via Content-Type header",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 10
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2015-7501",
+          "PkgName": "commons-collections",
+          "InstalledVersion": "3.2.1",
+          "FixedVersion": "3.2.2",
+          "Title": "commons-collections: InvokerTransformer deserialization RCE",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 9.8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2018-1000613",
+          "PkgName": "bouncycastle",
+          "InstalledVersion": "1.60",
+          "FixedVersion": "1.61",
+          "Title": "bouncycastle: Signature verification bypass",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 5.9
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2022-1471",
+          "PkgName": "snakeyaml",
+          "InstalledVersion": "1.26",
+          "FixedVersion": "1.31",
+          "Title": "snakeyaml: Constructor deserialization RCE",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 9.8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25845",
+          "PkgName": "fastjson",
+          "InstalledVersion": "1.2.47",
+          "FixedVersion": "1.2.83",
+          "Title": "fastjson: AutoType bypass deserialization RCE",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 9.8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2016-4437",
+          "PkgName": "shiro-core",
+          "InstalledVersion": "1.2.4",
+          "FixedVersion": "1.2.5",
+          "Title": "shiro-core: remember-me deserialization RCE via hardcoded key",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 9.8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2020-1938",
+          "PkgName": "tomcat-embed-core",
+          "InstalledVersion": "9.0.30",
+          "FixedVersion": "9.0.31",
+          "Title": "tomcat-embed-core: Ghostcat AJP file read/include",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 9.8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2022-31197",
+          "PkgName": "postgresql-jdbc",
+          "InstalledVersion": "42.2.5",
+          "FixedVersion": "42.2.27",
+          "Title": "postgresql-jdbc: SQL injection via crafted ResultSet",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 8
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2021-29425",
+          "PkgName": "commons-io",
+          "InstalledVersion": "2.6",
+          "FixedVersion": "2.7",
+          "Title": "commons-io: path traversal in FileNameUtils",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 5.3
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2013-7285",
+          "PkgName": "xstream",
+          "InstalledVersion": "1.4.6",
+          "FixedVersion": "1.4.7",
+          "Title": "xstream: unsafe deserialization of untrusted XML",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 7.5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Target": "acme-commerce-platform (os-pkgs)",
+      "Class": "os-pkgs",
+      "Type": "ubuntu",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2022-0778",
+          "PkgName": "openssl",
+          "InstalledVersion": "1.1.1k",
+          "FixedVersion": "1.1.1n",
+          "Title": "openssl: Infinite loop parsing malformed certificate (DoS)",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 7.5
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2021-37136",
+          "PkgName": "netty-codec-http",
+          "InstalledVersion": "4.1.42",
+          "FixedVersion": "4.1.71",
+          "Title": "netty-codec-http: Bzip2Decoder decompression bomb DoS",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Score": 7.5
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

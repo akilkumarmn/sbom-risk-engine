@@ -1,0 +1,21 @@
+{
+  "_comment": "Illustrative asset context for the legacy Java app.",
+  "services": {
+    "showcase-web": {
+      "tier": 1,
+      "internet_facing": true,
+      "handles_pii": true,
+      "components": [
+        "struts2-showcase"
+      ]
+    },
+    "reporting-batch": {
+      "tier": 3,
+      "internet_facing": false,
+      "components": [
+        "h2@1.4.197",
+        "dom4j@1.6.1"
+      ]
+    }
+  }
+}

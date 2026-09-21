@@ -1,0 +1,400 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:sample-0000-0000-0000-000000000000",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "acme-commerce-platform",
+      "name": "acme-commerce-platform",
+      "version": "3.4.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "log4j-core@2.14.1",
+      "name": "log4j-core",
+      "version": "2.14.1",
+      "purl": "pkg:maven/log4j-core@2.14.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "spring-core@5.3.9",
+      "name": "spring-core",
+      "version": "5.3.9",
+      "purl": "pkg:maven/spring-core@5.3.9",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "openssl@1.1.1k",
+      "name": "openssl",
+      "version": "1.1.1k",
+      "purl": "pkg:maven/openssl@1.1.1k",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "struts2-core@2.3.31",
+      "name": "struts2-core",
+      "version": "2.3.31",
+      "purl": "pkg:maven/struts2-core@2.3.31",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "guava@31.1",
+      "name": "guava",
+      "version": "31.1",
+      "purl": "pkg:maven/guava@31.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "junit@4.13.2",
+      "name": "junit",
+      "version": "4.13.2",
+      "purl": "pkg:maven/junit@4.13.2",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "jackson-databind@2.9.8",
+      "name": "jackson-databind",
+      "version": "2.9.8",
+      "purl": "pkg:maven/jackson-databind@2.9.8",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "snakeyaml@1.26",
+      "name": "snakeyaml",
+      "version": "1.26",
+      "purl": "pkg:maven/snakeyaml@1.26",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "commons-collections@3.2.1",
+      "name": "commons-collections",
+      "version": "3.2.1",
+      "purl": "pkg:maven/commons-collections@3.2.1",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "bouncycastle@1.60",
+      "name": "bouncycastle",
+      "version": "1.60",
+      "purl": "pkg:maven/bouncycastle@1.60",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "fastjson@1.2.47",
+      "name": "fastjson",
+      "version": "1.2.47",
+      "purl": "pkg:maven/fastjson@1.2.47",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "shiro-core@1.2.4",
+      "name": "shiro-core",
+      "version": "1.2.4",
+      "purl": "pkg:maven/shiro-core@1.2.4",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "tomcat-embed-core@9.0.30",
+      "name": "tomcat-embed-core",
+      "version": "9.0.30",
+      "purl": "pkg:maven/tomcat-embed-core@9.0.30",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "postgresql-jdbc@42.2.5",
+      "name": "postgresql-jdbc",
+      "version": "42.2.5",
+      "purl": "pkg:maven/postgresql-jdbc@42.2.5",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "commons-io@2.6",
+      "name": "commons-io",
+      "version": "2.6",
+      "purl": "pkg:maven/commons-io@2.6",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "2"
+        },
+        {
+          "name": "dependency:type",
+          "value": "transitive"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "xstream@1.4.6",
+      "name": "xstream",
+      "version": "1.4.6",
+      "purl": "pkg:maven/xstream@1.4.6",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "netty-codec-http@4.1.42",
+      "name": "netty-codec-http",
+      "version": "4.1.42",
+      "purl": "pkg:maven/netty-codec-http@4.1.42",
+      "properties": [
+        {
+          "name": "dependency:depth",
+          "value": "1"
+        },
+        {
+          "name": "dependency:type",
+          "value": "direct"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "acme-commerce-platform",
+      "dependsOn": [
+        "log4j-core@2.14.1",
+        "spring-core@5.3.9",
+        "openssl@1.1.1k",
+        "struts2-core@2.3.31",
+        "guava@31.1",
+        "junit@4.13.2",
+        "fastjson@1.2.47",
+        "shiro-core@1.2.4",
+        "tomcat-embed-core@9.0.30",
+        "postgresql-jdbc@42.2.5",
+        "xstream@1.4.6",
+        "netty-codec-http@4.1.42"
+      ]
+    },
+    {
+      "ref": "log4j-core@2.14.1",
+      "dependsOn": [
+        "bouncycastle@1.60"
+      ]
+    },
+    {
+      "ref": "spring-core@5.3.9",
+      "dependsOn": [
+        "jackson-databind@2.9.8",
+        "snakeyaml@1.26"
+      ]
+    },
+    {
+      "ref": "struts2-core@2.3.31",
+      "dependsOn": [
+        "commons-collections@3.2.1",
+        "jackson-databind@2.9.8"
+      ]
+    },
+    {
+      "ref": "commons-collections@3.2.1",
+      "dependsOn": [
+        "bouncycastle@1.60"
+      ]
+    },
+    {
+      "ref": "xstream@1.4.6",
+      "dependsOn": [
+        "commons-io@2.6"
+      ]
+    },
+    {
+      "ref": "jackson-databind@2.9.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "snakeyaml@1.26",
+      "dependsOn": []
+    },
+    {
+      "ref": "bouncycastle@1.60",
+      "dependsOn": []
+    },
+    {
+      "ref": "guava@31.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "junit@4.13.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "fastjson@1.2.47",
+      "dependsOn": []
+    },
+    {
+      "ref": "shiro-core@1.2.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "tomcat-embed-core@9.0.30",
+      "dependsOn": []
+    },
+    {
+      "ref": "postgresql-jdbc@42.2.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "commons-io@2.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "netty-codec-http@4.1.42",
+      "dependsOn": []
+    }
+  ]
+}

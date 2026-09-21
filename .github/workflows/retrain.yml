@@ -1,0 +1,49 @@
+name: retrain
+# Nightly: fetch public feeds, rebuild features, retrain, export, backtest,
+# gate on test AUC, commit the new artifacts, then deploy the site.
+on:
+  schedule: [{cron: '30 21 * * *'}]   # 21:30 UTC = 03:00 IST
+  workflow_dispatch:
+concurrency: {group: retrain, cancel-in-progress: false}
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions: {contents: write}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip, cache-dependency-path: train/requirements.txt}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: pip install -r train/requirements.txt
+      - name: Restore NVD year files (refreshed daily)
+        uses: actions/cache@v4
+        with:
+          path: data/raw/nvd
+          key: nvd-${{ github.run_id }}
+          restore-keys: nvd-
+      - name: Fetch feeds (NVD mirror, CISA KEV, FIRST EPSS current + freeze date, PoC-in-GitHub, Exploit-DB)
+        run: |
+          # past years rarely change: reuse cached files, always refresh the last two years
+          rm -f data/raw/nvd/CVE-$(date +%Y).json.xz data/raw/nvd/CVE-$(( $(date +%Y) - 1 )).json.xz
+          python -m train.fetch_data --years 2015-$(date +%Y) --freeze 2025-01-01 --skip-existing
+      - run: python -m train.build_features --years 2015-$(date +%Y) --freeze 2025-01-01 --out data/features.parquet
+      - run: python -m train.train --features data/features.parquet --out models/
+      - run: python -m train.export --features data/features.parquet --models models/ --site site/
+      - run: python -m backtest.run_backtest --features data/features.parquet --freeze 2025-01-01 --out site/backtest.json
+      - run: python -m scripts.make_results_md
+      - name: Unit + parity tests
+        run: python -m tests.run_tests
+      - name: Fail if model regressed (test AUC must exceed 0.80, real data only)
+        run: python -m scripts.gate
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: nightly retrain ${{ github.run_id }}'
+          file_pattern: 'site/model_meta.json site/backtest.json site/data/** backtest/results/** docs/figures/** models/train_report.json models/encoder.json docs/results.md'
+  deploy:
+    needs: train
+    # A commit pushed with GITHUB_TOKEN does not trigger other workflows,
+    # so the Pages deploy is called directly.
+    uses: ./.github/workflows/pages.yml
+    permissions: {contents: read, pages: write, id-token: write}
