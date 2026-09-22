@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "data_source": "public-feeds",
-  "trained_at": "2026-09-21T16:56:27+00:00",
-  "exported_at": "2026-09-21T16:58:20+00:00",
+  "trained_at": "2026-09-22T00:16:03+00:00",
+  "exported_at": "2026-09-22T00:19:27+00:00",
   "algo": "lightgbm",
   "label": "CVE listed in CISA KEV",
   "split": {
@@ -350,11 +350,11 @@
   ],
   "calibration": {
     "method": "platt_on_validation_year",
-    "a": 0.7865018529035847,
-    "b": -4.060529225126314,
+    "a": 0.7865018529035829,
+    "b": -4.0605292251263085,
     "val_base_rate": 0.004005607850991388
   },
-  "prior_p": 0.00030215496113137605,
+  "prior_p": 0.00030216079311727226,
   "features": [
     "cvss_base",
     "cvss_missing",
@@ -531,9 +531,9 @@
     "2026": 61055
   },
   "snapshots": {
-    "nvd_built_at": "2026-09-21T16:55:01+00:00",
-    "kev_catalog": "2026.09.18",
-    "kev_released": "2026-09-18T19:00:05.0974Z",
+    "nvd_built_at": "2026-09-22T00:15:21+00:00",
+    "kev_catalog": "2026.09.21",
+    "kev_released": "2026-09-21T18:46:35.0873Z",
     "epss_score_date": "2026-09-21T12:03:23Z",
     "epss_model_version": "v2026.06.15"
   },

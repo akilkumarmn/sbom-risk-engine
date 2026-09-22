@@ -1,10 +1,10 @@
 # Results
 
-Model: `lightgbm`, trained 2026-09-21; data source `public-feeds`; KEV catalogue 2026.09.18; EPSS scores of 2026-09-21.
+Model: `lightgbm`, trained 2026-09-22; data source `public-feeds`; KEV catalogue 2026.09.21; EPSS scores of 2026-09-21.
 
 Split by NVD published date: train 108,024 CVEs (784 KEV), validate 39,944 (160), test 47,969 (197, 0.41%).
 
-## Table 1 — Classifier vs baselines, 2025 test year (n=47,969, k=197 in KEV)
+## Table 1 â€” Classifier vs baselines, 2025 test year (n=47,969, k=197 in KEV)
 
 | Ranker | AUC-ROC | PR-AUC | Precision@100 | Recall@1000 | Effort to cover 90% |
 | --- | --- | --- | --- | --- | --- |
@@ -19,11 +19,11 @@ EPSS rows use the current EPSS file (already informed by post-publication exploi
 
 ![Feature importance](figures/feature_importance.png)
 
-## Table 2 — Backtest, frozen 2025-01-01
+## Table 2 â€” Backtest, frozen 2025-01-01
 
 Answer key: CISA KEV rows with dateAdded > 2025-01-01. Frozen model `lightgbm` trained on 2019-2023 with labels as of the freeze date (730 positives), 5-fold cross-fitted.
 
-### acme: acme-commerce-platform — N=14 findings, M=0 later-exploited, 5 already in KEV
+### acme: acme-commerce-platform â€” N=14 findings, M=0 later-exploited, 5 already in KEV
 
 | Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | Effort to cover 90% |
 | --- | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Answer key: CISA KEV rows with dateAdded > 2025-01-01. Frozen model `lightgbm` t
 
 ![coverage acme](figures/coverage_backtest_acme.png)
 
-### legacy-java-app: struts2-showcase — N=36 findings, M=0 later-exploited, 9 already in KEV
+### legacy-java-app: struts2-showcase â€” N=36 findings, M=0 later-exploited, 9 already in KEV
 
 | Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | Effort to cover 90% |
 | --- | --- | --- | --- | --- |
@@ -47,7 +47,7 @@ Answer key: CISA KEV rows with dateAdded > 2025-01-01. Frozen model `lightgbm` t
 
 ![coverage legacy-java-app](figures/coverage_backtest_legacy-java-app.png)
 
-### population: all CVEs published before the freeze date — N=190,242 findings, M=102 later-exploited, 1101 already in KEV
+### population: all CVEs published before the freeze date â€” N=190,242 findings, M=102 later-exploited, 1101 already in KEV
 
 | Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | Effort to cover 90% |
 | --- | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ Answer key: CISA KEV rows with dateAdded > 2025-01-01. Frozen model `lightgbm` t
 
 ![coverage population](figures/coverage_backtest_population.png)
 
-## Table 3 — Ablation on Formula + ML (effort to cover 90%)
+## Table 3 â€” Ablation on Formula + ML (effort to cover 90%)
 
 | Signal removed | acme | legacy-java-app | population |
 | --- | --- | --- | --- |

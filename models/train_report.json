@@ -1,6 +1,6 @@
 {
-  "trained_at": "2026-09-21T16:56:27+00:00",
-  "snapshot_date": "2026-09-21",
+  "trained_at": "2026-09-22T00:16:03+00:00",
+  "snapshot_date": "2026-09-22",
   "data_source": "public-feeds",
   "algo": "lightgbm",
   "split": {
@@ -181,8 +181,8 @@
   },
   "calibration": {
     "method": "platt_on_validation_year",
-    "a": 0.7865018529035847,
-    "b": -4.060529225126314,
+    "a": 0.7865018529035829,
+    "b": -4.0605292251263085,
     "val_base_rate": 0.004005607850991388
   },
   "best_iteration": 245,
@@ -507,92 +507,92 @@
     {
       "feature": "av_P",
       "label": "Physical attack vector",
-      "coef": -0.9555861359566843
+      "coef": -0.9555861359564313
     },
     {
       "feature": "cwe_476",
       "label": "CWE-476",
-      "coef": -0.8343763678832656
+      "coef": -0.8343763678829895
     },
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "coef": 0.7177148984037908
+      "coef": 0.7177148984037718
     },
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "coef": 0.4785639895614636
+      "coef": 0.4785639895614557
     },
     {
       "feature": "dom_github",
       "label": "GitHub reference",
-      "coef": -0.42054350614260716
+      "coef": -0.4205435061425669
     },
     {
       "feature": "cwe_79",
       "label": "CWE-79",
-      "coef": -0.3700493433659164
+      "coef": -0.37004934336596007
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "coef": 0.35058263748036417
+      "coef": 0.3505826374803502
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "coef": 0.3345072561503315
+      "coef": 0.3345072561503246
     },
     {
       "feature": "cwe_918",
       "label": "CWE-918",
-      "coef": 0.30418264338855544
+      "coef": 0.3041826433885692
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "coef": 0.3029028670753458
+      "coef": 0.30290286707536435
     },
     {
       "feature": "cwe_352",
       "label": "CWE-352",
-      "coef": -0.27936866817921874
+      "coef": -0.2793686681792359
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "coef": 0.2768794170551644
+      "coef": 0.2768794170551737
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "coef": 0.26730991982771996
+      "coef": 0.26730991982772756
     },
     {
       "feature": "cwe_276",
       "label": "CWE-276",
-      "coef": -0.25923472986688784
+      "coef": -0.259234729866839
     },
     {
       "feature": "cwe_416",
       "label": "CWE-416",
-      "coef": 0.24619373732297475
+      "coef": 0.24619373732296687
     }
   ],
   "features_meta": {
-    "built_at": "2026-09-21T16:55:01+00:00",
+    "built_at": "2026-09-22T00:15:21+00:00",
     "n_cves": 306644,
     "years": [
       2015,
       2026
     ],
     "kev": {
-      "catalogVersion": "2026.09.18",
-      "dateReleased": "2026-09-18T19:00:05.0974Z",
-      "count": 1716
+      "catalogVersion": "2026.09.21",
+      "dateReleased": "2026-09-21T18:46:35.0873Z",
+      "count": 1717
     },
-    "kev_cves_in_nvd": 1560,
+    "kev_cves_in_nvd": 1561,
     "epss_current": {
       "model_version": "v2026.06.15",
       "score_date": "2026-09-21T12:03:23Z"
@@ -602,11 +602,11 @@
       "score_date": "2025-01-01T00:00:00+0000"
     },
     "freeze_date": "2025-01-01",
-    "poc_github_cves": 10845,
+    "poc_github_cves": 10850,
     "exploitdb_cves": 25086,
     "cvss_missing": 14327,
     "fetch": {
-      "fetched_at": "2026-09-21T16:46:01+00:00",
+      "fetched_at": "2026-09-22T00:14:01+00:00",
       "files": {
         "nvd": [
           "CVE-2015.json.xz",

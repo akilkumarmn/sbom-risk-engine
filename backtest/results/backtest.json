@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-21T17:02:17+00:00",
+  "generated_at": "2026-09-22T00:20:12+00:00",
   "data_source": "public-feeds",
   "freeze_date": "2025-01-01",
   "answer_key": "CISA KEV rows with dateAdded > 2025-01-01",
-  "kev_catalog": "2026.09.18",
+  "kev_catalog": "2026.09.21",
   "epss_snapshot": "2025-01-01T00:00:00+0000",
   "frozen_model": {
     "algo": "lightgbm",
