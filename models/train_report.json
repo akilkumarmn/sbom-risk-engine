@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-09-22T00:16:03+00:00",
+  "trained_at": "2026-09-22T23:45:34+00:00",
   "snapshot_date": "2026-09-22",
   "data_source": "public-feeds",
   "algo": "lightgbm",
@@ -181,8 +181,8 @@
   },
   "calibration": {
     "method": "platt_on_validation_year",
-    "a": 0.7865018529035829,
-    "b": -4.0605292251263085,
+    "a": 0.7882440451739328,
+    "b": -4.030463988103554,
     "val_base_rate": 0.004005607850991388
   },
   "best_iteration": 245,
@@ -192,23 +192,23 @@
       "name": "CVSS base score",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.7627933190267987,
-      "pr_auc": 0.016487238617564383,
+      "auc_roc": 0.7647113233714629,
+      "pr_auc": 0.01660882880973683,
       "effort_to_cover_90": 0.6001334195000938,
-      "mean_rank_of_positives": 11430.837563451776,
+      "mean_rank_of_positives": 11339.210659898477,
       "precision_at_100": 0.08641975308641975,
-      "precision_at_500": 0.038400488400488396,
-      "recall_at_1000": 0.12380456542893092
+      "precision_at_500": 0.038485859613428285,
+      "recall_at_1000": 0.12453227713773747
     },
     {
       "ranker": "epss",
       "name": "EPSS (FIRST)",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9719568436537172,
-      "pr_auc": 0.4639898316108184,
-      "effort_to_cover_90": 0.05006358273051346,
-      "mean_rank_of_positives": 1438.6776649746193,
+      "auc_roc": 0.9720253798605984,
+      "pr_auc": 0.4639133764400929,
+      "effort_to_cover_90": 0.05003231253517897,
+      "mean_rank_of_positives": 1435.4035532994924,
       "precision_at_100": 0.69,
       "precision_at_500": 0.23,
       "recall_at_1000": 0.6649746192893401
@@ -218,25 +218,25 @@
       "name": "Our model, without EPSS",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9157045033282032,
-      "pr_auc": 0.21494670672763644,
-      "effort_to_cover_90": 0.24595050970418394,
-      "mean_rank_of_positives": 4125.964467005077,
+      "auc_roc": 0.9166660291205562,
+      "pr_auc": 0.22127408099026266,
+      "effort_to_cover_90": 0.2524547103337572,
+      "mean_rank_of_positives": 4080.0304568527918,
       "precision_at_100": 0.41,
-      "precision_at_500": 0.152,
-      "recall_at_1000": 0.49746192893401014
+      "precision_at_500": 0.154,
+      "recall_at_1000": 0.5076142131979695
     },
     {
       "ranker": "model_with_epss",
       "name": "Our model, with EPSS",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9838932475791312,
-      "pr_auc": 0.5494167656879028,
-      "effort_to_cover_90": 0.039108590964998226,
-      "mean_rank_of_positives": 868.4517766497462,
-      "precision_at_100": 0.73,
-      "precision_at_500": 0.278,
+      "auc_roc": 0.9820900546632035,
+      "pr_auc": 0.5445584000715976,
+      "effort_to_cover_90": 0.03879588901165336,
+      "mean_rank_of_positives": 954.5939086294417,
+      "precision_at_100": 0.74,
+      "precision_at_500": 0.286,
       "recall_at_1000": 0.8020304568527918
     },
     {
@@ -244,10 +244,10 @@
       "name": "Logistic regression (explainability baseline)",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9194597561768655,
-      "pr_auc": 0.12811878721639322,
-      "effort_to_cover_90": 0.20807187975567554,
-      "mean_rank_of_positives": 3946.568527918782,
+      "auc_roc": 0.9200281285343963,
+      "pr_auc": 0.12819973939212082,
+      "effort_to_cover_90": 0.206946152723634,
+      "mean_rank_of_positives": 3919.416243654822,
       "precision_at_100": 0.26,
       "precision_at_500": 0.094,
       "recall_at_1000": 0.4416243654822335
@@ -257,10 +257,10 @@
       "name": "Our model + time features (diagnostic)",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.8909730271241869,
-      "pr_auc": 0.0780569144392261,
-      "effort_to_cover_90": 0.3602743438470679,
-      "mean_rank_of_positives": 5307.436548223351,
+      "auc_roc": 0.8904115615161867,
+      "pr_auc": 0.07803910184884508,
+      "effort_to_cover_90": 0.36999728991640435,
+      "mean_rank_of_positives": 5334.258883248731,
       "precision_at_100": 0.25,
       "precision_at_500": 0.09246153846153846,
       "recall_at_1000": 0.3394348625251188
@@ -272,23 +272,23 @@
       "name": "CVSS base score",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.7489568319313282,
-      "pr_auc": 0.01648723861756438,
+      "auc_roc": 0.7509867152595654,
+      "pr_auc": 0.01660882880973683,
       "effort_to_cover_90": 0.6349876477854244,
-      "mean_rank_of_positives": 11430.837563451776,
+      "mean_rank_of_positives": 11339.210659898477,
       "precision_at_100": 0.08641975308641975,
-      "precision_at_500": 0.038400488400488396,
-      "recall_at_1000": 0.12380456542893092
+      "precision_at_500": 0.038485859613428285,
+      "recall_at_1000": 0.12453227713773747
     },
     {
       "ranker": "epss",
       "name": "EPSS (FIRST)",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9717788808691663,
-      "pr_auc": 0.47086248641540607,
-      "effort_to_cover_90": 0.05005955532027528,
-      "mean_rank_of_positives": 1372.8730964467004,
+      "auc_roc": 0.9718462418903909,
+      "pr_auc": 0.47078189562750955,
+      "effort_to_cover_90": 0.05002646903123346,
+      "mean_rank_of_positives": 1369.8324873096446,
       "precision_at_100": 0.7,
       "precision_at_500": 0.23,
       "recall_at_1000": 0.6700507614213198
@@ -298,36 +298,36 @@
       "name": "Our model, without EPSS",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9119419395228477,
-      "pr_auc": 0.21496714718131307,
-      "effort_to_cover_90": 0.25877889535909654,
-      "mean_rank_of_positives": 4073.8527918781724,
+      "auc_roc": 0.9129907022673225,
+      "pr_auc": 0.22129423302396398,
+      "effort_to_cover_90": 0.265528498323628,
+      "mean_rank_of_positives": 4026.51269035533,
       "precision_at_100": 0.41,
-      "precision_at_500": 0.152,
-      "recall_at_1000": 0.49746192893401014
+      "precision_at_500": 0.154,
+      "recall_at_1000": 0.5076142131979695
     },
     {
       "ranker": "model_with_epss",
       "name": "Our model, with EPSS",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9836949218224181,
-      "pr_auc": 0.5541936554779792,
-      "effort_to_cover_90": 0.040122639844715015,
-      "mean_rank_of_positives": 834.994923857868,
+      "auc_roc": 0.9816318078067487,
+      "pr_auc": 0.5468237459366235,
+      "effort_to_cover_90": 0.03981383448032469,
+      "mean_rank_of_positives": 928.1218274111675,
       "precision_at_100": 0.74,
-      "precision_at_500": 0.28,
-      "recall_at_1000": 0.8071065989847716
+      "precision_at_500": 0.29,
+      "recall_at_1000": 0.8020304568527918
     },
     {
       "ranker": "logreg_no_epss",
       "name": "Logistic regression (explainability baseline)",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.915315725829623,
-      "pr_auc": 0.12812163903359944,
-      "effort_to_cover_90": 0.22008999470619375,
-      "mean_rank_of_positives": 3921.56345177665,
+      "auc_roc": 0.9159156774961222,
+      "pr_auc": 0.12820253785418295,
+      "effort_to_cover_90": 0.21889888830068818,
+      "mean_rank_of_positives": 3894.4822335025383,
       "precision_at_100": 0.26,
       "precision_at_500": 0.094,
       "recall_at_1000": 0.4416243654822335
@@ -337,276 +337,276 @@
       "name": "Our model + time features (diagnostic)",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.8863196175873217,
-      "pr_auc": 0.07809420902578912,
-      "effort_to_cover_90": 0.3761469913534498,
-      "mean_rank_of_positives": 5230.418781725888,
+      "auc_roc": 0.8857254011663691,
+      "pr_auc": 0.07807590665943408,
+      "effort_to_cover_90": 0.3864346214928534,
+      "mean_rank_of_positives": 5257.241116751269,
       "precision_at_100": 0.25,
       "precision_at_500": 0.09248060075093868,
       "recall_at_1000": 0.3395488014840886
     }
   ],
-  "test_auc": 0.9157045033282032,
-  "test_pr_auc": 0.21494670672763644,
+  "test_auc": 0.9166660291205562,
+  "test_pr_auc": 0.22127408099026266,
   "importance_kind": "gain",
   "importance": [
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "value": 2056930.4880504608
+      "value": 2056413.9998779297
     },
     {
       "feature": "dom_packetstorm",
       "label": "Packet Storm reference",
-      "value": 605877.9692153931
+      "value": 605881.2260284424
     },
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "value": 381372.02541923523
+      "value": 378539.6346664429
     },
     {
       "feature": "cvss_base",
       "label": "CVSS base score",
-      "value": 289245.03223991394
+      "value": 288649.79566574097
     },
     {
       "feature": "desc_len",
       "label": "Description length",
-      "value": 285786.49548721313
+      "value": 281930.03552627563
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "value": 254348.817363739
+      "value": 254886.12560653687
     },
     {
       "feature": "ref_total",
       "label": "Number of references",
-      "value": 197281.91817855835
+      "value": 200543.22010421753
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "value": 186947.91661834717
+      "value": 189754.00194358826
     },
     {
       "feature": "ref_patch",
       "label": "References tagged Patch",
-      "value": 136821.84382247925
+      "value": 136818.02543640137
     },
     {
       "feature": "i_H",
       "label": "High integrity impact",
-      "value": 122927.60871696472
+      "value": 123142.54842758179
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "value": 60145.569469451904
+      "value": 59376.77807235718
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "value": 45391.62074279785
+      "value": 45157.01143074036
     },
     {
       "feature": "cwe_78",
       "label": "CWE-78",
-      "value": 31612.428785324097
+      "value": 31988.425701141357
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "value": 31002.304260253906
+      "value": 30809.942462921143
     },
     {
-      "feature": "dom_github",
-      "label": "GitHub reference",
-      "value": 19567.1296710968
+      "feature": "cwe_other",
+      "label": "Other CWE",
+      "value": 19680.203510284424
     }
   ],
   "shap_mean_abs": [
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "value": 0.6079243232329693
+      "value": 0.6201652727001609
     },
     {
       "feature": "cvss_base",
       "label": "CVSS base score",
-      "value": 0.5920729209508319
+      "value": 0.5903680225172899
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "value": 0.44465531526805435
-    },
-    {
-      "feature": "ref_total",
-      "label": "Number of references",
-      "value": 0.357188684063106
+      "value": 0.42382898599025937
     },
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "value": 0.35313600635465325
+      "value": 0.3536089830441171
+    },
+    {
+      "feature": "ref_total",
+      "label": "Number of references",
+      "value": 0.34609652462828755
     },
     {
       "feature": "dom_github",
       "label": "GitHub reference",
-      "value": 0.31559484643597935
+      "value": 0.32882735351777276
     },
     {
       "feature": "desc_len",
       "label": "Description length",
-      "value": 0.24736626726599933
-    },
-    {
-      "feature": "cwe_other",
-      "label": "Other CWE",
-      "value": 0.21305425494629557
-    },
-    {
-      "feature": "cwe_79",
-      "label": "CWE-79",
-      "value": 0.21291077277871295
+      "value": 0.2446477849207701
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "value": 0.2033045128772064
+      "value": 0.21366009996382315
     },
     {
-      "feature": "ui_N",
-      "label": "No user interaction",
-      "value": 0.180474779426437
+      "feature": "cwe_79",
+      "label": "CWE-79",
+      "value": 0.21247315752174095
+    },
+    {
+      "feature": "cwe_other",
+      "label": "Other CWE",
+      "value": 0.208686069602061
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "value": 0.17456988706988066
+      "value": 0.17756907480879114
     },
     {
-      "feature": "c_N",
-      "label": "No confidentiality impact",
-      "value": 0.1436174172210224
+      "feature": "ui_N",
+      "label": "No user interaction",
+      "value": 0.17454688527210924
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "value": 0.14314648784637354
+      "value": 0.16389467746730293
+    },
+    {
+      "feature": "c_N",
+      "label": "No confidentiality impact",
+      "value": 0.13126699481191936
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "value": 0.1295303465945902
+      "value": 0.12578535833076293
     }
   ],
   "logreg_coefficients": [
     {
       "feature": "av_P",
       "label": "Physical attack vector",
-      "coef": -0.9555861359564313
+      "coef": -0.9592095144481901
     },
     {
       "feature": "cwe_476",
       "label": "CWE-476",
-      "coef": -0.8343763678829895
+      "coef": -0.8381294327407558
     },
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "coef": 0.7177148984037718
+      "coef": 0.7177665443060068
     },
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "coef": 0.4785639895614557
+      "coef": 0.4785193810799883
     },
     {
       "feature": "dom_github",
       "label": "GitHub reference",
-      "coef": -0.4205435061425669
+      "coef": -0.42056404446433604
     },
     {
       "feature": "cwe_79",
       "label": "CWE-79",
-      "coef": -0.37004934336596007
+      "coef": -0.3697955999322969
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "coef": 0.3505826374803502
+      "coef": 0.3506591640529196
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "coef": 0.3345072561503246
+      "coef": 0.3345596795205405
     },
     {
       "feature": "cwe_918",
       "label": "CWE-918",
-      "coef": 0.3041826433885692
+      "coef": 0.3039220514413442
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "coef": 0.30290286707536435
+      "coef": 0.3030458283829357
     },
     {
       "feature": "cwe_352",
       "label": "CWE-352",
-      "coef": -0.2793686681792359
+      "coef": -0.279330939860719
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "coef": 0.2768794170551737
+      "coef": 0.27688565146356076
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "coef": 0.26730991982772756
+      "coef": 0.2672674316613331
     },
     {
       "feature": "cwe_276",
       "label": "CWE-276",
-      "coef": -0.259234729866839
+      "coef": -0.2599819859428491
     },
     {
       "feature": "cwe_416",
       "label": "CWE-416",
-      "coef": 0.24619373732296687
+      "coef": 0.2462788656845389
     }
   ],
   "features_meta": {
-    "built_at": "2026-09-22T00:15:21+00:00",
-    "n_cves": 306644,
+    "built_at": "2026-09-22T23:44:40+00:00",
+    "n_cves": 306899,
     "years": [
       2015,
       2026
     ],
     "kev": {
-      "catalogVersion": "2026.09.21",
-      "dateReleased": "2026-09-21T18:46:35.0873Z",
-      "count": 1717
+      "catalogVersion": "2026.09.22",
+      "dateReleased": "2026-09-22T19:02:09.9788Z",
+      "count": 1721
     },
-    "kev_cves_in_nvd": 1561,
+    "kev_cves_in_nvd": 1562,
     "epss_current": {
       "model_version": "v2026.06.15",
-      "score_date": "2026-09-21T12:03:23Z"
+      "score_date": "2026-09-22T12:02:55Z"
     },
     "epss_freeze": {
       "model_version": "v2023.03.01",
       "score_date": "2025-01-01T00:00:00+0000"
     },
     "freeze_date": "2025-01-01",
-    "poc_github_cves": 10850,
+    "poc_github_cves": 10864,
     "exploitdb_cves": 25086,
-    "cvss_missing": 14327,
+    "cvss_missing": 14336,
     "fetch": {
-      "fetched_at": "2026-09-22T00:14:01+00:00",
+      "fetched_at": "2026-09-22T23:42:58+00:00",
       "files": {
         "nvd": [
           "CVE-2015.json.xz",

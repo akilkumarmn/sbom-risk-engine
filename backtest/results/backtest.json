@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-22T00:20:12+00:00",
+  "generated_at": "2026-09-22T23:50:57+00:00",
   "data_source": "public-feeds",
   "freeze_date": "2025-01-01",
   "answer_key": "CISA KEV rows with dateAdded > 2025-01-01",
-  "kev_catalog": "2026.09.21",
+  "kev_catalog": "2026.09.22",
   "epss_snapshot": "2025-01-01T00:00:00+0000",
   "frozen_model": {
     "algo": "lightgbm",
@@ -115,7 +115,7 @@
     "case": "all CVEs published before T",
     "n_findings": 190242,
     "later_exploited": 102,
-    "ours": 0.5190914729660117,
+    "ours": 0.4789426099389199,
     "cvss": 0.5237303014055782,
     "formula": 0.4731342185216724,
     "epss": 0.8693564570973346
@@ -349,14 +349,14 @@
           "cvss_base": 10.0,
           "epss_T": 0.97232,
           "kev_at_T": true,
-          "p_model": 0.43123,
+          "p_model": 0.43391,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-12-10",
           "score": {
             "cvss": 100.0,
             "legacy": 101.637,
-            "ml": 91.5081
+            "ml": 91.6814
           }
         },
         {
@@ -366,14 +366,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97433,
           "kev_at_T": true,
-          "p_model": 0.38248,
+          "p_model": 0.40704,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-04-04",
           "score": {
             "cvss": 98.0,
             "legacy": 80.0933,
-            "ml": 75.8727
+            "ml": 77.2358
           }
         },
         {
@@ -383,14 +383,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.3889,
           "kev_at_T": false,
-          "p_model": 0.00012,
+          "p_model": 0.00011,
           "fanin": 3,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 30.0316,
-            "ml": 14.1825
+            "ml": 14.1819
           }
         },
         {
@@ -400,14 +400,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.9586,
           "kev_at_T": true,
-          "p_model": 0.82128,
+          "p_model": 0.57616,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 55.1456,
-            "ml": 66.4683
+            "ml": 57.399
           }
         },
         {
@@ -417,14 +417,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01891,
           "kev_at_T": false,
-          "p_model": 0.00066,
+          "p_model": 0.00092,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.7214,
-            "ml": 0.5564
+            "ml": 0.5688
           }
         },
         {
@@ -434,14 +434,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00518,
           "kev_at_T": false,
-          "p_model": 2e-05,
+          "p_model": 5e-05,
           "fanin": 4,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.6177,
-            "ml": 0.2794
+            "ml": 0.2822
           }
         },
         {
@@ -451,14 +451,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01905,
           "kev_at_T": false,
-          "p_model": 0.16108,
+          "p_model": 0.14343,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.2597,
-            "ml": 9.5959
+            "ml": 8.6141
           }
         },
         {
@@ -485,14 +485,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97204,
           "kev_at_T": true,
-          "p_model": 0.09249,
+          "p_model": 0.08069,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 63.0021,
-            "ml": 59.7022
+            "ml": 59.0472
           }
         },
         {
@@ -502,14 +502,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97406,
           "kev_at_T": true,
-          "p_model": 0.24099,
+          "p_model": 0.1487,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-03-03",
           "score": {
             "cvss": 98.0,
             "legacy": 94.6761,
-            "ml": 68.0112
+            "ml": 62.8893
           }
         },
         {
@@ -519,14 +519,14 @@
           "cvss_base": 8.0,
           "epss_T": 0.00122,
           "kev_at_T": false,
-          "p_model": 0.00031,
+          "p_model": 0.00027,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 80.0,
             "legacy": 1.0828,
-            "ml": 0.0323
+            "ml": 0.0309
           }
         },
         {
@@ -536,14 +536,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.00188,
           "kev_at_T": false,
-          "p_model": 0.00278,
+          "p_model": 0.0025,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.5298,
-            "ml": 0.0896
+            "ml": 0.0831
           }
         },
         {
@@ -553,14 +553,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.04625,
           "kev_at_T": false,
-          "p_model": 0.07346,
+          "p_model": 0.07869,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 8.204,
-            "ml": 2.1506
+            "ml": 2.2619
           }
         },
         {
@@ -577,7 +577,7 @@
           "score": {
             "cvss": 75.0,
             "legacy": 0.84,
-            "ml": 0.0958
+            "ml": 0.0959
           }
         }
       ]
@@ -811,14 +811,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.97511,
           "kev_at_T": false,
-          "p_model": 0.13207,
+          "p_model": 0.09852,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 60.8845,
-            "ml": 42.4902
+            "ml": 40.5028
           }
         },
         {
@@ -828,14 +828,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.9586,
           "kev_at_T": true,
-          "p_model": 0.82128,
+          "p_model": 0.57616,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 62.4438,
-            "ml": 106.439
+            "ml": 91.916
           }
         },
         {
@@ -845,14 +845,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.97398,
           "kev_at_T": true,
-          "p_model": 0.64065,
+          "p_model": 0.41701,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 81.0,
             "legacy": 63.0855,
-            "ml": 96.2835
+            "ml": 83.0326
           }
         },
         {
@@ -862,14 +862,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.95694,
           "kev_at_T": false,
-          "p_model": 0.21121,
+          "p_model": 0.18418,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 60.1273,
-            "ml": 46.5332
+            "ml": 44.9316
           }
         },
         {
@@ -879,14 +879,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.96682,
           "kev_at_T": true,
-          "p_model": 0.08759,
+          "p_model": 0.09356,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 62.7839,
-            "ml": 63.2603
+            "ml": 63.6138
           }
         },
         {
@@ -896,14 +896,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.90865,
           "kev_at_T": false,
-          "p_model": 0.08553,
+          "p_model": 0.0715,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 49.1286,
-            "ml": 37.3705
+            "ml": 36.539
           }
         },
         {
@@ -913,14 +913,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.53311,
           "kev_at_T": false,
-          "p_model": 0.2206,
+          "p_model": 0.15445,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 33.4647,
-            "ml": 32.0227
+            "ml": 28.1033
           }
         },
         {
@@ -930,14 +930,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.53775,
           "kev_at_T": false,
-          "p_model": 0.0493,
+          "p_model": 0.11644,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 33.6572,
-            "ml": 22.0379
+            "ml": 26.0159
           }
         },
         {
@@ -947,14 +947,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.97393,
           "kev_at_T": true,
-          "p_model": 0.27282,
+          "p_model": 0.31611,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 81.0,
             "legacy": 63.0855,
-            "ml": 74.4878
+            "ml": 77.0526
           }
         },
         {
@@ -964,14 +964,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.11723,
           "kev_at_T": false,
-          "p_model": 0.00077,
+          "p_model": 0.00149,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 6.247,
-            "ml": 5.28
+            "ml": 5.3334
           }
         },
         {
@@ -981,14 +981,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.29976,
           "kev_at_T": false,
-          "p_model": 3e-05,
+          "p_model": 6e-05,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 10.0842,
-            "ml": 10.2535
+            "ml": 10.2553
           }
         },
         {
@@ -998,14 +998,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.01602,
           "kev_at_T": false,
-          "p_model": 0.00143,
+          "p_model": 0.00112,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 8.8065,
-            "ml": 0.6292
+            "ml": 0.6116
           }
         },
         {
@@ -1015,14 +1015,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.00188,
           "kev_at_T": false,
-          "p_model": 0.00278,
+          "p_model": 0.0025,
           "fanin": 3,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.8246,
-            "ml": 0.2493
+            "ml": 0.2311
           }
         },
         {
@@ -1032,14 +1032,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01891,
           "kev_at_T": false,
-          "p_model": 0.00066,
+          "p_model": 0.00092,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.4873,
-            "ml": 0.8912
+            "ml": 0.911
           }
         },
         {
@@ -1049,14 +1049,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.02283,
           "kev_at_T": false,
-          "p_model": 0.10527,
+          "p_model": 0.07208,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 2.1534,
-            "ml": 8.8337
+            "ml": 6.3687
           }
         },
         {
@@ -1066,14 +1066,14 @@
           "cvss_base": 8.5,
           "epss_T": 0.97193,
           "kev_at_T": true,
-          "p_model": 0.01204,
+          "p_model": 0.01484,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": "2023-03-10",
           "score": {
             "cvss": 85.0,
             "legacy": 76.2122,
-            "ml": 85.8355
+            "ml": 86.0775
           }
         },
         {
@@ -1083,14 +1083,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.11004,
           "kev_at_T": false,
-          "p_model": 0.00381,
+          "p_model": 0.00424,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 5.9336,
-            "ml": 5.1854
+            "ml": 5.217
           }
         },
         {
@@ -1100,14 +1100,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.3889,
           "kev_at_T": false,
-          "p_model": 0.00012,
+          "p_model": 0.00011,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 19.251,
-            "ml": 9.8052
+            "ml": 9.8048
           }
         },
         {
@@ -1117,14 +1117,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00984,
           "kev_at_T": false,
-          "p_model": 0.00108,
+          "p_model": 0.00049,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.5337,
-            "ml": 0.414
+            "ml": 0.3786
           }
         },
         {
@@ -1134,14 +1134,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.0034,
           "kev_at_T": false,
-          "p_model": 0.00473,
+          "p_model": 0.00442,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 7.974,
-            "ml": 0.2843
+            "ml": 0.2713
           }
         },
         {
@@ -1151,14 +1151,14 @@
           "cvss_base": 10.0,
           "epss_T": 0.97232,
           "kev_at_T": true,
-          "p_model": 0.43123,
+          "p_model": 0.43391,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-12-10",
           "score": {
             "cvss": 100.0,
             "legacy": 73.4045,
-            "ml": 97.6086
+            "ml": 97.7935
           }
         },
         {
@@ -1168,14 +1168,14 @@
           "cvss_base": 9.0,
           "epss_T": 0.96668,
           "kev_at_T": true,
-          "p_model": 0.0787,
+          "p_model": 0.11677,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2023-05-01",
           "score": {
             "cvss": 90.0,
             "legacy": 73.1279,
-            "ml": 73.0509
+            "ml": 75.6778
           }
         },
         {
@@ -1185,14 +1185,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.95846,
           "kev_at_T": false,
-          "p_model": 0.05736,
+          "p_model": 0.07311,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 35.91,
-            "ml": 26.5621
+            "ml": 27.224
           }
         },
         {
@@ -1202,14 +1202,14 @@
           "cvss_base": 6.6,
           "epss_T": 0.01401,
           "kev_at_T": false,
-          "p_model": 0.15528,
+          "p_model": 0.17847,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 66.0,
             "legacy": 11.8137,
-            "ml": 9.6983
+            "ml": 11.0723
           }
         },
         {
@@ -1219,14 +1219,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97433,
           "kev_at_T": true,
-          "p_model": 0.38248,
+          "p_model": 0.40704,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-04-04",
           "score": {
             "cvss": 98.0,
             "legacy": 63.0984,
-            "ml": 80.9993
+            "ml": 82.4545
           }
         },
         {
@@ -1236,14 +1236,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97406,
           "kev_at_T": true,
-          "p_model": 0.24099,
+          "p_model": 0.1487,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-03-03",
           "score": {
             "cvss": 98.0,
             "legacy": 63.0855,
-            "ml": 72.6065
+            "ml": 67.1386
           }
         },
         {
@@ -1253,14 +1253,14 @@
           "cvss_base": 7.0,
           "epss_T": 0.93186,
           "kev_at_T": false,
-          "p_model": 0.0025,
+          "p_model": 0.00172,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 70.0,
             "legacy": 50.0975,
-            "ml": 33.2756
+            "ml": 33.2296
           }
         },
         {
@@ -1270,14 +1270,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97327,
           "kev_at_T": false,
-          "p_model": 0.16325,
+          "p_model": 0.18195,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 51.8237,
-            "ml": 44.2725
+            "ml": 45.3805
           }
         },
         {
@@ -1287,14 +1287,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01905,
           "kev_at_T": false,
-          "p_model": 0.16108,
+          "p_model": 0.14343,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.0255,
-            "ml": 10.2212
+            "ml": 9.1755
           }
         },
         {
@@ -1304,14 +1304,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00421,
           "kev_at_T": false,
-          "p_model": 0.00038,
+          "p_model": 0.00029,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.909,
-            "ml": 0.122
+            "ml": 0.1184
           }
         },
         {
@@ -1321,14 +1321,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.44512,
           "kev_at_T": false,
-          "p_model": 0.09546,
+          "p_model": 0.10491,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 32.1156,
-            "ml": 21.4799
+            "ml": 22.0399
           }
         },
         {
@@ -1338,14 +1338,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.19812,
           "kev_at_T": false,
-          "p_model": 0.05765,
+          "p_model": 0.034,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 10.1196,
-            "ml": 10.4589
+            "ml": 9.0576
           }
         },
         {
@@ -1355,14 +1355,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.016,
           "kev_at_T": false,
-          "p_model": 3e-05,
+          "p_model": 5e-05,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 1.2555,
-            "ml": 0.4044
+            "ml": 0.4054
           }
         },
         {
@@ -1389,14 +1389,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00853,
           "kev_at_T": false,
-          "p_model": 0.00079,
+          "p_model": 0.00057,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.5909,
-            "ml": 0.3501
+            "ml": 0.3373
           }
         },
         {
@@ -1406,14 +1406,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00385,
           "kev_at_T": false,
-          "p_model": 0.00078,
+          "p_model": 0.001,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.5334,
-            "ml": 0.0788
+            "ml": 0.0843
           }
         }
       ]
@@ -1444,7 +1444,7 @@
           "positives": 102,
           "effort_to_cover_90": 0.4731342185216724,
           "findings_to_cover_90": 90010.0,
-          "mean_rank_later_exploited": 36519.11274509804,
+          "mean_rank_later_exploited": 36518.80392156863,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
           "precision_at_25": 0.0,
@@ -1455,9 +1455,9 @@
           "name": "Formula + ML",
           "n": 190242,
           "positives": 102,
-          "effort_to_cover_90": 0.5190914729660117,
-          "findings_to_cover_90": 98752.99999999999,
-          "mean_rank_later_exploited": 29714.039215686276,
+          "effort_to_cover_90": 0.4789426099389199,
+          "findings_to_cover_90": 91115.0,
+          "mean_rank_later_exploited": 28866.28431372549,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
           "precision_at_25": 0.0,
@@ -1481,9 +1481,9 @@
           "name": "ML probability only (diagnostic)",
           "n": 190242,
           "positives": 102,
-          "effort_to_cover_90": 0.4774234921836398,
-          "findings_to_cover_90": 90826.0,
-          "mean_rank_later_exploited": 30343.41176470588,
+          "effort_to_cover_90": 0.4736493518781342,
+          "findings_to_cover_90": 90108.0,
+          "mean_rank_later_exploited": 29101.647058823528,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
           "precision_at_25": 0.0,
@@ -1511,7 +1511,7 @@
           "positives": 102,
           "effort_to_cover_90": 0.47006730428622034,
           "findings_to_cover_90": 88909.0,
-          "mean_rank_later_exploited": 35538.39705882353,
+          "mean_rank_later_exploited": 35538.08823529412,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
           "precision_at_25": 0.08,
@@ -1522,9 +1522,9 @@
           "name": "Formula + ML",
           "n": 189141,
           "positives": 102,
-          "effort_to_cover_90": 0.5162920783965401,
-          "findings_to_cover_90": 97652.0,
-          "mean_rank_later_exploited": 28677.156862745098,
+          "effort_to_cover_90": 0.47590950666434034,
+          "findings_to_cover_90": 90014.0,
+          "mean_rank_later_exploited": 27825.803921568626,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
           "precision_at_25": 0.0,
@@ -1548,21 +1548,21 @@
           "name": "ML probability only (diagnostic)",
           "n": 189141,
           "positives": 102,
-          "effort_to_cover_90": 0.4744925743228597,
-          "findings_to_cover_90": 89746.0,
-          "mean_rank_later_exploited": 29591.676470588234,
-          "precision_at_10": 0.0,
-          "recall_at_10": 0.0,
-          "precision_at_25": 0.0,
-          "recall_at_25": 0.0
+          "effort_to_cover_90": 0.47070703866427693,
+          "findings_to_cover_90": 89030.0,
+          "mean_rank_later_exploited": 28351.254901960783,
+          "precision_at_10": 0.1,
+          "recall_at_10": 0.00980392156862745,
+          "precision_at_25": 0.04,
+          "recall_at_25": 0.00980392156862745
         }
       ],
       "ablation": [
         {
           "removed": "none",
           "name": "None (full Formula + ML)",
-          "effort_to_cover_90": 0.5190914729660117,
-          "mean_rank_later_exploited": 29714.039215686276,
+          "effort_to_cover_90": 0.4789426099389199,
+          "mean_rank_later_exploited": 28866.28431372549,
           "precision_at_10": 0.0,
           "delta_vs_full": 0.0
         },
@@ -1572,23 +1572,23 @@
           "effort_to_cover_90": 0.6820444486496147,
           "mean_rank_later_exploited": 58163.06862745098,
           "precision_at_10": 0.0,
-          "delta_vs_full": 0.162952975683603
+          "delta_vs_full": 0.20310183871069476
         },
         {
           "removed": "epss",
           "name": "EPSS",
-          "effort_to_cover_90": 0.4952323882213181,
-          "mean_rank_later_exploited": 29803.558823529413,
+          "effort_to_cover_90": 0.45483647144163747,
+          "mean_rank_later_exploited": 28626.79411764706,
           "precision_at_10": 0.0,
-          "delta_vs_full": -0.02385908474469356
+          "delta_vs_full": -0.024106138497282437
         },
         {
           "removed": "kev",
           "name": "KEV flag",
-          "effort_to_cover_90": 0.5190757035775486,
-          "mean_rank_later_exploited": 29518.91176470588,
+          "effort_to_cover_90": 0.4789268405504568,
+          "mean_rank_later_exploited": 28668.00980392157,
           "precision_at_10": 0.0,
-          "delta_vs_full": -1.5769388463038325e-05
+          "delta_vs_full": -1.5769388463093836e-05
         },
         {
           "removed": "fanin",
@@ -1600,10 +1600,10 @@
         {
           "removed": "scope",
           "name": "Scope multiplier",
-          "effort_to_cover_90": 0.5148337380809705,
-          "mean_rank_later_exploited": 29600.41176470588,
+          "effort_to_cover_90": 0.4750580839141725,
+          "mean_rank_later_exploited": 28793.71568627451,
           "precision_at_10": 0.0,
-          "delta_vs_full": -0.004257734885041109
+          "delta_vs_full": -0.0038845260247474256
         },
         {
           "removed": "asset",
@@ -1996,7 +1996,7 @@
             0.2353,
             0.2549,
             0.3039,
-            0.372,
+            0.3723,
             0.402,
             0.4314,
             0.4706,
@@ -2010,7 +2010,7 @@
             0.5098,
             0.5294,
             0.549,
-            0.5595,
+            0.5596,
             0.5686,
             0.5784,
             0.5784,
@@ -2396,65 +2396,66 @@
           "y": [
             0.0,
             0.049,
-            0.1176,
-            0.2059,
+            0.098,
+            0.1863,
+            0.2647,
             0.2745,
-            0.2843,
-            0.3725,
+            0.3431,
+            0.3824,
             0.3922,
             0.402,
-            0.402,
-            0.4314,
-            0.4706,
-            0.4902,
-            0.5,
+            0.4412,
+            0.451,
+            0.4804,
+            0.5196,
             0.5392,
             0.5588,
-            0.5686,
-            0.5686,
-            0.5686,
+            0.5784,
+            0.598,
+            0.6078,
             0.6275,
             0.6373,
-            0.6569,
+            0.6667,
             0.6765,
             0.6765,
-            0.6765,
-            0.6765,
-            0.6765,
-            0.6863,
             0.6961,
             0.7059,
+            0.7059,
             0.7255,
-            0.7353,
+            0.7255,
+            0.7255,
             0.7451,
-            0.7647,
+            0.7451,
             0.7745,
             0.7843,
-            0.7843,
-            0.7843,
-            0.8039,
-            0.8039,
-            0.8039,
+            0.7941,
+            0.7941,
+            0.7941,
+            0.7941,
+            0.7941,
+            0.7941,
+            0.7941,
             0.8137,
             0.8137,
-            0.8137,
-            0.8137,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
+            0.8235,
+            0.8235,
             0.8431,
             0.8431,
             0.8431,
             0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8529,
+            0.8529,
+            0.8529,
+            0.8529,
             0.8529,
             0.8627,
             0.8627,
@@ -2481,39 +2482,37 @@
             0.8725,
             0.8725,
             0.8725,
+            0.8725,
             0.8824,
             0.8824,
             0.8824,
             0.8824,
+            0.8824,
             0.8922,
             0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
-            0.8922,
+            0.902,
+            0.902,
+            0.902,
+            0.902,
+            0.902,
+            0.902,
+            0.902,
             0.902,
             0.902,
             0.9118,
             0.9118,
             0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
             0.9216,
             0.9216,
             0.9216,
@@ -2535,22 +2534,22 @@
             0.9216,
             0.9314,
             0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
             0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
-            0.9412,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
             0.951,
             0.951,
             0.951,
@@ -2565,16 +2564,17 @@
             0.951,
             0.9608,
             0.9608,
-            0.9608,
-            0.9706,
-            0.9706,
-            0.9706,
+            0.9804,
             0.9804,
             0.9804,
             0.9902,
             0.9902,
             0.9902,
             0.9902,
+            0.9902,
+            0.9902,
+            0.9902,
+            1.0,
             1.0,
             1.0,
             1.0,
@@ -3207,54 +3207,53 @@
           ],
           "y": [
             0.0,
-            0.1667,
-            0.1961,
+            0.1373,
+            0.2059,
             0.2745,
-            0.3137,
+            0.2941,
             0.3333,
-            0.3725,
+            0.3529,
             0.3922,
-            0.4412,
-            0.451,
-            0.4706,
+            0.4314,
+            0.4804,
             0.4902,
             0.5098,
             0.5294,
-            0.5588,
+            0.549,
             0.5686,
-            0.5784,
-            0.5882,
-            0.5882,
+            0.598,
             0.6176,
             0.6373,
-            0.6471,
+            0.6373,
             0.6569,
             0.6667,
-            0.6961,
-            0.6961,
-            0.6961,
-            0.6961,
-            0.6961,
+            0.6765,
+            0.6765,
+            0.6863,
+            0.6863,
+            0.6863,
+            0.6863,
             0.7059,
-            0.7157,
-            0.7157,
-            0.7157,
-            0.7255,
+            0.7059,
             0.7255,
             0.7353,
+            0.7353,
+            0.7353,
+            0.7353,
+            0.7353,
+            0.7353,
+            0.7451,
             0.7451,
             0.7549,
-            0.7549,
-            0.7549,
-            0.7549,
-            0.7549,
+            0.7647,
+            0.7647,
+            0.7647,
+            0.7647,
+            0.7647,
+            0.7647,
+            0.7647,
+            0.7647,
             0.7745,
-            0.7745,
-            0.7745,
-            0.7745,
-            0.7843,
-            0.7843,
-            0.7843,
             0.7843,
             0.7843,
             0.7843,
@@ -3266,27 +3265,22 @@
             0.7941,
             0.7941,
             0.7941,
-            0.7941,
-            0.8039,
-            0.8039,
             0.8039,
             0.8137,
             0.8137,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
-            0.8333,
+            0.8137,
+            0.8137,
+            0.8137,
+            0.8235,
+            0.8235,
+            0.8235,
             0.8333,
             0.8431,
             0.8431,
-            0.8529,
-            0.8529,
-            0.8529,
-            0.8529,
-            0.8529,
-            0.8529,
-            0.8529,
+            0.8431,
+            0.8431,
+            0.8431,
+            0.8431,
             0.8529,
             0.8529,
             0.8529,
@@ -3297,11 +3291,17 @@
             0.8725,
             0.8725,
             0.8725,
-            0.8725,
-            0.8725,
+            0.8824,
+            0.8824,
+            0.8824,
+            0.8824,
+            0.8824,
+            0.8824,
+            0.8824,
             0.8824,
             0.8824,
             0.8922,
+            0.902,
             0.902,
             0.9118,
             0.9118,
@@ -3311,14 +3311,6 @@
             0.9118,
             0.9118,
             0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
-            0.9118,
             0.9216,
             0.9216,
             0.9216,
@@ -3330,44 +3322,36 @@
             0.9216,
             0.9216,
             0.9216,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
-            0.9314,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
+            0.9216,
             0.9314,
             0.9314,
             0.9314,
             0.9412,
             0.9412,
+            0.9412,
+            0.9412,
+            0.9412,
+            0.9412,
+            0.9412,
+            0.9412,
+            0.9412,
+            0.9412,
+            0.951,
+            0.951,
+            0.951,
+            0.951,
             0.951,
             0.9608,
             0.9608,
             0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
-            0.9608,
             0.9706,
             0.9706,
             0.9706,
@@ -3382,12 +3366,28 @@
             0.9706,
             0.9706,
             0.9706,
-            0.9804,
-            0.9804,
-            0.9804,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
+            0.9706,
             0.9902,
-            0.9902,
-            0.9902,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
             1.0,
             1.0,
             1.0,
