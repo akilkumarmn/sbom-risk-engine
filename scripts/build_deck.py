@@ -300,9 +300,10 @@ def s_objectives(slide):
         card(slide, 0.6 + i * 4.1, 2.05, 3.85, 4.3, t, [(b, {"space_after": 10, "size": 14}) for b in body], badge=n, size=13)
 
 
-def s_architecture(slide):
+def s_architecture(slide, url):
     clear_body(slide)
     set_title(slide, "Architecture and Methodology")
+    text(slide, 0.5, 6.78, 12.35, 0.35, [(f"Live system: {url}", {"size": 11, "bold": True, "color": ORANGE})])
     # three swimlanes
     lanes = [(0.5, "Public sources"), (4.05, "Nightly pipeline (GitHub Actions)"), (8.55, "Dashboard (GitHub Pages) / API")]
     widths = [3.2, 4.1, 4.3]
@@ -388,15 +389,16 @@ def s_model(slide, meta, synthetic):
     t = {r["ranker"]: r for r in meta["table1"]}
     order = [("cvss", "CVSS base score"), ("epss", "EPSS (FIRST)*"), ("model_no_epss", "Our model, without EPSS"),
              ("model_with_epss", "Our model, with EPSS*"), ("logreg_no_epss", "Logistic regression")]
-    rows = [["Ranker", "AUC-ROC", "PR-AUC", "P@100", "R@1000", "Effort 90%"]]
+    rows = [["Ranker", "AUC-ROC", "PR-AUC", "P@100", "P@500", "R@1000", "Effort 90%"]]
     for k, name in order:
         r = t[k]
-        rows.append([name, f3(r["auc_roc"]), f3(r["pr_auc"]), f3(r["precision_at_100"]), f3(r["recall_at_1000"]),
-                     pct(r["effort_to_cover_90"])])
+        rows.append([name, f3(r["auc_roc"]), f3(r["pr_auc"]), f3(r["precision_at_100"]), f3(r["precision_at_500"]),
+                     f3(r["recall_at_1000"]), pct(r["effort_to_cover_90"])])
     c = meta["counts"]["test"]
     text(slide, 0.5, 1.65, 7.2, 0.4, [(f"{meta['split']['test_year']} test year: n = {c['n']:,} CVEs, "
                                         f"k = {c['kev']} in KEV ({pct(c['kev_rate'])})", {"size": 12, "color": MUTED})])
-    table(slide, 0.5, 2.05, 7.2, rows, [2.55, 0.9, 0.9, 0.9, 0.95, 1.0], size=11, highlight=3, row_h=0.4)
+    table(slide, 0.5, 2.05, 7.2, rows, [2.1, 0.82, 0.82, 0.82, 0.82, 0.86, 0.96], size=10.5, highlight=3,
+          row_h=0.4)
     text(slide, 0.5, 4.6, 7.2, 2.2, [
         (f"Learner: {meta['algo']} · Platt-calibrated on {meta['split']['val_year']} · metrics are expected values "
          "under random tie-breaking (CVSS ties thousands of CVEs).", {"size": 11, "color": MUTED}),
@@ -679,7 +681,7 @@ def main(argv=None):
     s_agenda(sl[1])
     s_fix_typos(sl[2])
     s_objectives(sl[5])
-    s_architecture(sl[6])
+    s_architecture(sl[6], args.url)
     s_data(sl[7], meta)
     s_model(sl[8], meta, synthetic)
     s_backtest(sl[9], bt, synthetic)

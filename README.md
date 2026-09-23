@@ -37,6 +37,8 @@ Tests: `python -m tests.run_tests` (unit, Python/JavaScript parity, leakage trap
 | Backtest (Tables 2-3) | `python -m backtest.run_backtest --freeze 2025-01-01` | `backtest/results/`, `site/backtest.json`, figures |
 | Write-up | `python -m scripts.make_results_md` | `docs/results.md` |
 | Gate | `python -m scripts.gate` | fails unless test AUC > 0.80 on real data |
+| Viva prep | `python -m scripts.build_viva` | `docs/viva.md` (guide's examiner questions, answered from the current numbers) |
+| Report | `python -m scripts.build_report --date "<submission date>" --month "<Month Year>"` | `docs/report/CS10_Capstone2_SBOM_Risk_Engine_Akil_Report.docx` |
 | Deck | `python -m scripts.build_deck --date "<viva date>" --url <pages URL>` | `docs/deck/Cap2_SBOM_Risk_Engine_results.pptx` |
 
 ## Dashboard (`site/dashboard.html`)
@@ -45,7 +47,7 @@ Runs entirely in the browser. Upload a CycloneDX SBOM, a scan (Trivy JSON, Nessu
 shows its formula breakdown, the model probability and its top three contributing features. EPSS and KEV are
 fetched live (cached 24 h in localStorage) with a dated snapshot fallback. Only CVE IDs are sent to FIRST; the
 SBOM and scan never leave the page. Deployed by `.github/workflows/pages.yml` to
-`https://akilkumarmn.github.io/sbom-risk-engine/`.
+`https://<github-user>.github.io/sbom-risk-engine/`.
 
 ## API (`api/`)
 ```bash
