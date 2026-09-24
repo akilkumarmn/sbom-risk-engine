@@ -58,10 +58,18 @@ def fetch_archive(eco: str, cache: Path) -> Path:
     return dest
 
 
-def scan_archive(path: Path, eco: str, targets: set[str]) -> dict[tuple, list]:
+def scan_archive(path: Path, eco: str, targets: set[str], freeze: str | None = None,
+                 published: dict | None = None) -> dict[tuple, list]:
     """{(ecosystem, package, version): [cve, ...]} for advisories whose aliases
-    include one of the target CVEs."""
+    include one of the target CVEs.
+
+    A CVE only belongs in the fixture if it was published *before* the freeze
+    date - a scan taken on that date cannot contain anything newer, and the
+    backtest drops such findings. The publication date comes from the feature
+    table when it is available, otherwise from the OSV advisory.
+    """
     found: dict[tuple, list] = {}
+    late = 0
     with zipfile.ZipFile(path) as z:
         for name in z.namelist():
             if not name.endswith(".json"):
@@ -73,6 +81,17 @@ def scan_archive(path: Path, eco: str, targets: set[str]) -> dict[tuple, list]:
             hits = targets & ({adv.get("id", "")} | set(adv.get("aliases") or []))
             if not hits:
                 continue
+            if freeze:
+                keep = set()
+                for cve in hits:
+                    when = (published or {}).get(cve) or (adv.get("published") or "")[:10]
+                    if when and when >= freeze:
+                        late += 1
+                        continue
+                    keep.add(cve)
+                hits = keep
+                if not hits:
+                    continue
             for aff in adv.get("affected", []):
                 pkg = aff.get("package", {})
                 if (pkg.get("ecosystem") or "").split(":")[0] != eco or not pkg.get("name"):
@@ -82,6 +101,9 @@ def scan_archive(path: Path, eco: str, targets: set[str]) -> dict[tuple, list]:
                     continue
                 found.setdefault((eco, pkg["name"], ver), []).extend(sorted(hits))
                 break
+    if late:
+        print(f"  {eco}: {late} target CVEs skipped (published on or after {freeze}; a scan taken then could not "
+              "contain them)")
     return found
 
 
@@ -118,7 +140,7 @@ def pick_version(affected: dict) -> str | None:
 
 def kev_after(freeze, kev_path: Path) -> list[str]:
     """CVE ids that CISA added to KEV after the freeze date."""
-    kev = json.loads(kev_path.read_text(encoding="utf-8"))
+    kev = json.loads(kev_path.read_text(encoding="utf-8-sig"))
     added = kev.get("cves") or {v["cveID"]: v["dateAdded"] for v in kev.get("vulnerabilities", [])}
     return sorted(c for c, d in added.items() if d and str(d)[:10] > freeze)
 
@@ -187,8 +209,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     if args.verify:
-        targets = json.loads((args.out / "targets.json").read_text(encoding="utf-8"))
-        scan = json.loads((args.out / "trivy.json").read_text(encoding="utf-8"))
+        targets = json.loads((args.out / "targets.json").read_text(encoding="utf-8-sig"))
+        scan = json.loads((args.out / "trivy.json").read_text(encoding="utf-8-sig"))
         found = {v["VulnerabilityID"] for r in scan.get("Results", []) for v in (r.get("Vulnerabilities") or [])}
         want = set(targets["cves"])
         hit = sorted(want & found)
@@ -205,13 +227,11 @@ def main(argv=None):
 
     candidates = kev_after(args.freeze, args.kev)
     pub = published_from_features(args.features)
-    if pub:
-        candidates = [c for c in candidates if pub.get(c) and pub[c] < args.freeze]
     if args.limit:
         candidates = candidates[:args.limit]
     targets = set(candidates)
-    print(f"{len(targets)} CVEs were added to KEV after {args.freeze}"
-          f"{' and published before it' if pub else ''}.")
+    print(f"{len(targets)} CVEs were added to KEV after {args.freeze}; keeping only those published before "
+          f"it ({'NVD dates' if pub else 'OSV advisory dates'}).")
     print("matching them against the OSV advisory archives (CVE ids are aliases there, so the whole archive is "
           "searched):")
     chosen: dict[tuple, list] = {}
@@ -224,7 +244,7 @@ def main(argv=None):
         except Exception as e:  # noqa: BLE001
             print(f"  ! {eco}: download failed ({e}); skipping")
             continue
-        hits = scan_archive(zip_path, eco, targets)
+        hits = scan_archive(zip_path, eco, targets, args.freeze, pub)
         print(f"  {eco}: {len(hits)} package versions carrying "
               f"{len({c for cs in hits.values() for c in cs})} of the target CVEs")
         chosen.update(hits)
@@ -239,10 +259,12 @@ def main(argv=None):
         "candidates": len(targets), "packages": [f"{e}:{n}@{v}" for (e, n, v) in chosen],
         "cves": covered}, indent=2) + "\n", encoding="utf-8")
     print(f"\n{len(covered)} target CVEs mapped onto {len(chosen)} packages -> {args.out / 'src'}")
-    if not covered:
-        print("no package-manager CVEs among the KEV additions for this freeze date: most KEV entries are "
-              "operating systems, appliances and firmware. Try --ecosystems Maven,npm,PyPI,Go,NuGet,crates.io "
-              "or an earlier --freeze date.")
+    if len(covered) < 8:
+        print("few usable CVEs at this freeze date. Most KEV entries are operating systems, appliances and "
+              "firmware, and anything published after the freeze date cannot appear in the scan. Try a wider "
+              "search or an earlier freeze, e.g.\n"
+              "  python -m scripts.make_backtest_fixture --freeze 2024-01-01 "
+              "--ecosystems Maven,PyPI,npm,Go,NuGet,RubyGems,Packagist,crates.io")
     print("next: run syft + trivy over the manifests (bash scripts/build_kev_fixture.sh), then\n"
           "      python -m scripts.make_backtest_fixture --verify")
 

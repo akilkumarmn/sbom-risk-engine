@@ -1,0 +1,9 @@
+{
+  "name": "kev-2025-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependencies pinned to CVEs added to CISA KEV after 2024-01-01 (backtest fixture)",
+  "dependencies": {
+    "jquery": "1.0.3"
+  }
+}

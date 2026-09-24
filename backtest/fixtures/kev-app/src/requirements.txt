@@ -1,0 +1,2 @@
+# Pinned to CVEs added to CISA KEV after 2024-01-01 (backtest fixture)
+apache-superset==2.0.1

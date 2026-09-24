@@ -1,0 +1,18 @@
+{
+  "freeze": "2024-01-01",
+  "generated_from": "OSV affected-version data",
+  "candidates": 643,
+  "packages": [
+    "Maven:org.jenkins-ci.main:jenkins-core@2.56",
+    "Maven:org.apache.flink:flink-runtime_2.11@1.11.2",
+    "Maven:org.webjars.npm:jquery@3.4.1",
+    "npm:jquery@1.0.3",
+    "PyPI:apache-superset@2.0.1"
+  ],
+  "cves": [
+    "CVE-2017-1000353",
+    "CVE-2020-11023",
+    "CVE-2020-17519",
+    "CVE-2023-27524"
+  ]
+}

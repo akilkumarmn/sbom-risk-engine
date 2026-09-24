@@ -1,0 +1,13 @@
+{
+  "_comment": "Illustrative asset context for the KEV-2025 backtest fixture.",
+  "services": {
+    "public-api": {
+      "tier": 1,
+      "internet_facing": true,
+      "handles_pii": true,
+      "components": [
+        "kev-2025-app"
+      ]
+    }
+  }
+}
