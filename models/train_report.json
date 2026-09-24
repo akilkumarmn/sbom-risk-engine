@@ -1,6 +1,6 @@
 {
-  "trained_at": "2026-09-23T23:54:58+00:00",
-  "snapshot_date": "2026-09-23",
+  "trained_at": "2026-09-24T10:36:21+00:00",
+  "snapshot_date": "2026-09-24",
   "data_source": "public-feeds",
   "algo": "lightgbm",
   "split": {
@@ -181,11 +181,11 @@
   },
   "calibration": {
     "method": "platt_on_validation_year",
-    "a": 0.7882440451739328,
-    "b": -4.030463988103554,
+    "a": 0.7561440400127145,
+    "b": -3.955208811418904,
     "val_base_rate": 0.004005607850991388
   },
-  "best_iteration": 245,
+  "best_iteration": 291,
   "table1": [
     {
       "ranker": "cvss",
@@ -218,36 +218,36 @@
       "name": "Our model, without EPSS",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9166656040898159,
-      "pr_auc": 0.22127404835393816,
-      "effort_to_cover_90": 0.2524547103337572,
-      "mean_rank_of_positives": 4080.0507614213197,
-      "precision_at_100": 0.41,
-      "precision_at_500": 0.154,
-      "recall_at_1000": 0.5076142131979695
+      "auc_roc": 0.9152678905001803,
+      "pr_auc": 0.19957201589996051,
+      "effort_to_cover_90": 0.25614459338322665,
+      "mean_rank_of_positives": 4146.822335025381,
+      "precision_at_100": 0.38,
+      "precision_at_500": 0.148,
+      "recall_at_1000": 0.467005076142132
     },
     {
       "ranker": "model_with_epss",
       "name": "Our model, with EPSS",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9815794864863601,
-      "pr_auc": 0.5438285650992772,
-      "effort_to_cover_90": 0.038670808230315414,
-      "mean_rank_of_positives": 978.984771573604,
-      "precision_at_100": 0.73,
-      "precision_at_500": 0.284,
-      "recall_at_1000": 0.8020304568527918
+      "auc_roc": 0.9828523472960182,
+      "pr_auc": 0.5483750300064916,
+      "effort_to_cover_90": 0.03825387229252225,
+      "mean_rank_of_positives": 918.1776649746192,
+      "precision_at_100": 0.72,
+      "precision_at_500": 0.286,
+      "recall_at_1000": 0.8071065989847716
     },
     {
       "ranker": "logreg_no_epss",
       "name": "Logistic regression (explainability baseline)",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9200281285343963,
-      "pr_auc": 0.12819973939212082,
-      "effort_to_cover_90": 0.206946152723634,
-      "mean_rank_of_positives": 3919.416243654822,
+      "auc_roc": 0.9200715879275969,
+      "pr_auc": 0.12820306296122677,
+      "effort_to_cover_90": 0.20702953991119263,
+      "mean_rank_of_positives": 3917.340101522843,
       "precision_at_100": 0.26,
       "precision_at_500": 0.094,
       "recall_at_1000": 0.4416243654822335
@@ -257,13 +257,13 @@
       "name": "Our model + time features (diagnostic)",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.8904115615161867,
-      "pr_auc": 0.07803910184884508,
-      "effort_to_cover_90": 0.36999728991640435,
-      "mean_rank_of_positives": 5334.258883248731,
-      "precision_at_100": 0.25,
-      "precision_at_500": 0.09246153846153846,
-      "recall_at_1000": 0.3394348625251188
+      "auc_roc": 0.9207741106125501,
+      "pr_auc": 0.23080926910822253,
+      "effort_to_cover_90": 0.22952323375513353,
+      "mean_rank_of_positives": 3883.779187817259,
+      "precision_at_100": 0.42,
+      "precision_at_500": 0.18,
+      "recall_at_1000": 0.5431472081218274
     }
   ],
   "table1_cvss_scored_subset": [
@@ -298,36 +298,36 @@
       "name": "Our model, without EPSS",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9129902524441424,
-      "pr_auc": 0.22129420003441097,
-      "effort_to_cover_90": 0.265528498323628,
-      "mean_rank_of_positives": 4026.532994923858,
-      "precision_at_100": 0.41,
-      "precision_at_500": 0.154,
-      "recall_at_1000": 0.5076142131979695
+      "auc_roc": 0.9116308867937875,
+      "pr_auc": 0.1995957631654016,
+      "effort_to_cover_90": 0.2693444503264514,
+      "mean_rank_of_positives": 4087.8934010152284,
+      "precision_at_100": 0.38,
+      "precision_at_500": 0.148,
+      "recall_at_1000": 0.467005076142132
     },
     {
       "ranker": "model_with_epss",
       "name": "Our model, with EPSS",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9811149609727786,
-      "pr_auc": 0.5459564443221828,
-      "effort_to_cover_90": 0.03972560437621316,
-      "mean_rank_of_positives": 951.4517766497462,
-      "precision_at_100": 0.73,
-      "precision_at_500": 0.288,
-      "recall_at_1000": 0.8020304568527918
+      "auc_roc": 0.9823508501601876,
+      "pr_auc": 0.5505668730561742,
+      "effort_to_cover_90": 0.03930651138168343,
+      "mean_rank_of_positives": 895.6649746192893,
+      "precision_at_100": 0.72,
+      "precision_at_500": 0.286,
+      "recall_at_1000": 0.8071065989847716
     },
     {
       "ranker": "logreg_no_epss",
       "name": "Logistic regression (explainability baseline)",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9159156774961222,
-      "pr_auc": 0.12820253785418295,
-      "effort_to_cover_90": 0.21889888830068818,
-      "mean_rank_of_positives": 3894.4822335025383,
+      "auc_roc": 0.9159625715626509,
+      "pr_auc": 0.12820588647041606,
+      "effort_to_cover_90": 0.21898711840479973,
+      "mean_rank_of_positives": 3892.3654822335025,
       "precision_at_100": 0.26,
       "precision_at_500": 0.094,
       "recall_at_1000": 0.4416243654822335
@@ -337,252 +337,252 @@
       "name": "Our model + time features (diagnostic)",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.8857254011663691,
-      "pr_auc": 0.07807590665943408,
-      "effort_to_cover_90": 0.3864346214928534,
-      "mean_rank_of_positives": 5257.241116751269,
-      "precision_at_100": 0.25,
-      "precision_at_500": 0.09248060075093868,
-      "recall_at_1000": 0.3395488014840886
+      "auc_roc": 0.9175964980365781,
+      "pr_auc": 0.23082358946580928,
+      "effort_to_cover_90": 0.24250044115052055,
+      "mean_rank_of_positives": 3818.6116751269037,
+      "precision_at_100": 0.42,
+      "precision_at_500": 0.18,
+      "recall_at_1000": 0.5431472081218274
     }
   ],
-  "test_auc": 0.9166656040898159,
-  "test_pr_auc": 0.22127404835393816,
+  "test_auc": 0.9152678905001803,
+  "test_pr_auc": 0.19957201589996051,
   "importance_kind": "gain",
   "importance": [
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "value": 2056413.9998779297
+      "value": 2081551.7163143158
     },
     {
       "feature": "dom_packetstorm",
       "label": "Packet Storm reference",
-      "value": 605881.2260284424
+      "value": 605631.4106140137
     },
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "value": 378539.6346664429
-    },
-    {
-      "feature": "cvss_base",
-      "label": "CVSS base score",
-      "value": 288649.79566574097
+      "value": 383971.34444236755
     },
     {
       "feature": "desc_len",
       "label": "Description length",
-      "value": 281930.03552627563
+      "value": 298747.56689834595
+    },
+    {
+      "feature": "cvss_base",
+      "label": "CVSS base score",
+      "value": 293928.76990890503
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "value": 254886.12560653687
+      "value": 256190.79997444153
     },
     {
       "feature": "ref_total",
       "label": "Number of references",
-      "value": 200543.22010421753
+      "value": 201323.9228668213
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "value": 189754.00194358826
+      "value": 189410.022441864
     },
     {
       "feature": "ref_patch",
       "label": "References tagged Patch",
-      "value": 136818.02543640137
+      "value": 139778.751745224
     },
     {
       "feature": "i_H",
       "label": "High integrity impact",
-      "value": 123142.54842758179
+      "value": 123168.72813224792
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "value": 59376.77807235718
+      "value": 59468.351291656494
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "value": 45157.01143074036
+      "value": 47965.13565444946
     },
     {
       "feature": "cwe_78",
       "label": "CWE-78",
-      "value": 31988.425701141357
+      "value": 32235.105005264282
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "value": 30809.942462921143
+      "value": 30184.330478668213
     },
     {
-      "feature": "cwe_other",
-      "label": "Other CWE",
-      "value": 19680.203510284424
+      "feature": "cwe_918",
+      "label": "CWE-918",
+      "value": 20209.325563430786
     }
   ],
   "shap_mean_abs": [
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "value": 0.6201585663038102
+      "value": 0.6863325466421171
     },
     {
       "feature": "cvss_base",
       "label": "CVSS base score",
-      "value": 0.5903672198470286
+      "value": 0.5644085948746373
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "value": 0.42381924142150856
-    },
-    {
-      "feature": "vendor_kev_rate",
-      "label": "Vendor's historical KEV rate",
-      "value": 0.35361856511393536
-    },
-    {
-      "feature": "ref_total",
-      "label": "Number of references",
-      "value": 0.34609424338024425
+      "value": 0.40872334193829396
     },
     {
       "feature": "dom_github",
       "label": "GitHub reference",
-      "value": 0.32882121641406464
+      "value": 0.37819099465227535
+    },
+    {
+      "feature": "vendor_kev_rate",
+      "label": "Vendor's historical KEV rate",
+      "value": 0.36768255342878237
+    },
+    {
+      "feature": "ref_total",
+      "label": "Number of references",
+      "value": 0.3380563655573403
     },
     {
       "feature": "desc_len",
       "label": "Description length",
-      "value": 0.2446619426093209
-    },
-    {
-      "feature": "ref_exploit",
-      "label": "References tagged Exploit",
-      "value": 0.21366221726001353
-    },
-    {
-      "feature": "cwe_79",
-      "label": "CWE-79",
-      "value": 0.21247431328555644
+      "value": 0.2818083860217721
     },
     {
       "feature": "cwe_other",
       "label": "Other CWE",
-      "value": 0.2086910832441694
+      "value": 0.24007937777589095
     },
     {
-      "feature": "kw_unauth",
-      "label": "Mentions unauthenticated",
-      "value": 0.1775685236834724
+      "feature": "cwe_79",
+      "label": "CWE-79",
+      "value": 0.2251151498910692
     },
     {
       "feature": "ui_N",
       "label": "No user interaction",
-      "value": 0.17454921760931094
+      "value": 0.19651207867766443
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "value": 0.1638954619364111
+      "value": 0.18958637428773983
     },
     {
-      "feature": "c_N",
-      "label": "No confidentiality impact",
-      "value": 0.13126680021489295
+      "feature": "ref_exploit",
+      "label": "References tagged Exploit",
+      "value": 0.17795989527141243
+    },
+    {
+      "feature": "kw_unauth",
+      "label": "Mentions unauthenticated",
+      "value": 0.16815656066168233
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "value": 0.12578605390220535
+      "value": 0.13112795015444587
+    },
+    {
+      "feature": "cwe_89",
+      "label": "CWE-89",
+      "value": 0.11900225919122918
     }
   ],
   "logreg_coefficients": [
     {
       "feature": "av_P",
       "label": "Physical attack vector",
-      "coef": -0.9592095144481901
+      "coef": -0.9554548820843115
     },
     {
       "feature": "cwe_476",
       "label": "CWE-476",
-      "coef": -0.8381294327407558
+      "coef": -0.834241169011116
     },
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "coef": 0.7177665443060068
+      "coef": 0.7176540436458345
     },
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "coef": 0.4785193810799883
+      "coef": 0.4785967674385771
     },
     {
       "feature": "dom_github",
       "label": "GitHub reference",
-      "coef": -0.42056404446433604
+      "coef": -0.4205416730125078
     },
     {
       "feature": "cwe_79",
       "label": "CWE-79",
-      "coef": -0.3697955999322969
+      "coef": -0.3701551299542696
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "coef": 0.3506591640529196
+      "coef": 0.3506912952220072
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "coef": 0.3345596795205405
+      "coef": 0.33461541334343436
     },
     {
       "feature": "cwe_918",
       "label": "CWE-918",
-      "coef": 0.3039220514413442
+      "coef": 0.30418407994688235
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "coef": 0.3030458283829357
+      "coef": 0.302836411129499
     },
     {
       "feature": "cwe_352",
       "label": "CWE-352",
-      "coef": -0.279330939860719
+      "coef": -0.2794038688845707
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "coef": 0.27688565146356076
+      "coef": 0.2769386463681236
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "coef": 0.2672674316613331
+      "coef": 0.2673143465123853
     },
     {
       "feature": "cwe_276",
       "label": "CWE-276",
-      "coef": -0.2599819859428491
+      "coef": -0.25922281354870985
     },
     {
       "feature": "cwe_416",
       "label": "CWE-416",
-      "coef": 0.2462788656845389
+      "coef": 0.24618945164638179
     }
   ],
   "features_meta": {
-    "built_at": "2026-09-23T23:54:04+00:00",
-    "n_cves": 307346,
+    "built_at": "2026-09-24T07:24:10+00:00",
+    "n_cves": 307816,
     "years": [
       2015,
       2026
@@ -599,14 +599,14 @@
     },
     "epss_freeze": {
       "model_version": "v2023.03.01",
-      "score_date": "2025-01-01T00:00:00+0000"
+      "score_date": "2024-01-01T00:00:00+0000"
     },
-    "freeze_date": "2025-01-01",
-    "poc_github_cves": 10871,
+    "freeze_date": "2024-01-01",
+    "poc_github_cves": 10873,
     "exploitdb_cves": 25086,
-    "cvss_missing": 14362,
+    "cvss_missing": 14412,
     "fetch": {
-      "fetched_at": "2026-09-23T23:52:27+00:00",
+      "fetched_at": "2026-09-24T07:22:01+00:00",
       "files": {
         "nvd": [
           "CVE-2015.json.xz",
@@ -625,7 +625,7 @@
         "kev": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
         "epss": [
           "epss_current.csv.gz",
-          "epss_2025-01-01.csv.gz"
+          "epss_2024-01-01.csv.gz"
         ]
       }
     },
