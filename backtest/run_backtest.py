@@ -130,6 +130,7 @@ def frozen_intel(df: pd.DataFrame, p_model: np.ndarray, freeze: dt.date) -> pd.D
         "published": df["published"].to_numpy(),
         "p_model": p_model,
         "epss": df["epss_t"].fillna(0.0).to_numpy(),
+        "epss_scored": df["epss_t"].notna().to_numpy(),
         "kev": (df["kev_date_added"].notna() & (df["kev_date_added"] <= T)).to_numpy(),
         "later_exploited": (df["kev_date_added"].notna() & (df["kev_date_added"] > T)).to_numpy(),
         "kev_date_added": df["kev_date_added"].to_numpy(),
@@ -274,9 +275,7 @@ def _finding_summary(r: dict) -> dict:
                       "ml": round(ml_score(r)["raw"], 4)}}
 
 
-def population_case(intel: pd.DataFrame, freeze: dt.date) -> dict:
-    T = pd.Timestamp(freeze)
-    pop = intel[(intel["published"] < T) & intel["p_model"].notna()]
+def _population_rows(pop: pd.DataFrame) -> list[dict]:
     rows = []
     for rec in pop.itertuples(index=False):
         rows.append({"cve_id": rec.cve, "cvss_base": _clean(rec.cvss_base) or 0.0,
@@ -285,8 +284,33 @@ def population_case(intel: pd.DataFrame, freeze: dt.date) -> dict:
                      "poc_exploitdb": bool(rec.poc_exploitdb), "p_model": float(rec.p_model),
                      "fanin": 0, "max_fanin": 0, "services": [], "has_context": False,
                      "later_exploited": bool(rec.later_exploited)})
-    res = evaluate_rows(rows, "all CVEs published before T", use_ctx=False)
+    return rows
+
+
+def population_case(intel: pd.DataFrame, freeze: dt.date, epss_scored_only: bool = True) -> dict:
+    """Whole-population case.
+
+    EPSS does not publish a score for every CVE. Filling the gaps with 0.0 puts
+    tens of thousands of CVEs in one tied block at the bottom of the EPSS
+    ranking, which makes the EPSS baseline look close to random and is not what
+    a team using EPSS would see. The headline population case therefore keeps
+    only CVEs that EPSS scored on the freeze date; the unrestricted numbers are
+    still reported alongside, under "all_cves_variant".
+    """
+    T = pd.Timestamp(freeze)
+    base = intel[(intel["published"] < T) & intel["p_model"].notna()]
+    pop = base[base["epss_scored"]] if epss_scored_only else base
+    res = evaluate_rows(_population_rows(pop), "CVEs published before T and scored by EPSS at T"
+                        if epss_scored_only else "all CVEs published before T", use_ctx=False)
     res["published_range"] = [pop["published"].min().date().isoformat(), pop["published"].max().date().isoformat()]
+    res["epss_scored_only"] = epss_scored_only
+    res["excluded_no_epss_at_T"] = int(len(base) - len(pop))
+    res["excluded_no_epss_later_exploited"] = int(base.loc[~base["epss_scored"], "later_exploited"].sum())
+    if epss_scored_only:
+        other = evaluate_rows(_population_rows(base), "all CVEs published before T (EPSS gaps filled with 0)",
+                              use_ctx=False)
+        res["all_cves_variant"] = {"n_findings": other["n_findings"], "later_exploited": other["later_exploited"],
+                                   "table2": other["table2"], "table2_open_only": other["table2_open_only"]}
     return res
 
 
@@ -315,9 +339,23 @@ def figure(case: dict, path: Path, freeze: dt.date):
 
 def headline(case: dict) -> dict:
     t = {r["ranker"]: r for r in case["table2"]}
+    o = {r["ranker"]: r for r in case["table2_open_only"]}
+    a = {r["removed"]: r for r in case["ablation"]}
     return {"case": case["name"], "n_findings": case["n_findings"], "later_exploited": case["later_exploited"],
+            "known_exploited_at_T": case["known_exploited_at_T"],
             "ours": t["ml"]["effort_to_cover_90"], "cvss": t["cvss"]["effort_to_cover_90"],
-            "formula": t["legacy"]["effort_to_cover_90"], "epss": t["epss"]["effort_to_cover_90"]}
+            "formula": t["legacy"]["effort_to_cover_90"], "epss": t["epss"]["effort_to_cover_90"],
+            "mean_rank_ours": t["ml"]["mean_rank_later_exploited"],
+            "mean_rank_cvss": t["cvss"]["mean_rank_later_exploited"],
+            "mean_rank_formula": t["legacy"]["mean_rank_later_exploited"],
+            "open": {"n": o["ml"]["n"], "later_exploited": o["ml"]["positives"],
+                     "ours": o["ml"]["effort_to_cover_90"], "cvss": o["cvss"]["effort_to_cover_90"],
+                     "formula": o["legacy"]["effort_to_cover_90"],
+                     "p10_ours": o["ml"]["precision_at_10"], "p10_cvss": o["cvss"]["precision_at_10"],
+                     "p10_formula": o["legacy"]["precision_at_10"],
+                     "mean_rank_ours": o["ml"]["mean_rank_later_exploited"],
+                     "mean_rank_cvss": o["cvss"]["mean_rank_later_exploited"]},
+            "ablation_ml_pp": a["model"]["delta_vs_full"]}
 
 
 def main(argv=None):
@@ -330,6 +368,9 @@ def main(argv=None):
     ap.add_argument("--figures", type=Path, default=config.FIGURES_DIR)
     ap.add_argument("--out", type=Path, default=config.SITE_DIR / "backtest.json")
     ap.add_argument("--algo", default="auto", choices=["auto", "lightgbm", "hist_gradient_boosting"])
+    ap.add_argument("--population-all-cves", action="store_true",
+                    help="score the whole population, filling missing EPSS with 0 (not the default; see "
+                         "population_case)")
     args = ap.parse_args(argv)
     freeze = dt.date.fromisoformat(args.freeze)
 
@@ -350,7 +391,7 @@ def main(argv=None):
         print(f"[backtest] SBOM case: {app_dir.name}")
         cases[app_dir.name] = sbom_case(app_dir, intel, freeze, prior_p)
     print("[backtest] population case")
-    cases["population"] = population_case(intel, freeze)
+    cases["population"] = population_case(intel, freeze, epss_scored_only=not args.population_all_cves)
 
     figs = {}
     for key, case in cases.items():
@@ -362,6 +403,7 @@ def main(argv=None):
         "schema": 1,
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "data_source": fmeta.get("data_source", "unknown"),
+        "release": config.release_stamp(),
         "freeze_date": freeze.isoformat(),
         "answer_key": f"CISA KEV rows with dateAdded > {freeze.isoformat()}",
         "kev_catalog": (fmeta.get("kev") or {}).get("catalogVersion"),
@@ -399,8 +441,13 @@ def main(argv=None):
     print(f"[backtest] {primary}: effort to cover 90% of later-exploited -> ours "
           f"{_pct(h['ours'])} vs CVSS {_pct(h['cvss'])} (N={h['n_findings']}, M={h['later_exploited']})")
     hp = report["headline_population"]
+    pop = cases["population"]
     print(f"[backtest] population: ours {_pct(hp['ours'])} vs CVSS {_pct(hp['cvss'])} "
-          f"(N={hp['n_findings']:,}, M={hp['later_exploited']})")
+          f"(N={hp['n_findings']:,}, M={hp['later_exploited']}); mean rank ours "
+          f"{hp['mean_rank_ours']:,.0f} vs CVSS {hp['mean_rank_cvss']:,.0f}" if hp["mean_rank_ours"] else "")
+    if pop.get("epss_scored_only"):
+        print(f"[backtest] population excludes {pop['excluded_no_epss_at_T']:,} CVEs with no EPSS score on "
+              f"{freeze} ({pop['excluded_no_epss_later_exploited']} of them later exploited)")
 
 
 def _pct(x):

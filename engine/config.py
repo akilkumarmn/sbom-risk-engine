@@ -115,3 +115,16 @@ FORMULA = {
 
 def today() -> _dt.date:
     return _dt.date.today()
+
+
+def release_stamp() -> str:
+    """Git tag / commit the artifacts were built from, so the dashboard, the
+    report and the deck can all quote the same snapshot. "unknown" outside a
+    checkout."""
+    import subprocess
+    try:
+        out = subprocess.run(["git", "describe", "--tags", "--always", "--dirty"], cwd=ROOT,
+                             capture_output=True, text=True, timeout=10)
+        return out.stdout.strip() or "unknown"
+    except Exception:  # noqa: BLE001 - git may be absent; never fail a build over this
+        return "unknown"

@@ -49,7 +49,9 @@ def f3(x):
 
 
 def rank_f(x):
-    return "n/a" if x is None else f"{x:.1f}"
+    if x is None:
+        return "n/a"
+    return f"{x:,.0f}" if x >= 1000 else f"{x:.1f}"
 
 
 def ordinal(n):
@@ -281,9 +283,12 @@ def abstract(R: Report, X: Ctx):
         f"backtest that used only information available on {X.freeze}, the Formula + ML ranking needed "
         f"{pct(t2p['ml']['effort_to_cover_90'])} of the {X.P['n_findings']} SBOM findings to be patched to cover "
         f"90% of the CVEs added to KEV afterwards, against {pct(t2p['cvss']['effort_to_cover_90'])} for CVSS-only. "
-        f"Across all {X.POP['n_findings']:,} CVEs published before the freeze date the corresponding figures were "
-        f"{pct(t2pop['ml']['effort_to_cover_90'])} and {pct(t2pop['cvss']['effort_to_cover_90'])}. An ablation "
-        "study quantifies the contribution of each signal.")
+        f"Across the {X.POP['n_findings']:,} CVEs published before the freeze date, the later-exploited ones sit at "
+        f"mean rank {rank_f(t2pop['ml']['mean_rank_later_exploited'])} under Formula + ML against "
+        f"{rank_f(t2pop['cvss']['mean_rank_later_exploited'])} under CVSS-only, and the 90% cut-off needs "
+        f"{pct(t2pop['ml']['effort_to_cover_90'])} of the backlog against "
+        f"{pct(t2pop['cvss']['effort_to_cover_90'])}. An ablation study quantifies the contribution of each "
+        "signal.")
     better = all(x is not None and y is not None and x < y for x, y in (
         (t2p["ml"]["effort_to_cover_90"], t2p["cvss"]["effort_to_cover_90"]),
         (t2pop["ml"]["effort_to_cover_90"], t2pop["cvss"]["effort_to_cover_90"])))
@@ -498,8 +503,8 @@ def ch4(R: Report, X: Ctx):
     ])
     R.h2("4.2 Expected Outcome")
     R.p("The expected outcome is a deployed decision-support system whose every claim points to a measured number: "
-        "classifier quality on a held-out year (Table 10.1), patch effort in the backtest (Tables 10.2 to 10.4) "
-        "and the contribution of each signal (Table 10.5).")
+        "classifier quality on a held-out year (Table 10.1), ranking quality in the backtest (Tables 10.2 to 10.6) "
+        "and the contribution of each signal (Table 10.7).")
     R.h2("4.3 Objectives-to-Chapter Mapping")
     R.p("Table 4.1 maps each objective to the sections where it is implemented and evaluated.")
     R.table(4, "Objectives to Chapter Mapping", ["Objective", "Implementation", "Testing, Validation & Results"], [
@@ -711,12 +716,15 @@ def ch7(R: Report, X: Ctx):
         [("Scoring (engine/scoring.py and site/engine.js): ", "b"), "CVSS-only, proposal-stage formula and "
          "Formula + ML, with switches for the ablation."],
         [("Training and export (train/): ", "b"), "fetch_data, build_features, train and export scripts."],
-        [("Backtest (backtest/run_backtest.py): ", "b"), "frozen, cross-fitted model and Tables 10.2-10.5."],
+        [("Backtest (backtest/run_backtest.py): ", "b"), "frozen, cross-fitted model and Tables 10.2-10.7."],
         [("Dashboard (site/dashboard.html): ", "b"), "uploads, live intelligence, three-way ranking and "
          "explanations."],
         [("API (api/main.py): ", "b"), "FastAPI service using the same Python scoring core."],
         [("Automation (.github/workflows/): ", "b"), "nightly retraining, tests on every push and Pages "
          "deployment."],
+        [("Document generators (scripts/): ", "b"), "build_report.py, build_deck.py and build_viva.py rebuild this "
+         "report, the results deck and the viva question sheet from the published result files, so no number is "
+         "ever typed by hand."],
     ])
     R.h2("7.4 Data Model")
     R.p("After correlation and enrichment, every finding is a record with the fields in Table 7.1; the three score "
@@ -828,8 +836,16 @@ def ch8(R: Report, X: Ctx):
     else:
         R.p("The legacy-java-app case is a CycloneDX inventory of an Apache Struts2 Showcase 2.3.20 web application "
             "with 25 components and 36 findings, assembled by hand from the application's well-known dependency "
-            "set; scripts/build_fixtures.sh regenerates it with Syft and Trivy from the actual build, which is "
-            "recommended before these numbers are cited outside this report.")
+            "set; scripts/build_fixtures.sh regenerates it with Syft and Trivy from the actual build.")
+    if "kev-2025-app" in X.b["cases"]:
+        k = X.b["cases"]["kev-2025-app"]
+        R.p("A backtest case can only measure a ranking if some of its CVEs were added to KEV after the freeze "
+            "date, and neither sample application had any. The kev-2025-app case is built for exactly that: "
+            "scripts/make_backtest_fixture.py takes the CVEs published before the freeze date that CISA added "
+            "afterwards, asks OSV which package versions they affect, and writes Maven, npm and PyPI manifests "
+            "pinned to those versions; Syft and Trivy then generate the SBOM and the scan, so the fixture is real "
+            f"scanner output. It contributes {k['n_findings']} findings, {k['later_exploited']} of them later "
+            "exploited.")
     R.h2("8.7 Objective 5: Dashboard")
     R.p("The dashboard (Fig. 8.1) accepts the SBOM, the scan and the optional asset-context file with instant "
         "validation of each upload. It fetches EPSS for the matched CVE identifiers from the FIRST API in batches "
@@ -839,8 +855,15 @@ def ch8(R: Report, X: Ctx):
         "three-way toggle switches between CVSS-only, the proposal-stage formula and Formula + ML; each finding "
         "expands to show every formula term, the model probability and its three strongest features; and a tile "
         "reports the backtest headline from backtest.json.")
-    dash = FIG / "dashboard.png"
-    R.figure(dash, 8, "Deployed Dashboard - Formula + ML Ranking with Per-Finding Explanation", 6.2)
+    up = FIG / "dashboard_upload.png"
+    if up.exists():
+        R.figure(up, 8, "Dashboard Inputs - SBOM, Scan and Optional Asset Context with Instant Validation", 6.3)
+    R.figure(FIG / "dashboard.png", 8, "Deployed Dashboard - Ranked Findings under Formula + ML with the Backtest "
+             "Headline Tile", 6.3)
+    det = FIG / "dashboard_detail.png"
+    if det.exists():
+        R.figure(det, 8, "Per-Finding Breakdown - Formula Terms, Model Probability with its Strongest Features, "
+                 "Threat Intelligence and Affected Services", 6.3)
     R.h2("8.8 Objective 5: Nightly Retraining (MLOps)")
     R.p("The retrain workflow (Fig. 8.2) runs every night at 03:00 IST and on demand. It fetches the feeds, "
         "rebuilds features, retrains the model, exports the shards, repeats the backtest, regenerates the results "
@@ -938,7 +961,8 @@ def ch10(R: Report, X: Ctx):
     R.h2("10.1 Introduction")
     R.p("This chapter reports the results produced by the pipeline run published with this report. The model card "
         f"was generated on {m['trained_at'][:10]} from the KEV catalogue version {X.snap.get('kev_catalog')}; the "
-        f"backtest was generated on {X.b['generated_at'][:10]} with the freeze date {X.freeze}. Because the "
+        f"backtest was generated on {X.b['generated_at'][:10]} with the freeze date {X.freeze}; the artifacts "
+        f"come from the tagged snapshot {X.b.get('release', 'unknown')}. Because the "
         "pipeline retrains nightly, later runs may differ slightly as new CVEs are published and new KEV entries "
         "are added.")
     R.h2("10.2 Dataset")
@@ -986,11 +1010,24 @@ def ch10(R: Report, X: Ctx):
                   f3(t2[k]["precision_at_25"]), pct(t2[k]["effort_to_cover_90"])]
                  for k in ("cvss", "legacy", "ml", "epss")], [2.2, 1.3, 1.0, 1.0, 1.0], highlight_row=3)
         R.p(f"In the {case.get('app', key)} case, {case['known_exploited_at_T']} findings were already in KEV at the "
-            f"freeze date and {case['later_exploited']} were added afterwards. Formula + ML "
-            f"{less_effort(t2['ml']['effort_to_cover_90'], t2['cvss']['effort_to_cover_90'])} CVSS-only "
-            f"({pct(t2['ml']['effort_to_cover_90'])} against {pct(t2['cvss']['effort_to_cover_90'])}) and "
+            f"freeze date and {case['later_exploited']} were added afterwards. The later-exploited CVEs sit at mean "
+            f"rank {rank_f(t2['ml']['mean_rank_later_exploited'])} under Formula + ML against "
+            f"{rank_f(t2['cvss']['mean_rank_later_exploited'])} under CVSS-only. At the 90% coverage cut-off, "
+            f"Formula + ML {less_effort(t2['ml']['effort_to_cover_90'], t2['cvss']['effort_to_cover_90'])} "
+            f"CVSS-only ({pct(t2['ml']['effort_to_cover_90'])} against {pct(t2['cvss']['effort_to_cover_90'])}) and "
             f"{less_effort(t2['ml']['effort_to_cover_90'], t2['legacy']['effort_to_cover_90'])} the proposal-stage "
             f"formula ({pct(t2['legacy']['effort_to_cover_90'])}).")
+        o2 = {r["ranker"]: r for r in case["table2_open_only"]}
+        R.table(10, f"{case.get('app', key)}: Open Findings Only (the {case['known_exploited_at_T']} CVEs already "
+                    f"in KEV at the freeze date removed, N = {o2['ml']['n']})",
+                ["Ranking Method", "Mean Rank of Later-Exploited", "Precision@10", "Precision@25", "Effort 90%"],
+                [[RANK[k], rank_f(o2[k]["mean_rank_later_exploited"]), f3(o2[k]["precision_at_10"]),
+                  f3(o2[k]["precision_at_25"]), pct(o2[k]["effort_to_cover_90"])]
+                 for k in ("cvss", "legacy", "ml", "epss")], [2.2, 1.3, 1.0, 1.0, 1.0], highlight_row=3)
+        R.p("Findings already listed in KEV on the freeze date fill the top of every ranking that uses the KEV "
+            "flag, which drives precision@10 towards zero in the table above and hides how the methods order the "
+            "unknown findings. The variant that removes them is the sharper comparison: a team patches known "
+            "exploited CVEs regardless of which tool ranked them.")
     R.figure(FIG / f"coverage_backtest_{X.prim_key}.png", 10,
              f"Backtest Coverage Curve, {X.P.get('app', X.prim_key)}", 5.0)
     if X.b.get("headline_note"):
@@ -1004,12 +1041,30 @@ def ch10(R: Report, X: Ctx):
               f3(t2[k]["precision_at_25"]), pct(t2[k]["effort_to_cover_90"])]
              for k in ("cvss", "legacy", "ml", "epss", "model")], [2.2, 1.3, 1.0, 1.0, 1.0], highlight_row=3)
     R.p(f"The population case gives the statistically stronger comparison because it contains "
-        f"{X.POP['later_exploited']} later-exploited CVEs. Formula + ML "
+        f"{X.POP['later_exploited']} later-exploited CVEs. The clearest separation is in mean rank: the "
+        f"later-exploited CVEs sit at rank {rank_f(t2['ml']['mean_rank_later_exploited'])} under Formula + ML "
+        f"against {rank_f(t2['cvss']['mean_rank_later_exploited'])} under CVSS-only, out of "
+        f"{X.POP['n_findings']:,} CVEs. At the 90% cut-off Formula + ML "
         f"{less_effort(t2['ml']['effort_to_cover_90'], t2['cvss']['effort_to_cover_90'])} CVSS-only "
         f"({pct(t2['ml']['effort_to_cover_90'])} against {pct(t2['cvss']['effort_to_cover_90'])}). EPSS taken from "
         f"the freeze-date file needed {pct(t2['epss']['effort_to_cover_90'])}, and the frozen model alone needed "
-        f"{pct(t2['model']['effort_to_cover_90'])}. Because there is no SBOM in this case, the difference between "
-        "Formula + ML and its likelihood inputs comes only from the CVSS impact and scope terms.")
+        f"{pct(t2['model']['effort_to_cover_90'])}.")
+    if (t2["legacy"]["effort_to_cover_90"] is not None and t2["ml"]["effort_to_cover_90"] is not None
+            and t2["legacy"]["effort_to_cover_90"] <= t2["ml"]["effort_to_cover_90"]):
+        R.p(f"Stated plainly: at this single cut-off the proposal-stage formula, without the model, reaches 90% "
+            f"coverage with {pct(t2['legacy']['effort_to_cover_90'])} of the backlog, marginally ahead of "
+            f"Formula + ML. Effort-to-cover-90% is a single point on the coverage curve and is dominated by the "
+            "last few positives; the model's contribution is visible in the mean rank above and in the ablation "
+            "of Section 10.6, where removing it changes the effort by "
+            f"{100 * (X.abl(X.POP)['model']['delta_vs_full'] or 0):+.1f} percentage points.")
+    if X.POP.get("epss_scored_only"):
+        R.p(f"EPSS publishes a score for most but not all CVEs. This case keeps only the CVEs that EPSS scored on "
+            f"{X.freeze}; {X.POP['excluded_no_epss_at_T']:,} unscored CVEs "
+            f"({X.POP['excluded_no_epss_later_exploited']} of them later exploited) are excluded. Filling those "
+            "gaps with zero would place them in one tied block at the bottom of the EPSS ranking and would "
+            "understate the EPSS baseline; the unrestricted numbers are kept in backtest.json for reference.")
+    R.p("Because there is no SBOM in this case, the difference between Formula + ML and its likelihood inputs "
+        "comes only from the CVSS impact and scope terms.")
     R.figure(FIG / "coverage_backtest_population.png", 10, "Population Backtest Coverage Curve", 5.0)
     R.h2("10.6 Ablation")
     prim_abl, pop_abl = X.abl(X.P), X.abl(X.POP)
@@ -1165,10 +1220,12 @@ def appendix(R: Report, X: Ctx):
     R.h2("Appendix A: Project Presentation Summary")
     R.p("The results presentation for this phase contains seventeen slides: title, agenda, background, literature "
         "review, problem statement, objectives, architecture and methodology, dataset and split, model results "
-        "(Table 10.1 and feature importance), backtest (Table 10.2 and coverage curve), ablation (Table 10.5), live "
+        "(Table 10.1 and feature importance), backtest (Table 10.2 and coverage curve), ablation (Table 10.7), live "
         "dashboard, MLOps, outcomes against the proposal-stage expectations, limitations and future work, "
         "references, and closing. It is generated by scripts/build_deck.py from the same result files as this "
         "report, so the two always quote the same numbers.")
+    R.p("scripts/build_viva.py writes docs/viva.md, which answers the questions an examiner is expected to ask "
+        "using the same result files.")
     R.h2("Appendix B: Input File Examples")
     R.p(("CycloneDX SBOM (excerpt).", "b"), " One component and its dependency entry:")
     R.code(['{"bomFormat": "CycloneDX", "specVersion": "1.4",',
@@ -1214,7 +1271,9 @@ def appendix(R: Report, X: Ctx):
                      "site/backtest.json"],
         ["Tests", "python -m tests.run_tests"],
         ["Gate", "python -m scripts.gate"],
+        ["Screenshots", "python -m scripts.screenshot_dashboard"],
         ["Report", "python -m scripts.build_report"],
+        ["Deck and viva sheet", "python -m scripts.build_deck ; python -m scripts.build_viva"],
     ], [1.2, 5.3])
 
 
@@ -1283,7 +1342,7 @@ def main(argv=None):
     args.out.parent.mkdir(parents=True, exist_ok=True)
     R.doc.save(str(args.out))
     print(f"wrote {args.out}{'  [SYNTHETIC numbers - rebuild after the real pipeline run]' if X.synthetic else ''}")
-    assert R.tables[-3:] == ["Table 10.5", "Table C.1", "Table C.2"], R.tables  # cross-references in the text
+    assert R.tables[-3:] == ["Table 10.7", "Table C.1", "Table C.2"], R.tables  # cross-references in the text
     assert R.figures[-4:] == ["Fig. 10.1", "Fig. 10.2", "Fig. 10.3", "Fig. 10.4"], R.figures
     print(f"  {len(R.figures)} figures, {len(R.tables)} tables")
 

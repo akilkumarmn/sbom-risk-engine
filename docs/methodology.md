@@ -83,3 +83,20 @@ Ablation zeroes one Formula + ML signal at a time (model, EPSS, KEV, fan-in, sco
 `retrain.yml` (nightly 03:00 IST): fetch feeds → features → train → export → backtest → results.md → tests →
 gate (test AUC > 0.80 on real data) → commit artifacts → deploy GitHub Pages. `tests.yml` runs the unit, parity
 and leakage tests on every push using the synthetic fixture. `api/` serves the same scoring over REST.
+
+
+## Population case and EPSS coverage (updated)
+
+EPSS does not publish a score for every CVE. Earlier runs filled the gaps with 0.0, which placed every unscored
+CVE in one tied block at the bottom of the EPSS ranking and made the EPSS baseline look close to random. The
+population case now keeps only CVEs that EPSS scored on the freeze date and reports how many were excluded; the
+unrestricted numbers stay in `backtest.json` under `all_cves_variant`.
+
+## Backtest fixtures with later-exploited CVEs
+
+A backtest case can only measure something if some of its CVEs were added to KEV after the freeze date. The
+`kev-2025-app` fixture is built for that: `scripts/make_backtest_fixture.py` selects the CVEs published before the
+freeze date that CISA added afterwards, asks OSV which package versions they affect, and writes Maven, npm and
+PyPI manifests pinned to those versions. Syft and Trivy then produce the SBOM and the scan
+(`scripts/build_kev_fixture.sh`), so the fixture is real scanner output; `--verify` reports how many of the target
+CVEs Trivy actually detects.

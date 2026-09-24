@@ -36,11 +36,11 @@ def main():
           f"{100 * c['test']['kev_rate']:.2f}%).", "",
           f"## Table 1 — Classifier vs baselines, {meta['split']['test_year']} test year "
           f"(n={c['test']['n']:,}, k={c['test']['kev']} in KEV)", "",
-          "| Ranker | AUC-ROC | PR-AUC | Precision@100 | Recall@1000 | Effort to cover 90% |",
-          "| --- | --- | --- | --- | --- | --- |"]
+          "| Ranker | AUC-ROC | PR-AUC | Precision@100 | Precision@500 | Recall@1000 | Effort to cover 90% |",
+          "| --- | --- | --- | --- | --- | --- | --- |"]
     for r in meta["table1"]:
         L.append(f"| {r['name']} | {_f(r['auc_roc'])} | {_f(r['pr_auc'])} | {_f(r['precision_at_100'])} | "
-                 f"{_f(r['recall_at_1000'])} | {_p(r['effort_to_cover_90'])} |")
+                 f"{_f(r['precision_at_500'])} | {_f(r['recall_at_1000'])} | {_p(r['effort_to_cover_90'])} |")
     L += ["", "EPSS rows use the current EPSS file (already informed by post-publication exploitation): an optimistic "
           "upper bound. Metrics are expected values under random tie-breaking.", "",
           "![Feature importance](figures/feature_importance.png)", ""]
@@ -58,6 +58,20 @@ def main():
         for r in case["table2"]:
             L.append(f"| {r['name']} | {_f(r['mean_rank_later_exploited'], 1)} | {_f(r['precision_at_10'])} | "
                      f"{_f(r['precision_at_25'])} | {_p(r['effort_to_cover_90'])} |")
+        if case.get("table2_open_only"):
+            o = case["table2_open_only"]
+            L += ["", f"Open findings only ({case['known_exploited_at_T']} already-in-KEV findings removed, "
+                  f"N={o[0]['n']:,}):", "",
+                  "| Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | "
+                  "Effort to cover 90% |", "| --- | --- | --- | --- | --- |"]
+            for r in o:
+                L.append(f"| {r['name']} | {_f(r['mean_rank_later_exploited'], 1)} | {_f(r['precision_at_10'])} | "
+                         f"{_f(r['precision_at_25'])} | {_p(r['effort_to_cover_90'])} |")
+        if case.get("epss_scored_only"):
+            L.append(f"\nKeeps only CVEs that EPSS scored on {bt['freeze_date']}; "
+                     f"{case['excluded_no_epss_at_T']:,} unscored CVEs "
+                     f"({case['excluded_no_epss_later_exploited']} later exploited) are excluded, because filling "
+                     "them with 0 would put them in one tied block at the bottom of the EPSS ranking.")
         if case.get("excluded_published_after_T"):
             L.append(f"\nExcluded (published after the freeze date): {', '.join(case['excluded_published_after_T'])}")
         L += ["", f"![coverage {key}](figures/coverage_backtest_{key}.png)", ""]

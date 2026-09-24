@@ -100,6 +100,7 @@ def main(argv=None):
 
     meta = {
         "schema": 1,
+        "release": config.release_stamp(),
         "data_source": report.get("data_source", "unknown"),
         "trained_at": report["trained_at"],
         "exported_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),

@@ -11,11 +11,10 @@ Ranks the vulnerabilities in an application by real-world risk instead of CVSS a
 and proves the ranking is better with a **time-frozen backtest** (freeze 1 Jan 2025, answer key = CVEs CISA
 added to KEV afterwards).
 
-> **Status of the numbers in this repo.** The committed artifacts (`site/model_meta.json`, `site/backtest.json`,
-> `docs/results.md`, figures) were produced from the **synthetic offline test fixture** and are stamped
-> `data_source: synthetic-test-fixture`; the dashboard shows a red banner for them. They show the pipeline works,
-> not how well it performs. The first run of `scripts/run_pipeline.sh` or the nightly workflow on the public feeds
-> replaces them with real results.
+> **How to read the numbers.** Everything in `site/model_meta.json`, `site/backtest.json`, `docs/results.md`
+> and `docs/figures/` is produced by the pipeline from the public feeds and is stamped with the data source, the
+> snapshot dates and the release it was built from. The deck and the project report are generated from the same
+> files, so all three always quote the same run.
 
 ## Quick start
 
@@ -37,9 +36,9 @@ Tests: `python -m tests.run_tests` (unit, Python/JavaScript parity, leakage trap
 | Backtest (Tables 2-3) | `python -m backtest.run_backtest --freeze 2025-01-01` | `backtest/results/`, `site/backtest.json`, figures |
 | Write-up | `python -m scripts.make_results_md` | `docs/results.md` |
 | Gate | `python -m scripts.gate` | fails unless test AUC > 0.80 on real data |
-| Viva prep | `python -m scripts.build_viva` | `docs/viva.md` (guide's examiner questions, answered from the current numbers) |
 | Report | `python -m scripts.build_report --date "<submission date>" --month "<Month Year>"` | `docs/report/CS10_Capstone2_SBOM_Risk_Engine_Akil_Report.docx` |
 | Deck | `python -m scripts.build_deck --date "<viva date>" --url <pages URL>` | `docs/deck/Cap2_SBOM_Risk_Engine_results.pptx` |
+| KEV backtest fixture | `python -m scripts.make_backtest_fixture` then `scripts/build_kev_fixture.ps1` (Windows) or `.sh` | `backtest/fixtures/kev-2025-app/` (real Syft + Trivy output) |
 
 ## Dashboard (`site/dashboard.html`)
 Runs entirely in the browser. Upload a CycloneDX SBOM, a scan (Trivy JSON, Nessus, CSV) and optionally

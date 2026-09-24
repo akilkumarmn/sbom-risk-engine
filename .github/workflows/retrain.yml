@@ -2,7 +2,10 @@ name: retrain
 # Nightly: fetch public feeds, rebuild features, retrain, export, backtest,
 # gate on test AUC, commit the new artifacts, then deploy the site.
 on:
-  schedule: [{cron: '30 21 * * *'}]   # 21:30 UTC = 03:00 IST
+  # Nightly schedule paused for the Capstone-2 evaluation so that the deck, the
+  # report and the live dashboard all quote the tagged v1.0-cap2 snapshot.
+  # Re-enable by uncommenting the line below.
+  # schedule: [{cron: '30 21 * * *'}]   # 21:30 UTC = 03:00 IST
   workflow_dispatch:
 concurrency: {group: retrain, cancel-in-progress: false}
 jobs:

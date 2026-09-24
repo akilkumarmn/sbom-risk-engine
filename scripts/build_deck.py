@@ -428,7 +428,7 @@ def s_model(slide, meta, synthetic):
 
 def _coverage_chart(slide, case, x, y, w, h, title):
     cd = XyChartData()
-    names = {"cvss": ("CVSS-only", RED), "legacy": ("Formula (Cap-1)", ORANGE), "ml": ("Formula + ML", TEAL),
+    names = {"cvss": ("CVSS-only", RED), "legacy": ("Formula (no ML)", ORANGE), "ml": ("Formula + ML", TEAL),
              "epss": ("EPSS-only", PURPLE)}
     for k, (label, _) in names.items():
         cv = case["coverage"].get(k)
@@ -469,35 +469,52 @@ def _coverage_chart(slide, case, x, y, w, h, title):
 
 def s_backtest(slide, bt, synthetic):
     clear_body(slide)
-    set_title(slide, "Backtest — Table 2")
+    set_title(slide, "Backtest - Table 2")
     stamp(slide, synthetic)
     case = bt["cases"][bt["primary_case"]]
     h = bt["headline"]
     hp = bt["headline_population"]
-    box(slide, 0.5, 1.7, 4.0, 2.05, RGBColor(0x40, 0x40, 0x40))
-    text(slide, 0.65, 1.78, 3.7, 1.95, [
-        ([(pct(h["ours"], 0), {"size": 34, "bold": True, "color": TEAL}),
-          ("  vs  ", {"size": 16, "color": WHITE}),
-          (pct(h["cvss"], 0), {"size": 34, "bold": True, "color": RGBColor(0xF0, 0x6A, 0x6E)})]),
-        ("of findings patched to cover 90% of the CVEs added to KEV after the freeze — Formula + ML vs CVSS-only",
-         {"size": 11, "color": WHITE}),
+    # Headline: mean rank of the later-exploited CVEs (lower is better) - it is the
+    # metric that separates the rankings most clearly; effort-to-cover follows below.
+    box(slide, 0.5, 1.7, 4.0, 1.75, RGBColor(0x40, 0x40, 0x40))
+    mr_ours, mr_cvss = hp["mean_rank_ours"], hp["mean_rank_cvss"]
+    text(slide, 0.65, 1.78, 3.7, 1.65, [
+        ([(_mr(mr_ours), {"size": 30, "bold": True, "color": TEAL}),
+          ("  vs  ", {"size": 15, "color": WHITE}),
+          (_mr(mr_cvss), {"size": 30, "bold": True, "color": RGBColor(0xF0, 0x6A, 0x6E)})]),
+        ("mean rank of the later-exploited CVEs, Formula + ML vs CVSS-only "
+         f"(population case, N = {hp['n_findings']:,}, lower is better)", {"size": 11, "color": WHITE}),
     ])
-    text(slide, 0.5, 3.85, 4.0, 1.0, [
-        (f"Freeze {bt['freeze_date']} · {case.get('app', case['name'])}: N = {case['n_findings']} findings, "
-         f"M = {case['later_exploited']} later-exploited, {case['known_exploited_at_T']} already in KEV.",
-         {"size": 11, "color": MUTED}),
-        (f"Whole population before T (N = {hp['n_findings']:,}, M = {hp['later_exploited']}): "
-         f"{pct(hp['ours'])} vs {pct(hp['cvss'])}.", {"size": 11, "color": MUTED}),
-    ])
-    rows = [["Ranking method", "Mean rank", "P@10", "Effort 90%"]]
-    names = {"cvss": "CVSS-only", "legacy": "Formula (Cap-1)", "ml": "Formula + ML", "epss": "EPSS-only (ref.)"}
+    abl = h.get("ablation_ml_pp")
+    ablp = hp.get("ablation_ml_pp")
+    lines = [("Effort to cover 90% of later-exploited CVEs", {"bold": True, "size": 12})]
+    lines.append((f"population: Formula + ML {pct(hp['ours'])} · Formula {pct(hp['formula'])} · "
+                  f"CVSS {pct(hp['cvss'])} · EPSS {pct(hp['epss'])}", {"size": 11.5}))
+    if hp["ours"] is not None and hp["formula"] is not None and hp["formula"] <= hp["ours"]:
+        lines.append(("At the 90% mark the formula without ML is level with Formula + ML; the ML term shows up in "
+                      "mean rank and in the ablation, not in this one cut-off.", {"size": 10.5, "color": MUTED}))
+    if ablp is not None:
+        lines.append((f"Removing the ML probability costs {100 * ablp:+.1f} pp of patch effort (ablation).",
+                      {"size": 11, "color": INK}))
+
+    text(slide, 0.5, 3.5, 4.0, 1.85, lines)
+    rows = [[f"{case.get('app', case['name'])}: N={case['n_findings']}, M={case['later_exploited']}",
+             "Mean rank", "P@10 open", "Effort 90%"]]
+    names = {"cvss": "CVSS-only", "legacy": "Formula", "ml": "Formula + ML", "epss": "EPSS-only (ref.)"}
     t = {r["ranker"]: r for r in case["table2"]}
+    o = {r["ranker"]: r for r in case["table2_open_only"]}
     for k, n in names.items():
-        r = t[k]
-        rows.append([n, "n/a" if r["mean_rank_later_exploited"] is None else f"{r['mean_rank_later_exploited']:.1f}",
-                     f3(r["precision_at_10"]), pct(r["effort_to_cover_90"])])
-    table(slide, 0.5, 4.95, 4.0, rows, [1.6, 0.85, 0.7, 0.85], size=10.5, highlight=3, row_h=0.34)
+        rows.append([n, "n/a" if t[k]["mean_rank_later_exploited"] is None
+                     else f"{t[k]['mean_rank_later_exploited']:.1f}",
+                     f3(o[k]["precision_at_10"]), pct(t[k]["effort_to_cover_90"])])
+    table(slide, 0.5, 5.4, 4.0, rows, [1.55, 0.85, 0.85, 0.75], size=10.5, highlight=3, row_h=0.30)
     _coverage_chart(slide, case, 4.8, 1.6, 8.1, 5.2, f"Coverage curve, frozen {bt['freeze_date']}: {case['name']}")
+
+
+def _mr(x):
+    if x is None:
+        return "n/a"
+    return f"{x/1000:.1f}k" if x >= 1000 else f"{x:.1f}"
 
 
 def s_ablation(slide, bt, synthetic):
@@ -587,6 +604,15 @@ def s_mlops(slide):
          badge="{}", badge_fill=ORANGE)
 
 
+def _workload(bt):
+    hp = bt["headline_population"]
+    out = (f"Mean rank of later-exploited CVEs {_mr(hp['mean_rank_ours'])} (ours) vs {_mr(hp['mean_rank_cvss'])} "
+           f"(CVSS); effort to cover 90%: {pct(hp['ours'])} vs {pct(hp['cvss'])}")
+    if hp["formula"] is not None and hp["ours"] is not None and hp["formula"] <= hp["ours"]:
+        out += f"; formula without ML {pct(hp['formula'])} at that cut-off"
+    return out
+
+
 def s_outcomes(slide, bt, meta, synthetic):
     clear_body(slide)
     set_title(slide, "Outcomes against the Cap-1 Expectations")
@@ -597,8 +623,7 @@ def s_outcomes(slide, bt, meta, synthetic):
              f"Model without EPSS: test AUC {f3(meta['test_auc'])} vs CVSS {f3({r['ranker']: r for r in meta['table1']}['cvss']['auc_roc'])}",
              "Table 1"],
             ["Reduction in patch workload",
-             f"Effort to cover 90% of later-exploited CVEs: {pct(h['ours'])} (ours) vs {pct(h['cvss'])} (CVSS)",
-             "Table 2"],
+             _workload(bt), "Table 2"],
             ["Reduction in MTTR", "Not measurable without remediation timestamps — dropped as a claim",
              "Limitations"],
             ["Improved risk visibility", "Per-finding breakdown, top features, live intel badges, three-way toggle",
@@ -607,7 +632,8 @@ def s_outcomes(slide, bt, meta, synthetic):
     text(slide, 0.5, 5.15, 12.35, 1.4, [
         ("Rule used for this deck: every claim points at a number in Tables 1–3 or at the running system.",
          {"size": 13, "bold": True}),
-        ("Numbers are read from site/model_meta.json and site/backtest.json by scripts/build_deck.py.",
+        (f"Numbers are read from site/model_meta.json and site/backtest.json by scripts/build_deck.py · "
+         f"results snapshot {bt.get('release', 'unknown')} · generated {bt['generated_at'][:10]}",
          {"size": 11, "color": MUTED})])
 
 
