@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-24T10:51:35+00:00",
+  "generated_at": "2026-09-24T10:54:50+00:00",
   "data_source": "public-feeds",
-  "release": "v1.0-cap2-dirty",
+  "release": "v1.0-cap2",
   "freeze_date": "2024-01-01",
   "answer_key": "CISA KEV rows with dateAdded > 2024-01-01",
   "kev_catalog": "2026.09.23",
