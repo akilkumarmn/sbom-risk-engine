@@ -397,11 +397,13 @@ def main(argv=None):
     ap.add_argument("--figures", type=Path, default=config.FIGURES_DIR)
     ap.add_argument("--out", type=Path, default=config.SITE_DIR / "backtest.json")
     ap.add_argument("--algo", default="auto", choices=["auto", "lightgbm", "hist_gradient_boosting"])
+    ap.add_argument("--release", default=None, help="override the release stamp (default: git describe)")
     ap.add_argument("--population-all-cves", action="store_true",
                     help="score the whole population, filling missing EPSS with 0 (not the default; see "
                          "population_case)")
     args = ap.parse_args(argv)
     freeze = dt.date.fromisoformat(args.freeze)
+    release = args.release or config.release_stamp()  # read before any file is written
 
     df = read_table(args.features).reset_index(drop=True)
     fmeta_path = Path(args.features).with_name("features_meta.json")
@@ -432,7 +434,7 @@ def main(argv=None):
         "schema": 1,
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "data_source": fmeta.get("data_source", "unknown"),
-        "release": config.release_stamp(),
+        "release": release,
         "freeze_date": freeze.isoformat(),
         "answer_key": f"CISA KEV rows with dateAdded > {freeze.isoformat()}",
         "kev_catalog": (fmeta.get("kev") or {}).get("catalogVersion"),

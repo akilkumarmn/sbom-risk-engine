@@ -46,6 +46,7 @@ def main(argv=None):
     ap.add_argument("--models", type=Path, default=config.MODELS_DIR)
     ap.add_argument("--site", type=Path, default=config.SITE_DIR)
     args = ap.parse_args(argv)
+    release = config.release_stamp()  # read before any file is written
 
     df = read_table(args.features).reset_index(drop=True)
     report = json.loads((args.models / "train_report.json").read_text())
@@ -100,7 +101,7 @@ def main(argv=None):
 
     meta = {
         "schema": 1,
-        "release": config.release_stamp(),
+        "release": release,
         "data_source": report.get("data_source", "unknown"),
         "trained_at": report["trained_at"],
         "exported_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
