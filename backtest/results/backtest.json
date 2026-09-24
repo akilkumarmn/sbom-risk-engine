@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-24T07:26:00+00:00",
+  "generated_at": "2026-09-24T08:10:51+00:00",
   "data_source": "public-feeds",
-  "release": "87523ac-dirty",
+  "release": "v1.0-cap2-dirty",
   "freeze_date": "2024-01-01",
   "answer_key": "CISA KEV rows with dateAdded > 2024-01-01",
   "kev_catalog": "2026.09.23",
   "epss_snapshot": "2024-01-01T00:00:00+0000",
   "frozen_model": {
-    "algo": "hist_gradient_boosting",
+    "algo": "lightgbm",
     "label": "in CISA KEV on or before 2024-01-01",
     "train_years": [
       2019,
@@ -108,52 +108,52 @@
     "n_findings": 150,
     "later_exploited": 4,
     "known_exploited_at_T": 1,
-    "ours": 0.11333333333333333,
+    "ours": 0.1,
     "cvss": 0.4766666666666667,
     "formula": 0.05333333333333334,
     "epss": 0.08666666666666667,
-    "mean_rank_ours": 6.75,
+    "mean_rank_ours": 6.25,
     "mean_rank_cvss": 30.625,
     "mean_rank_formula": 4.25,
     "open": {
       "n": 149,
       "later_exploited": 4,
-      "ours": 0.10738255033557047,
+      "ours": 0.09395973154362416,
       "cvss": 0.47315436241610737,
       "formula": 0.04697986577181208,
       "p10_ours": 0.3,
       "p10_cvss": 0.2,
       "p10_formula": 0.4,
-      "mean_rank_ours": 5.75,
+      "mean_rank_ours": 5.25,
       "mean_rank_cvss": 29.875
     },
-    "ablation_ml_pp": -0.026666666666666658
+    "ablation_ml_pp": -0.013333333333333336
   },
   "headline_population": {
     "case": "CVEs published before T and scored by EPSS at T",
     "n_findings": 150296,
     "later_exploited": 121,
     "known_exploited_at_T": 922,
-    "ours": 0.418773620056422,
+    "ours": 0.3666165433544472,
     "cvss": 0.5308138606483206,
     "formula": 0.48437084153936233,
     "epss": 0.7279801192313834,
-    "mean_rank_ours": 20518.020661157025,
+    "mean_rank_ours": 19273.22314049587,
     "mean_rank_cvss": 42149.30991735537,
     "mean_rank_formula": 23691.677685950413,
     "open": {
       "n": 149374,
       "later_exploited": 121,
-      "ours": 0.41518604308648094,
+      "ours": 0.36270703067468235,
       "cvss": 0.5287667197772036,
       "formula": 0.4811881585818148,
       "p10_ours": 0.0,
       "p10_cvss": 0.003215434083601286,
       "p10_formula": 0.0,
-      "mean_rank_ours": 19673.210743801654,
+      "mean_rank_ours": 18434.206611570247,
       "mean_rank_cvss": 41692.38016528926
     },
-    "ablation_ml_pp": 0.13992831922783483
+    "ablation_ml_pp": 0.1920853959298096
   },
   "headline_note": "The primary SBOM has fewer than 5 later-exploited CVEs; quote the population case for statistical claims.",
   "cases": {
@@ -384,14 +384,14 @@
           "cvss_base": 10.0,
           "epss_T": 0.97454,
           "kev_at_T": true,
-          "p_model": 0.02643,
+          "p_model": 0.06976,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-12-10",
           "score": {
             "cvss": 100.0,
             "legacy": 101.7923,
-            "ml": 65.4089
+            "ml": 68.2118
           }
         },
         {
@@ -401,14 +401,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97424,
           "kev_at_T": true,
-          "p_model": 0.01706,
+          "p_model": 0.09721,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-04-04",
           "score": {
             "cvss": 98.0,
             "legacy": 80.0933,
-            "ml": 55.5889
+            "ml": 60.0371
           }
         },
         {
@@ -418,14 +418,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.36859,
           "kev_at_T": false,
-          "p_model": 0.00081,
+          "p_model": 0.0002,
           "fanin": 3,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 29.1049,
-            "ml": 13.4843
+            "ml": 13.447
           }
         },
         {
@@ -435,14 +435,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97535,
           "kev_at_T": true,
-          "p_model": 0.11251,
+          "p_model": 0.11806,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 55.7633,
-            "ml": 40.6155
+            "ml": 40.8209
           }
         },
         {
@@ -452,14 +452,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01023,
           "kev_at_T": false,
-          "p_model": 0.00297,
+          "p_model": 0.0052,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.3343,
-            "ml": 0.4222
+            "ml": 0.5258
           }
         },
         {
@@ -469,14 +469,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00613,
           "kev_at_T": false,
-          "p_model": 0.00151,
+          "p_model": 0.00039,
           "fanin": 4,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.6642,
-            "ml": 0.4631
+            "ml": 0.3634
           }
         },
         {
@@ -486,14 +486,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.0048,
           "kev_at_T": false,
-          "p_model": 0.01883,
+          "p_model": 0.03336,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 11.6513,
-            "ml": 1.2077
+            "ml": 2.016
           }
         },
         {
@@ -503,14 +503,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01327,
           "kev_at_T": false,
-          "p_model": 0.00333,
+          "p_model": 0.00278,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.2406,
-            "ml": 0.6266
+            "ml": 0.5964
           }
         },
         {
@@ -520,14 +520,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97507,
           "kev_at_T": true,
-          "p_model": 0.01596,
+          "p_model": 0.06122,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 63.1304,
-            "ml": 55.5555
+            "ml": 58.0677
           }
         },
         {
@@ -537,14 +537,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97499,
           "kev_at_T": true,
-          "p_model": 0.02846,
+          "p_model": 0.05921,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-03-03",
           "score": {
             "cvss": 98.0,
             "legacy": 94.7339,
-            "ml": 56.2465
+            "ml": 57.9533
           }
         },
         {
@@ -554,14 +554,14 @@
           "cvss_base": 8.0,
           "epss_T": 0.00117,
           "kev_at_T": false,
-          "p_model": 0.00423,
+          "p_model": 0.0014,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 80.0,
             "legacy": 1.0828,
-            "ml": 0.152
+            "ml": 0.0649
           }
         },
         {
@@ -571,14 +571,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.0018,
           "kev_at_T": false,
-          "p_model": 0.00375,
+          "p_model": 0.01686,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.5298,
-            "ml": 0.1108
+            "ml": 0.4111
           }
         },
         {
@@ -588,14 +588,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.01342,
           "kev_at_T": false,
-          "p_model": 0.00528,
+          "p_model": 0.04334,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 7.348,
-            "ml": 0.2833
+            "ml": 1.092
           }
         },
         {
@@ -605,14 +605,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00329,
           "kev_at_T": false,
-          "p_model": 0.00094,
+          "p_model": 0.00031,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.735,
-            "ml": 0.0618
+            "ml": 0.0485
           }
         }
       ]
@@ -654,9 +654,9 @@
           "name": "Formula + ML",
           "n": 150,
           "positives": 4,
-          "effort_to_cover_90": 0.11333333333333333,
-          "findings_to_cover_90": 17.0,
-          "mean_rank_later_exploited": 6.75,
+          "effort_to_cover_90": 0.1,
+          "findings_to_cover_90": 15.0,
+          "mean_rank_later_exploited": 6.25,
           "precision_at_10": 0.3,
           "recall_at_10": 0.75,
           "precision_at_25": 0.16,
@@ -680,9 +680,9 @@
           "name": "ML probability only (diagnostic)",
           "n": 150,
           "positives": 4,
-          "effort_to_cover_90": 0.5866666666666667,
-          "findings_to_cover_90": 88.0,
-          "mean_rank_later_exploited": 23.5,
+          "effort_to_cover_90": 0.36666666666666664,
+          "findings_to_cover_90": 54.99999999999999,
+          "mean_rank_later_exploited": 15.75,
           "precision_at_10": 0.3,
           "recall_at_10": 0.75,
           "precision_at_25": 0.12,
@@ -721,9 +721,9 @@
           "name": "Formula + ML",
           "n": 149,
           "positives": 4,
-          "effort_to_cover_90": 0.10738255033557047,
-          "findings_to_cover_90": 16.0,
-          "mean_rank_later_exploited": 5.75,
+          "effort_to_cover_90": 0.09395973154362416,
+          "findings_to_cover_90": 14.0,
+          "mean_rank_later_exploited": 5.25,
           "precision_at_10": 0.3,
           "recall_at_10": 0.75,
           "precision_at_25": 0.16,
@@ -747,9 +747,9 @@
           "name": "ML probability only (diagnostic)",
           "n": 149,
           "positives": 4,
-          "effort_to_cover_90": 0.5838926174496645,
-          "findings_to_cover_90": 87.0,
-          "mean_rank_later_exploited": 23.25,
+          "effort_to_cover_90": 0.3624161073825503,
+          "findings_to_cover_90": 54.0,
+          "mean_rank_later_exploited": 15.5,
           "precision_at_10": 0.3,
           "recall_at_10": 0.75,
           "precision_at_25": 0.12,
@@ -760,8 +760,8 @@
         {
           "removed": "none",
           "name": "None (full Formula + ML)",
-          "effort_to_cover_90": 0.11333333333333333,
-          "mean_rank_later_exploited": 6.75,
+          "effort_to_cover_90": 0.1,
+          "mean_rank_later_exploited": 6.25,
           "precision_at_10": 0.3,
           "delta_vs_full": 0.0
         },
@@ -771,45 +771,45 @@
           "effort_to_cover_90": 0.08666666666666667,
           "mean_rank_later_exploited": 5.75,
           "precision_at_10": 0.3,
-          "delta_vs_full": -0.026666666666666658
+          "delta_vs_full": -0.013333333333333336
         },
         {
           "removed": "epss",
           "name": "EPSS",
-          "effort_to_cover_90": 0.47333333333333333,
-          "mean_rank_later_exploited": 20.0,
+          "effort_to_cover_90": 0.38,
+          "mean_rank_later_exploited": 16.5,
           "precision_at_10": 0.3,
-          "delta_vs_full": 0.36
+          "delta_vs_full": 0.28
         },
         {
           "removed": "kev",
           "name": "KEV flag",
-          "effort_to_cover_90": 0.11333333333333333,
-          "mean_rank_later_exploited": 6.5,
+          "effort_to_cover_90": 0.1,
+          "mean_rank_later_exploited": 6.0,
           "precision_at_10": 0.3,
           "delta_vs_full": 0.0
         },
         {
           "removed": "fanin",
           "name": "Blast radius (fan-in)",
-          "effort_to_cover_90": 0.19333333333333333,
-          "mean_rank_later_exploited": 9.5,
+          "effort_to_cover_90": 0.14666666666666667,
+          "mean_rank_later_exploited": 7.75,
           "precision_at_10": 0.3,
-          "delta_vs_full": 0.08
+          "delta_vs_full": 0.04666666666666666
         },
         {
           "removed": "scope",
           "name": "Scope multiplier",
-          "effort_to_cover_90": 0.11333333333333333,
-          "mean_rank_later_exploited": 6.75,
+          "effort_to_cover_90": 0.10666666666666667,
+          "mean_rank_later_exploited": 6.5,
           "precision_at_10": 0.3,
-          "delta_vs_full": 0.0
+          "delta_vs_full": 0.006666666666666668
         },
         {
           "removed": "asset",
           "name": "Asset criticality",
-          "effort_to_cover_90": 0.12,
-          "mean_rank_later_exploited": 6.75,
+          "effort_to_cover_90": 0.10666666666666667,
+          "mean_rank_later_exploited": 6.25,
           "precision_at_10": 0.3,
           "delta_vs_full": 0.006666666666666668
         }
@@ -1162,7 +1162,6 @@
             0.8133,
             0.82,
             0.8267,
-            0.8333,
             0.84,
             0.8467,
             0.8533,
@@ -1205,8 +1204,7 @@
             0.75,
             0.75,
             0.75,
-            0.75,
-            0.75,
+            1.0,
             1.0,
             1.0,
             1.0,
@@ -1624,8 +1622,6 @@
             0.7067,
             0.7133,
             0.72,
-            0.7267,
-            0.7333,
             0.74,
             0.7467,
             0.7533,
@@ -1670,6 +1666,8 @@
           "y": [
             0.0,
             0.25,
+            0.5,
+            0.5,
             0.5,
             0.75,
             0.75,
@@ -1721,41 +1719,37 @@
             0.75,
             0.75,
             0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
-            0.75,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
             1.0,
             1.0,
             1.0,
@@ -1903,14 +1897,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.9717,
           "kev_at_T": false,
-          "p_model": 0.04054,
+          "p_model": 0.12036,
           "fanin": 1,
           "later_exploited": true,
           "kev_date_added": "2024-05-23",
           "score": {
             "cvss": 75.0,
             "legacy": 42.597,
-            "ml": 44.8964
+            "ml": 50.6437
           }
         },
         {
@@ -1920,14 +1914,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97332,
           "kev_at_T": false,
-          "p_model": 0.02666,
+          "p_model": 0.03843,
           "fanin": 1,
           "later_exploited": true,
           "kev_date_added": "2025-10-02",
           "score": {
             "cvss": 98.0,
             "legacy": 60.8139,
-            "ml": 54.5006
+            "ml": 55.5516
           }
         },
         {
@@ -1937,14 +1931,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97112,
           "kev_at_T": true,
-          "p_model": 0.00483,
+          "p_model": 0.0158,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-02-10",
           "score": {
             "cvss": 98.0,
             "legacy": 62.9636,
-            "ml": 88.1344
+            "ml": 89.1133
           }
         },
         {
@@ -1954,14 +1948,14 @@
           "cvss_base": 9.1,
           "epss_T": 0.00192,
           "kev_at_T": false,
-          "p_model": 0.00173,
+          "p_model": 0.00074,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 91.0,
             "legacy": 1.0908,
-            "ml": 0.2418
+            "ml": 0.1586
           }
         },
         {
@@ -1971,14 +1965,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.00152,
           "kev_at_T": false,
-          "p_model": 0.00113,
+          "p_model": 0.00032,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 1.0791,
-            "ml": 0.1714
+            "ml": 0.1036
           }
         },
         {
@@ -1988,14 +1982,14 @@
           "cvss_base": 9.1,
           "epss_T": 0.00182,
           "kev_at_T": false,
-          "p_model": 0.00221,
+          "p_model": 0.00052,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 91.0,
             "legacy": 1.0908,
-            "ml": 0.2772
+            "ml": 0.1352
           }
         },
         {
@@ -2005,14 +1999,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00179,
           "kev_at_T": false,
-          "p_model": 0.00142,
+          "p_model": 0.00067,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.8415,
-            "ml": 0.1797
+            "ml": 0.1259
           }
         },
         {
@@ -2022,14 +2016,14 @@
           "cvss_base": 9.1,
           "epss_T": 0.00152,
           "kev_at_T": false,
-          "p_model": 0.00169,
+          "p_model": 0.00058,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 91.0,
             "legacy": 1.0791,
-            "ml": 0.2186
+            "ml": 0.1249
           }
         },
         {
@@ -2039,14 +2033,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00173,
           "kev_at_T": false,
-          "p_model": 0.00268,
+          "p_model": 0.00137,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.1936,
-            "ml": 0.3314
+            "ml": 0.2152
           }
         },
         {
@@ -2056,14 +2050,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00238,
           "kev_at_T": false,
-          "p_model": 0.0013,
+          "p_model": 0.0005,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.2192,
-            "ml": 0.2434
+            "ml": 0.1718
           }
         },
         {
@@ -2073,14 +2067,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00176,
           "kev_at_T": false,
-          "p_model": 0.00173,
+          "p_model": 0.00094,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.1936,
-            "ml": 0.2487
+            "ml": 0.1784
           }
         },
         {
@@ -2090,14 +2084,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00201,
           "kev_at_T": false,
-          "p_model": 0.00143,
+          "p_model": 0.001,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.2064,
-            "ml": 0.235
+            "ml": 0.1971
           }
         },
         {
@@ -2107,14 +2101,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.0024,
           "kev_at_T": false,
-          "p_model": 0.00199,
+          "p_model": 0.00101,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.2256,
-            "ml": 0.3061
+            "ml": 0.2189
           }
         },
         {
@@ -2124,14 +2118,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00221,
           "kev_at_T": false,
-          "p_model": 0.00376,
+          "p_model": 0.00068,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.2128,
-            "ml": 0.454
+            "ml": 0.179
           }
         },
         {
@@ -2141,14 +2135,14 @@
           "cvss_base": 9.1,
           "epss_T": 0.00161,
           "kev_at_T": false,
-          "p_model": 0.00148,
+          "p_model": 0.00089,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 91.0,
             "legacy": 1.0791,
-            "ml": 0.2051
+            "ml": 0.1555
           }
         },
         {
@@ -2158,14 +2152,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00107,
           "kev_at_T": false,
-          "p_model": 0.00199,
+          "p_model": 0.00057,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.1679,
-            "ml": 0.2347
+            "ml": 0.1078
           }
         },
         {
@@ -2175,14 +2169,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.0089,
           "kev_at_T": false,
-          "p_model": 0.00166,
+          "p_model": 0.00043,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.4952,
-            "ml": 0.6246
+            "ml": 0.5152
           }
         },
         {
@@ -2192,14 +2186,14 @@
           "cvss_base": 7.3,
           "epss_T": 0.00083,
           "kev_at_T": false,
-          "p_model": 0.00128,
+          "p_model": 0.0003,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 73.0,
             "legacy": 1.0499,
-            "ml": 0.1496
+            "ml": 0.0674
           }
         },
         {
@@ -2209,14 +2203,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00115,
           "kev_at_T": false,
-          "p_model": 0.00232,
+          "p_model": 0.00057,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.1679,
-            "ml": 0.2683
+            "ml": 0.1128
           }
         },
         {
@@ -2226,14 +2220,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00105,
           "kev_at_T": false,
-          "p_model": 0.001,
+          "p_model": 0.00015,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.819,
-            "ml": 0.1171
+            "ml": 0.0564
           }
         },
         {
@@ -2243,14 +2237,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.00102,
           "kev_at_T": false,
-          "p_model": 0.00303,
+          "p_model": 0.00102,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 1.0616,
-            "ml": 0.3059
+            "ml": 0.1372
           }
         },
         {
@@ -2260,14 +2254,14 @@
           "cvss_base": 7.8,
           "epss_T": 0.00044,
           "kev_at_T": false,
-          "p_model": 0.0013,
+          "p_model": 0.00053,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 78.0,
             "legacy": 1.1422,
-            "ml": 0.1394
+            "ml": 0.0705
           }
         },
         {
@@ -2277,14 +2271,14 @@
           "cvss_base": 8.2,
           "epss_T": 0.07432,
           "kev_at_T": false,
-          "p_model": 0.00185,
+          "p_model": 0.00067,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 82.0,
             "legacy": 3.29,
-            "ml": 3.5527
+            "ml": 3.4624
           }
         },
         {
@@ -2294,14 +2288,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00703,
           "kev_at_T": false,
-          "p_model": 0.00242,
+          "p_model": 0.00061,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.4182,
-            "ml": 0.5925
+            "ml": 0.4311
           }
         },
         {
@@ -2311,14 +2305,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.26763,
           "kev_at_T": false,
-          "p_model": 0.00323,
+          "p_model": 0.04514,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 22.005,
-            "ml": 11.7944
+            "ml": 14.8117
           }
         },
         {
@@ -2328,14 +2322,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00103,
           "kev_at_T": false,
-          "p_model": 0.00119,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.819,
-            "ml": 0.1303
+            "ml": 0.0592
           }
         },
         {
@@ -2345,14 +2339,14 @@
           "cvss_base": 7.2,
           "epss_T": 0.0029,
           "kev_at_T": false,
-          "p_model": 0.0017,
+          "p_model": 0.00079,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 72.0,
             "legacy": 1.2449,
-            "ml": 0.3069
+            "ml": 0.2261
           }
         },
         {
@@ -2362,14 +2356,14 @@
           "cvss_base": 7.2,
           "epss_T": 0.0029,
           "kev_at_T": false,
-          "p_model": 0.00125,
+          "p_model": 0.00047,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 72.0,
             "legacy": 1.2449,
-            "ml": 0.2671
+            "ml": 0.1974
           }
         },
         {
@@ -2379,14 +2373,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.00351,
           "kev_at_T": false,
-          "p_model": 0.0036,
+          "p_model": 0.00133,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 1.2706,
-            "ml": 0.5095
+            "ml": 0.3064
           }
         },
         {
@@ -2396,14 +2390,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00185,
           "kev_at_T": false,
-          "p_model": 0.0012,
+          "p_model": 0.00048,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 1.2,
-            "ml": 0.2064
+            "ml": 0.1417
           }
         },
         {
@@ -2413,14 +2407,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00144,
           "kev_at_T": false,
-          "p_model": 0.00208,
+          "p_model": 0.00049,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.1807,
-            "ml": 0.2623
+            "ml": 0.1208
           }
         },
         {
@@ -2430,14 +2424,14 @@
           "cvss_base": 8.6,
           "epss_T": 0.00284,
           "kev_at_T": false,
-          "p_model": 0.00149,
+          "p_model": 0.00047,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 86.0,
             "legacy": 1.0455,
-            "ml": 0.2559
+            "ml": 0.1746
           }
         },
         {
@@ -2447,14 +2441,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00077,
           "kev_at_T": false,
-          "p_model": 0.0012,
+          "p_model": 0.0005,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.1551,
-            "ml": 0.1488
+            "ml": 0.0863
           }
         },
         {
@@ -2464,14 +2458,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00132,
+          "p_model": 0.00018,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1234
+            "ml": 0.038
           }
         },
         {
@@ -2481,14 +2475,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00076,
+          "p_model": 0.00017,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.0811
+            "ml": 0.0372
           }
         },
         {
@@ -2498,14 +2492,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00148,
+          "p_model": 0.00018,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1352
+            "ml": 0.0382
           }
         },
         {
@@ -2515,14 +2509,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.001,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.099
+            "ml": 0.0395
           }
         },
         {
@@ -2532,14 +2526,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00228,
           "kev_at_T": false,
-          "p_model": 0.00134,
+          "p_model": 0.00049,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 13.6491,
-            "ml": 0.2031
+            "ml": 0.1392
           }
         },
         {
@@ -2549,14 +2543,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00228,
           "kev_at_T": false,
-          "p_model": 0.00193,
+          "p_model": 0.00048,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 13.6491,
-            "ml": 0.2472
+            "ml": 0.1386
           }
         },
         {
@@ -2566,14 +2560,14 @@
           "cvss_base": 8.0,
           "epss_T": 0.00097,
           "kev_at_T": false,
-          "p_model": 0.00219,
+          "p_model": 0.00084,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 80.0,
             "legacy": 1.1615,
-            "ml": 0.247
+            "ml": 0.1268
           }
         },
         {
@@ -2583,14 +2577,14 @@
           "cvss_base": 8.0,
           "epss_T": 0.00128,
           "kev_at_T": false,
-          "p_model": 0.00193,
+          "p_model": 0.00073,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 80.0,
             "legacy": 1.1743,
-            "ml": 0.2411
+            "ml": 0.1338
           }
         },
         {
@@ -2600,14 +2594,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00221,
           "kev_at_T": false,
-          "p_model": 0.00166,
+          "p_model": 0.00041,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 1.2128,
-            "ml": 0.2664
+            "ml": 0.1553
           }
         },
         {
@@ -2617,14 +2611,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00272,
           "kev_at_T": false,
-          "p_model": 0.00287,
+          "p_model": 0.00114,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.2385,
-            "ml": 0.402
+            "ml": 0.247
           }
         },
         {
@@ -2634,14 +2628,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00075,
           "kev_at_T": false,
-          "p_model": 0.00109,
+          "p_model": 0.00025,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7762,
-            "ml": 0.1155
+            "ml": 0.0523
           }
         },
         {
@@ -2651,14 +2645,14 @@
           "cvss_base": 9.6,
           "epss_T": 0.00091,
           "kev_at_T": false,
-          "p_model": 0.00383,
+          "p_model": 0.00063,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 96.0,
             "legacy": 1.353,
-            "ml": 0.4525
+            "ml": 0.122
           }
         },
         {
@@ -2668,14 +2662,14 @@
           "cvss_base": 7.0,
           "epss_T": 0.00042,
           "kev_at_T": false,
-          "p_model": 0.00225,
+          "p_model": 0.00061,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 70.0,
             "legacy": 1.1422,
-            "ml": 0.2231
+            "ml": 0.0774
           }
         },
         {
@@ -2685,14 +2679,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00046,
           "kev_at_T": false,
-          "p_model": 0.00131,
+          "p_model": 0.00021,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.801,
-            "ml": 0.1145
+            "ml": 0.0347
           }
         },
         {
@@ -2702,14 +2696,14 @@
           "cvss_base": 8.0,
           "epss_T": 0.0005,
           "kev_at_T": false,
-          "p_model": 0.00131,
+          "p_model": 0.00044,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 80.0,
             "legacy": 1.1422,
-            "ml": 0.1433
+            "ml": 0.0664
           }
         },
         {
@@ -2719,14 +2713,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.0009,
           "kev_at_T": false,
-          "p_model": 0.00125,
+          "p_model": 0.00026,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7806,
-            "ml": 0.1347
+            "ml": 0.0597
           }
         },
         {
@@ -2736,14 +2730,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.0009,
           "kev_at_T": false,
-          "p_model": 0.00114,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7806,
-            "ml": 0.1259
+            "ml": 0.0559
           }
         },
         {
@@ -2753,14 +2747,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00055,
           "kev_at_T": false,
-          "p_model": 0.00175,
+          "p_model": 0.00074,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 1.1486,
-            "ml": 0.1858
+            "ml": 0.0958
           }
         },
         {
@@ -2770,14 +2764,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.0008,
           "kev_at_T": false,
-          "p_model": 0.00082,
+          "p_model": 0.00024,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.81,
-            "ml": 0.0937
+            "ml": 0.0517
           }
         },
         {
@@ -2787,14 +2781,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.00077,
           "kev_at_T": false,
-          "p_model": 0.0011,
+          "p_model": 0.00028,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.7762,
-            "ml": 0.1171
+            "ml": 0.0554
           }
         },
         {
@@ -2804,14 +2798,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00076,
           "kev_at_T": false,
-          "p_model": 0.00114,
+          "p_model": 0.00023,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4801,
-            "ml": 0.0883
+            "ml": 0.0381
           }
         },
         {
@@ -2821,14 +2815,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.00066,
           "kev_at_T": false,
-          "p_model": 0.00116,
+          "p_model": 0.00027,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 0.8055,
-            "ml": 0.1121
+            "ml": 0.048
           }
         },
         {
@@ -2838,14 +2832,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00109,
+          "p_model": 0.00023,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0785
+            "ml": 0.0308
           }
         },
         {
@@ -2855,14 +2849,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.0012,
+          "p_model": 0.00023,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0847
+            "ml": 0.0308
           }
         },
         {
@@ -2872,14 +2866,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00132,
+          "p_model": 0.00022,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0915
+            "ml": 0.0302
           }
         },
         {
@@ -2889,14 +2883,14 @@
           "cvss_base": 4.7,
           "epss_T": 0.00107,
           "kev_at_T": false,
-          "p_model": 0.00116,
+          "p_model": 0.00018,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 47.0,
             "legacy": 0.7849,
-            "ml": 0.1351
+            "ml": 0.0616
           }
         },
         {
@@ -2906,14 +2900,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00091,
           "kev_at_T": false,
-          "p_model": 0.00108,
+          "p_model": 0.00017,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4827,
-            "ml": 0.0901
+            "ml": 0.0398
           }
         },
         {
@@ -2923,14 +2917,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00123,
           "kev_at_T": false,
-          "p_model": 0.00099,
+          "p_model": 0.00026,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4881,
-            "ml": 0.0957
+            "ml": 0.0552
           }
         },
         {
@@ -2940,14 +2934,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.0009,
           "kev_at_T": false,
-          "p_model": 0.0008,
+          "p_model": 0.00027,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4827,
-            "ml": 0.0745
+            "ml": 0.045
           }
         },
         {
@@ -2957,14 +2951,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00138,
+          "p_model": 0.00033,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1276
+            "ml": 0.0487
           }
         },
         {
@@ -2974,14 +2968,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.0009,
+          "p_model": 0.00013,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0681
+            "ml": 0.0254
           }
         },
         {
@@ -2991,14 +2985,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00107,
+          "p_model": 0.00026,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0773
+            "ml": 0.0322
           }
         },
         {
@@ -3008,14 +3002,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00058,
           "kev_at_T": false,
-          "p_model": 0.0005,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0473
+            "ml": 0.0302
           }
         },
         {
@@ -3025,14 +3019,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.00227,
+          "p_model": 0.00061,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.8055,
-            "ml": 0.1902
+            "ml": 0.071
           }
         },
         {
@@ -3042,14 +3036,14 @@
           "cvss_base": 6.1,
           "epss_T": 0.00089,
           "kev_at_T": false,
-          "p_model": 0.00142,
+          "p_model": 0.00047,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 61.0,
             "legacy": 0.7806,
-            "ml": 0.1466
+            "ml": 0.0755
           }
         },
         {
@@ -3059,14 +3053,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.001,
           "kev_at_T": false,
-          "p_model": 0.00109,
+          "p_model": 0.00055,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.6521,
-            "ml": 0.108
+            "ml": 0.0735
           }
         },
         {
@@ -3076,14 +3070,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00089,
           "kev_at_T": false,
-          "p_model": 0.00171,
+          "p_model": 0.00038,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.6485,
-            "ml": 0.1433
+            "ml": 0.0585
           }
         },
         {
@@ -3093,14 +3087,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00099,
           "kev_at_T": false,
-          "p_model": 0.00103,
+          "p_model": 0.00022,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4827,
-            "ml": 0.0901
+            "ml": 0.0449
           }
         },
         {
@@ -3110,14 +3104,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00161,
           "kev_at_T": false,
-          "p_model": 0.00091,
+          "p_model": 0.00015,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.8325,
-            "ml": 0.1354
+            "ml": 0.0806
           }
         },
         {
@@ -3127,14 +3121,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00093,
           "kev_at_T": false,
-          "p_model": 0.00179,
+          "p_model": 0.00043,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.8145,
-            "ml": 0.1691
+            "ml": 0.0715
           }
         },
         {
@@ -3144,14 +3138,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00111,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0797
+            "ml": 0.0289
           }
         },
         {
@@ -3161,14 +3155,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00053,
           "kev_at_T": false,
-          "p_model": 0.00145,
+          "p_model": 0.00019,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4747,
-            "ml": 0.0981
+            "ml": 0.0284
           }
         },
         {
@@ -3178,14 +3172,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00166,
+          "p_model": 0.00038,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1487
+            "ml": 0.0529
           }
         },
         {
@@ -3195,14 +3189,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00095,
+          "p_model": 0.00024,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0709
+            "ml": 0.0311
           }
         },
         {
@@ -3212,14 +3206,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00155,
+          "p_model": 0.00031,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1408
+            "ml": 0.0474
           }
         },
         {
@@ -3229,14 +3223,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00084,
           "kev_at_T": false,
-          "p_model": 0.00114,
+          "p_model": 0.00023,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4801,
-            "ml": 0.0911
+            "ml": 0.0408
           }
         },
         {
@@ -3246,14 +3240,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00081,
           "kev_at_T": false,
-          "p_model": 0.00095,
+          "p_model": 0.00016,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.81,
-            "ml": 0.1034
+            "ml": 0.0466
           }
         },
         {
@@ -3263,14 +3257,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00123,
+          "p_model": 0.00019,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.6414,
-            "ml": 0.0992
+            "ml": 0.033
           }
         },
         {
@@ -3280,14 +3274,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00076,
+          "p_model": 0.00014,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0602
+            "ml": 0.0259
           }
         },
         {
@@ -3297,14 +3291,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00117,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.8055,
-            "ml": 0.1075
+            "ml": 0.038
           }
         },
         {
@@ -3314,14 +3308,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.28819,
           "kev_at_T": false,
-          "p_model": 0.0035,
+          "p_model": 0.00039,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 9.216,
-            "ml": 12.7017
+            "ml": 12.478
           }
         },
         {
@@ -3331,14 +3325,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00081,
           "kev_at_T": false,
-          "p_model": 0.00205,
+          "p_model": 0.00038,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7762,
-            "ml": 0.1899
+            "ml": 0.0649
           }
         },
         {
@@ -3348,14 +3342,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.57204,
           "kev_at_T": false,
-          "p_model": 0.00193,
+          "p_model": 0.00071,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 17.5185,
-            "ml": 24.8511
+            "ml": 24.763
           }
         },
         {
@@ -3365,14 +3359,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00273,
           "kev_at_T": false,
-          "p_model": 0.00108,
+          "p_model": 0.00032,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.5147,
-            "ml": 0.1506
+            "ml": 0.1087
           }
         },
         {
@@ -3382,14 +3376,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.00101,
           "kev_at_T": false,
-          "p_model": 0.00138,
+          "p_model": 0.00065,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.7849,
-            "ml": 0.1491
+            "ml": 0.0939
           }
         },
         {
@@ -3399,14 +3393,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00081,
+          "p_model": 0.00037,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.0854
+            "ml": 0.0519
           }
         },
         {
@@ -3416,14 +3410,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00106,
+          "p_model": 0.00028,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.104
+            "ml": 0.0453
           }
         },
         {
@@ -3433,14 +3427,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00085,
+          "p_model": 0.00016,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.0884
+            "ml": 0.0362
           }
         },
         {
@@ -3450,14 +3444,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00161,
+          "p_model": 0.00032,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1455
+            "ml": 0.048
           }
         },
         {
@@ -3467,14 +3461,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00572,
           "kev_at_T": false,
-          "p_model": 0.00103,
+          "p_model": 0.00029,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7596,
-            "ml": 0.2842
+            "ml": 0.2372
           }
         },
         {
@@ -3484,14 +3478,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00073,
+          "p_model": 0.00014,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.7719,
-            "ml": 0.0787
+            "ml": 0.0349
           }
         },
         {
@@ -3501,14 +3495,14 @@
           "cvss_base": 5.8,
           "epss_T": 0.00397,
           "kev_at_T": false,
-          "p_model": 0.00099,
+          "p_model": 0.00031,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 58.0,
             "legacy": 0.6165,
-            "ml": 0.2152
+            "ml": 0.1718
           }
         },
         {
@@ -3518,14 +3512,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00142,
           "kev_at_T": false,
-          "p_model": 0.00207,
+          "p_model": 0.00022,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.828,
-            "ml": 0.2105
+            "ml": 0.0772
           }
         },
         {
@@ -3535,14 +3529,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00142,
           "kev_at_T": false,
-          "p_model": 0.00059,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.828,
-            "ml": 0.1036
+            "ml": 0.0761
           }
         },
         {
@@ -3552,14 +3546,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.01531,
           "kev_at_T": false,
-          "p_model": 0.00096,
+          "p_model": 0.00114,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 1.1859,
-            "ml": 0.7615
+            "ml": 0.7749
           }
         },
         {
@@ -3569,14 +3563,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00127,
           "kev_at_T": false,
-          "p_model": 0.00106,
+          "p_model": 0.00028,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4881,
-            "ml": 0.1011
+            "ml": 0.0577
           }
         },
         {
@@ -3586,14 +3580,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00067,
+          "p_model": 0.00038,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.0745
+            "ml": 0.053
           }
         },
         {
@@ -3603,14 +3597,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00361,
           "kev_at_T": false,
-          "p_model": 0.00138,
+          "p_model": 0.00044,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 13.6836,
-            "ml": 0.2661
+            "ml": 0.1958
           }
         },
         {
@@ -3620,14 +3614,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00065,
           "kev_at_T": false,
-          "p_model": 0.0006,
+          "p_model": 0.00024,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.8055,
-            "ml": 0.0713
+            "ml": 0.0455
           }
         },
         {
@@ -3637,14 +3631,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00055,
+          "p_model": 0.00044,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.0659
+            "ml": 0.057
           }
         },
         {
@@ -3654,14 +3648,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00173,
+          "p_model": 0.00017,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.1138
+            "ml": 0.0273
           }
         },
         {
@@ -3671,14 +3665,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00081,
           "kev_at_T": false,
-          "p_model": 0.00241,
+          "p_model": 0.00026,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.81,
-            "ml": 0.2085
+            "ml": 0.0535
           }
         },
         {
@@ -3688,14 +3682,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00094,
+          "p_model": 0.00027,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.0947
+            "ml": 0.0444
           }
         },
         {
@@ -3705,14 +3699,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00084,
           "kev_at_T": false,
-          "p_model": 0.00071,
+          "p_model": 0.00017,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4801,
-            "ml": 0.0673
+            "ml": 0.0371
           }
         },
         {
@@ -3722,14 +3716,14 @@
           "cvss_base": 6.1,
           "epss_T": 0.00078,
           "kev_at_T": false,
-          "p_model": 0.00154,
+          "p_model": 0.00074,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 61.0,
             "legacy": 0.7762,
-            "ml": 0.1509
+            "ml": 0.0908
           }
         },
         {
@@ -3739,14 +3733,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00137,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7719,
-            "ml": 0.1271
+            "ml": 0.039
           }
         },
         {
@@ -3756,14 +3750,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00065,
           "kev_at_T": false,
-          "p_model": 0.00062,
+          "p_model": 0.00022,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.8055,
-            "ml": 0.0728
+            "ml": 0.0437
           }
         },
         {
@@ -3773,14 +3767,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00174,
+          "p_model": 0.00033,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.1145
+            "ml": 0.0365
           }
         },
         {
@@ -3790,14 +3784,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00073,
+          "p_model": 0.00014,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0583
+            "ml": 0.0256
           }
         },
         {
@@ -3807,14 +3801,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.00097,
+          "p_model": 0.00021,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0719
+            "ml": 0.0299
           }
         },
         {
@@ -3824,14 +3818,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00054,
           "kev_at_T": false,
-          "p_model": 0.0011,
+          "p_model": 0.00023,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4774,
-            "ml": 0.0788
+            "ml": 0.0306
           }
         },
         {
@@ -3841,14 +3835,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00093,
           "kev_at_T": false,
-          "p_model": 0.00214,
+          "p_model": 0.00106,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.8145,
-            "ml": 0.1945
+            "ml": 0.1165
           }
         },
         {
@@ -3858,14 +3852,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00101,
           "kev_at_T": false,
-          "p_model": 0.00083,
+          "p_model": 0.00038,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.819,
-            "ml": 0.1036
+            "ml": 0.0712
           }
         },
         {
@@ -3875,14 +3869,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00111,
           "kev_at_T": false,
-          "p_model": 0.00103,
+          "p_model": 0.00026,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4854,
-            "ml": 0.0944
+            "ml": 0.0517
           }
         },
         {
@@ -3892,14 +3886,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00145,
           "kev_at_T": false,
-          "p_model": 0.00218,
+          "p_model": 0.00066,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.828,
-            "ml": 0.2199
+            "ml": 0.1101
           }
         },
         {
@@ -3909,14 +3903,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00046,
           "kev_at_T": false,
-          "p_model": 0.00132,
+          "p_model": 0.00021,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.801,
-            "ml": 0.1149
+            "ml": 0.0353
           }
         },
         {
@@ -3926,14 +3920,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00044,
           "kev_at_T": false,
-          "p_model": 0.00084,
+          "p_model": 0.00014,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4747,
-            "ml": 0.0613
+            "ml": 0.0226
           }
         },
         {
@@ -3943,14 +3937,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00044,
           "kev_at_T": false,
-          "p_model": 0.00097,
+          "p_model": 0.00021,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.4747,
-            "ml": 0.0687
+            "ml": 0.0263
           }
         },
         {
@@ -3960,14 +3954,14 @@
           "cvss_base": 2.2,
           "epss_T": 0.00044,
           "kev_at_T": false,
-          "p_model": 0.00095,
+          "p_model": 0.00016,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 22.0,
             "legacy": 0.4747,
-            "ml": 0.0676
+            "ml": 0.0235
           }
         },
         {
@@ -3977,14 +3971,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00445,
           "kev_at_T": false,
-          "p_model": 0.00134,
+          "p_model": 0.00018,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.7309,
-            "ml": 0.2557
+            "ml": 0.1815
           }
         },
         {
@@ -3994,14 +3988,14 @@
           "cvss_base": 4.4,
           "epss_T": 0.00043,
           "kev_at_T": false,
-          "p_model": 0.00181,
+          "p_model": 0.00027,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 44.0,
             "legacy": 0.6378,
-            "ml": 0.1321
+            "ml": 0.0334
           }
         },
         {
@@ -4011,14 +4005,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00046,
           "kev_at_T": false,
-          "p_model": 0.00108,
+          "p_model": 0.00015,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4747,
-            "ml": 0.0755
+            "ml": 0.0239
           }
         },
         {
@@ -4028,14 +4022,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.0005,
           "kev_at_T": false,
-          "p_model": 0.00236,
+          "p_model": 0.00048,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 1.0383,
-            "ml": 0.2233
+            "ml": 0.0652
           }
         },
         {
@@ -4045,14 +4039,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.0005,
           "kev_at_T": false,
-          "p_model": 0.00183,
+          "p_model": 0.00047,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 1.0383,
-            "ml": 0.1787
+            "ml": 0.065
           }
         },
         {
@@ -4062,14 +4056,14 @@
           "cvss_base": 6.1,
           "epss_T": 0.02634,
           "kev_at_T": false,
-          "p_model": 0.00136,
+          "p_model": 0.0005,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 61.0,
             "legacy": 14.3218,
-            "ml": 1.2878
+            "ml": 1.2237
           }
         },
         {
@@ -4079,14 +4073,14 @@
           "cvss_base": 6.1,
           "epss_T": 0.00675,
           "kev_at_T": false,
-          "p_model": 0.0013,
+          "p_model": 0.0005,
           "fanin": 1,
           "later_exploited": true,
           "kev_date_added": "2025-01-23",
           "score": {
             "cvss": 61.0,
             "legacy": 13.7741,
-            "ml": 0.4018
+            "ml": 0.3416
           }
         },
         {
@@ -4096,14 +4090,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.90699,
           "kev_at_T": false,
-          "p_model": 0.05771,
+          "p_model": 0.1261,
           "fanin": 0,
           "later_exploited": true,
           "kev_date_added": "2024-01-08",
           "score": {
             "cvss": 98.0,
             "legacy": 44.4743,
-            "ml": 18.4961
+            "ml": 20.5977
           }
         },
         {
@@ -4113,14 +4107,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00182,
           "kev_at_T": false,
-          "p_model": 0.00747,
+          "p_model": 0.00728,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 0.9195,
-            "ml": 0.2631
+            "ml": 0.2573
           }
         },
         {
@@ -4130,14 +4124,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00045,
           "kev_at_T": false,
-          "p_model": 0.00417,
+          "p_model": 0.00363,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.534,
-            "ml": 0.0833
+            "ml": 0.0731
           }
         },
         {
@@ -4147,14 +4141,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00063,
           "kev_at_T": false,
-          "p_model": 0.00326,
+          "p_model": 0.00064,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.537,
-            "ml": 0.0682
+            "ml": 0.0191
           }
         },
         {
@@ -4164,14 +4158,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.0019,
+          "p_model": 0.00047,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2089,
-            "ml": 0.0166
+            "ml": 0.0062
           }
         },
         {
@@ -4181,14 +4175,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.00241,
+          "p_model": 0.00337,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2089,
-            "ml": 0.0203
+            "ml": 0.0273
           }
         },
         {
@@ -4198,14 +4192,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.0023,
+          "p_model": 0.00049,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2089,
-            "ml": 0.0195
+            "ml": 0.0063
           }
         },
         {
@@ -4215,14 +4209,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00063,
           "kev_at_T": false,
-          "p_model": 0.00561,
+          "p_model": 0.00461,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.537,
-            "ml": 0.1122
+            "ml": 0.0936
           }
         },
         {
@@ -4232,14 +4226,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00072,
           "kev_at_T": false,
-          "p_model": 0.00509,
+          "p_model": 0.00649,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2101,
-            "ml": 0.0403
+            "ml": 0.0505
           }
         },
         {
@@ -4249,14 +4243,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.00284,
+          "p_model": 0.0004,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.3729,
-            "ml": 0.0419
+            "ml": 0.0101
           }
         },
         {
@@ -4266,14 +4260,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.00149,
+          "p_model": 0.00052,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.3729,
-            "ml": 0.0243
+            "ml": 0.0116
           }
         },
         {
@@ -4283,14 +4277,14 @@
           "cvss_base": 6.6,
           "epss_T": 0.00217,
           "kev_at_T": false,
-          "p_model": 0.00954,
+          "p_model": 0.04008,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 66.0,
             "legacy": 8.6736,
-            "ml": 0.3333
+            "ml": 1.2717
           }
         },
         {
@@ -4300,14 +4294,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.00206,
+          "p_model": 0.00046,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2089,
-            "ml": 0.0178
+            "ml": 0.006
           }
         },
         {
@@ -4317,14 +4311,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00126,
           "kev_at_T": false,
-          "p_model": 0.00337,
+          "p_model": 0.00343,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.3812,
-            "ml": 0.0537
+            "ml": 0.0546
           }
         },
         {
@@ -4334,14 +4328,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00126,
           "kev_at_T": false,
-          "p_model": 0.00163,
+          "p_model": 0.00065,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2136,
-            "ml": 0.0174
+            "ml": 0.0103
           }
         },
         {
@@ -4351,14 +4345,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00062,
           "kev_at_T": false,
-          "p_model": 0.00231,
+          "p_model": 0.00051,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.4632,
-            "ml": 0.0434
+            "ml": 0.0143
           }
         },
         {
@@ -4368,14 +4362,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00063,
           "kev_at_T": false,
-          "p_model": 0.0033,
+          "p_model": 0.00369,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.537,
-            "ml": 0.0689
+            "ml": 0.0763
           }
         },
         {
@@ -4385,14 +4379,14 @@
           "cvss_base": 4.3,
           "epss_T": 0.00044,
           "kev_at_T": false,
-          "p_model": 0.00201,
+          "p_model": 0.00052,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 43.0,
             "legacy": 0.2077,
-            "ml": 0.0166
+            "ml": 0.0057
           }
         },
         {
@@ -4402,14 +4396,14 @@
           "cvss_base": 5.4,
           "epss_T": 0.00254,
           "kev_at_T": false,
-          "p_model": 0.00301,
+          "p_model": 0.00042,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 54.0,
             "legacy": 0.4968,
-            "ml": 0.0733
+            "ml": 0.0314
           }
         },
         {
@@ -4419,14 +4413,14 @@
           "cvss_base": 6.5,
           "epss_T": 0.00044,
           "kev_at_T": false,
-          "p_model": 0.00241,
+          "p_model": 0.0058,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 65.0,
             "legacy": 0.534,
-            "ml": 0.0501
+            "ml": 0.1137
           }
         },
         {
@@ -4436,14 +4430,14 @@
           "cvss_base": 8.8,
           "epss_T": 0.00091,
           "kev_at_T": false,
-          "p_model": 0.00529,
+          "p_model": 0.01564,
           "fanin": 0,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 88.0,
             "legacy": 0.89,
-            "ml": 0.1793
+            "ml": 0.4974
           }
         }
       ]
@@ -4677,14 +4671,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.97524,
           "kev_at_T": false,
-          "p_model": 0.03464,
+          "p_model": 0.04629,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 81.0,
             "legacy": 60.8909,
-            "ml": 36.7224
+            "ml": 37.4124
           }
         },
         {
@@ -4694,14 +4688,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97535,
           "kev_at_T": true,
-          "p_model": 0.11251,
+          "p_model": 0.11806,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 63.1433,
-            "ml": 65.0397
+            "ml": 65.3685
           }
         },
         {
@@ -4711,14 +4705,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.9755,
           "kev_at_T": true,
-          "p_model": 0.04908,
+          "p_model": 0.11791,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 81.0,
             "legacy": 63.1497,
-            "ml": 61.2871
+            "ml": 65.365
           }
         },
         {
@@ -4728,14 +4722,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.94954,
           "kev_at_T": false,
-          "p_model": 0.05646,
+          "p_model": 0.10456,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 59.8193,
-            "ml": 37.1013
+            "ml": 39.9514
           }
         },
         {
@@ -4745,14 +4739,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97051,
           "kev_at_T": true,
-          "p_model": 0.01801,
+          "p_model": 0.1228,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 98.0,
             "legacy": 62.9379,
-            "ml": 59.2687
+            "ml": 65.4775
           }
         },
         {
@@ -4762,14 +4756,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.11237,
           "kev_at_T": false,
-          "p_model": 0.0398,
+          "p_model": 0.08644,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 15.9142,
-            "ml": 6.353
+            "ml": 9.1161
           }
         },
         {
@@ -4779,14 +4773,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.09719,
           "kev_at_T": false,
-          "p_model": 0.02731,
+          "p_model": 0.11558,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 15.2853,
-            "ml": 5.0732
+            "ml": 10.3029
           }
         },
         {
@@ -4796,14 +4790,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.06683,
           "kev_at_T": false,
-          "p_model": 0.00518,
+          "p_model": 0.08558,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 14.0147,
-            "ml": 2.6825
+            "ml": 7.4463
           }
         },
         {
@@ -4813,14 +4807,14 @@
           "cvss_base": 8.1,
           "epss_T": 0.97537,
           "kev_at_T": true,
-          "p_model": 0.02894,
+          "p_model": 0.08636,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-11-03",
           "score": {
             "cvss": 81.0,
             "legacy": 63.1433,
-            "ml": 60.0894
+            "ml": 63.4912
           }
         },
         {
@@ -4830,14 +4824,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.04227,
           "kev_at_T": false,
-          "p_model": 0.0031,
+          "p_model": 0.0086,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 3.0001,
-            "ml": 2.1132
+            "ml": 2.5216
           }
         },
         {
@@ -4847,14 +4841,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.04275,
           "kev_at_T": false,
-          "p_model": 0.00037,
+          "p_model": 0.00043,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 2.1517,
-            "ml": 1.4834
+            "ml": 1.4868
           }
         },
         {
@@ -4864,14 +4858,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00769,
           "kev_at_T": false,
-          "p_model": 0.00293,
+          "p_model": 0.00175,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 8.55,
-            "ml": 0.4303
+            "ml": 0.3626
           }
         },
         {
@@ -4881,14 +4875,14 @@
           "cvss_base": 4.8,
           "epss_T": 0.0018,
           "kev_at_T": false,
-          "p_model": 0.00375,
+          "p_model": 0.01686,
           "fanin": 3,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 48.0,
             "legacy": 0.8246,
-            "ml": 0.3082
+            "ml": 1.1435
           }
         },
         {
@@ -4898,14 +4892,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01023,
           "kev_at_T": false,
-          "p_model": 0.00297,
+          "p_model": 0.0052,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 12.1073,
-            "ml": 0.6763
+            "ml": 0.8422
           }
         },
         {
@@ -4915,14 +4909,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.0088,
           "kev_at_T": false,
-          "p_model": 0.02619,
+          "p_model": 0.04921,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.5467,
-            "ml": 2.3369
+            "ml": 4.0456
           }
         },
         {
@@ -4932,14 +4926,14 @@
           "cvss_base": 8.5,
           "epss_T": 0.96272,
           "kev_at_T": true,
-          "p_model": 0.01133,
+          "p_model": 0.03504,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": "2023-03-10",
           "score": {
             "cvss": 85.0,
             "legacy": 75.7465,
-            "ml": 85.298
+            "ml": 87.3427
           }
         },
         {
@@ -4949,14 +4943,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.01795,
           "kev_at_T": false,
-          "p_model": 0.00664,
+          "p_model": 0.0203,
           "fanin": 2,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.9468,
-            "ml": 1.2926
+            "ml": 2.307
           }
         },
         {
@@ -4966,14 +4960,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.36859,
           "kev_at_T": false,
-          "p_model": 0.00081,
+          "p_model": 0.0002,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 18.657,
-            "ml": 9.3225
+            "ml": 9.2967
           }
         },
         {
@@ -4983,14 +4977,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00626,
           "kev_at_T": false,
-          "p_model": 0.00271,
+          "p_model": 0.0007,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.3861,
-            "ml": 0.3831
+            "ml": 0.2643
           }
         },
         {
@@ -5000,14 +4994,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00218,
           "kev_at_T": false,
-          "p_model": 0.0018,
+          "p_model": 0.00111,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 7.938,
-            "ml": 0.1307
+            "ml": 0.1017
           }
         },
         {
@@ -5017,14 +5011,14 @@
           "cvss_base": 10.0,
           "epss_T": 0.97454,
           "kev_at_T": true,
-          "p_model": 0.02643,
+          "p_model": 0.06976,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2021-12-10",
           "score": {
             "cvss": 100.0,
             "legacy": 73.5166,
-            "ml": 69.7694
+            "ml": 72.7592
           }
         },
         {
@@ -5034,14 +5028,14 @@
           "cvss_base": 9.0,
           "epss_T": 0.97428,
           "kev_at_T": true,
-          "p_model": 0.01915,
+          "p_model": 0.08608,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2023-05-01",
           "score": {
             "cvss": 90.0,
             "legacy": 73.5017,
-            "ml": 69.2568
+            "ml": 73.8745
           }
         },
         {
@@ -5051,14 +5045,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.95969,
           "kev_at_T": false,
-          "p_model": 0.00584,
+          "p_model": 0.05032,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 35.946,
-            "ml": 24.4295
+            "ml": 26.2977
           }
         },
         {
@@ -5068,14 +5062,14 @@
           "cvss_base": 6.6,
           "epss_T": 0.02767,
           "kev_at_T": false,
-          "p_model": 0.02871,
+          "p_model": 0.07918,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 66.0,
             "legacy": 12.3848,
-            "ml": 2.6849
+            "ml": 5.675
           }
         },
         {
@@ -5085,14 +5079,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97424,
           "kev_at_T": true,
-          "p_model": 0.01706,
+          "p_model": 0.09721,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-04-04",
           "score": {
             "cvss": 98.0,
             "legacy": 63.0984,
-            "ml": 59.345
+            "ml": 64.0936
           }
         },
         {
@@ -5102,14 +5096,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.97499,
           "kev_at_T": true,
-          "p_model": 0.02846,
+          "p_model": 0.05921,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": "2022-03-03",
           "score": {
             "cvss": 98.0,
             "legacy": 63.124,
-            "ml": 60.0469
+            "ml": 61.8691
           }
         },
         {
@@ -5119,14 +5113,14 @@
           "cvss_base": 7.0,
           "epss_T": 0.87778,
           "kev_at_T": false,
-          "p_model": 0.00867,
+          "p_model": 0.11179,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 70.0,
             "legacy": 47.8452,
-            "ml": 31.7189
+            "ml": 37.8284
           }
         },
         {
@@ -5136,14 +5130,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.61225,
           "kev_at_T": false,
-          "p_model": 0.01291,
+          "p_model": 0.0912,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 36.7694,
-            "ml": 22.5305
+            "ml": 27.1693
           }
         },
         {
@@ -5153,14 +5147,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.0048,
           "kev_at_T": false,
-          "p_model": 0.01883,
+          "p_model": 0.03336,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 11.4287,
-            "ml": 1.2864
+            "ml": 2.1473
           }
         },
         {
@@ -5170,14 +5164,14 @@
           "cvss_base": 7.5,
           "epss_T": 0.00081,
           "kev_at_T": false,
-          "p_model": 0.002,
+          "p_model": 0.00048,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 75.0,
             "legacy": 0.81,
-            "ml": 0.1043
+            "ml": 0.0404
           }
         },
         {
@@ -5187,14 +5181,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.46489,
           "kev_at_T": false,
-          "p_model": 0.01561,
+          "p_model": 0.03666,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 33.0079,
-            "ml": 17.4518
+            "ml": 18.6989
           }
         },
         {
@@ -5204,14 +5198,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.0677,
           "kev_at_T": false,
-          "p_model": 0.01842,
+          "p_model": 0.04332,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 4.254,
-            "ml": 3.4984
+            "ml": 4.9734
           }
         },
         {
@@ -5221,14 +5215,14 @@
           "cvss_base": 5.9,
           "epss_T": 0.01124,
           "kev_at_T": false,
-          "p_model": 0.00106,
+          "p_model": 0.00058,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 59.0,
             "legacy": 1.116,
-            "ml": 0.3276
+            "ml": 0.3074
           }
         },
         {
@@ -5238,14 +5232,14 @@
           "cvss_base": 3.3,
           "epss_T": 0.0006,
           "kev_at_T": false,
-          "p_model": 0.00104,
+          "p_model": 0.00299,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 33.0,
             "legacy": 0.4774,
-            "ml": 0.0357
+            "ml": 0.0853
           }
         },
         {
@@ -5255,14 +5249,14 @@
           "cvss_base": 9.8,
           "epss_T": 0.00645,
           "kev_at_T": false,
-          "p_model": 0.00347,
+          "p_model": 0.00069,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 98.0,
             "legacy": 1.501,
-            "ml": 0.4349
+            "ml": 0.2701
           }
         },
         {
@@ -5272,14 +5266,14 @@
           "cvss_base": 5.3,
           "epss_T": 0.00162,
           "kev_at_T": false,
-          "p_model": 0.00184,
+          "p_model": 0.00447,
           "fanin": 1,
           "later_exploited": false,
           "kev_date_added": null,
           "score": {
             "cvss": 53.0,
             "legacy": 0.4961,
-            "ml": 0.0718
+            "ml": 0.1387
           }
         }
       ]
@@ -5321,9 +5315,9 @@
           "name": "Formula + ML",
           "n": 150296,
           "positives": 121,
-          "effort_to_cover_90": 0.418773620056422,
-          "findings_to_cover_90": 62940.0,
-          "mean_rank_later_exploited": 20518.020661157025,
+          "effort_to_cover_90": 0.3666165433544472,
+          "findings_to_cover_90": 55101.0,
+          "mean_rank_later_exploited": 19273.22314049587,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
           "precision_at_25": 0.0,
@@ -5347,13 +5341,13 @@
           "name": "ML probability only (diagnostic)",
           "n": 150296,
           "positives": 121,
-          "effort_to_cover_90": 0.5212580507797946,
-          "findings_to_cover_90": 78343.00000000001,
-          "mean_rank_later_exploited": 26256.702479338845,
-          "precision_at_10": 0.0,
-          "recall_at_10": 0.0,
-          "precision_at_25": 0.0,
-          "recall_at_25": 0.0
+          "effort_to_cover_90": 0.5512721562782775,
+          "findings_to_cover_90": 82854.0,
+          "mean_rank_later_exploited": 22907.51652892562,
+          "precision_at_10": 0.1,
+          "recall_at_10": 0.008264462809917356,
+          "precision_at_25": 0.04,
+          "recall_at_25": 0.008264462809917356
         }
       ],
       "table2_open_only": [
@@ -5388,13 +5382,13 @@
           "name": "Formula + ML",
           "n": 149374,
           "positives": 121,
-          "effort_to_cover_90": 0.41518604308648094,
-          "findings_to_cover_90": 62018.00000000001,
-          "mean_rank_later_exploited": 19673.210743801654,
+          "effort_to_cover_90": 0.36270703067468235,
+          "findings_to_cover_90": 54179.0,
+          "mean_rank_later_exploited": 18434.206611570247,
           "precision_at_10": 0.0,
           "recall_at_10": 0.0,
-          "precision_at_25": 0.12,
-          "recall_at_25": 0.024793388429752067
+          "precision_at_25": 0.04,
+          "recall_at_25": 0.008264462809917356
         },
         {
           "ranker": "epss",
@@ -5414,21 +5408,21 @@
           "name": "ML probability only (diagnostic)",
           "n": 149374,
           "positives": 121,
-          "effort_to_cover_90": 0.518624392464552,
-          "findings_to_cover_90": 77469.0,
-          "mean_rank_later_exploited": 25639.057851239668,
-          "precision_at_10": 0.0,
-          "recall_at_10": 0.0,
-          "precision_at_25": 0.0,
-          "recall_at_25": 0.0
+          "effort_to_cover_90": 0.5486764764952401,
+          "findings_to_cover_90": 81958.0,
+          "mean_rank_later_exploited": 22323.289256198346,
+          "precision_at_10": 0.1,
+          "recall_at_10": 0.008264462809917356,
+          "precision_at_25": 0.08,
+          "recall_at_25": 0.01652892561983471
         }
       ],
       "ablation": [
         {
           "removed": "none",
           "name": "None (full Formula + ML)",
-          "effort_to_cover_90": 0.418773620056422,
-          "mean_rank_later_exploited": 20518.020661157025,
+          "effort_to_cover_90": 0.3666165433544472,
+          "mean_rank_later_exploited": 19273.22314049587,
           "precision_at_10": 0.0,
           "delta_vs_full": 0.0
         },
@@ -5438,23 +5432,23 @@
           "effort_to_cover_90": 0.5587019392842568,
           "mean_rank_later_exploited": 30967.520661157025,
           "precision_at_10": 0.0,
-          "delta_vs_full": 0.13992831922783483
+          "delta_vs_full": 0.1920853959298096
         },
         {
           "removed": "epss",
           "name": "EPSS",
-          "effort_to_cover_90": 0.5163810081439293,
-          "mean_rank_later_exploited": 26090.677685950413,
+          "effort_to_cover_90": 0.46384467983179856,
+          "mean_rank_later_exploited": 22650.10743801653,
           "precision_at_10": 0.0,
-          "delta_vs_full": 0.0976073880875073
+          "delta_vs_full": 0.09722813647735135
         },
         {
           "removed": "kev",
           "name": "KEV flag",
-          "effort_to_cover_90": 0.4185740139458136,
-          "mean_rank_later_exploited": 20312.037190082643,
+          "effort_to_cover_90": 0.36640363016979827,
+          "mean_rank_later_exploited": 19056.037190082643,
           "precision_at_10": 0.0,
-          "delta_vs_full": -0.00019960611060837463
+          "delta_vs_full": -0.00021291318464894404
         },
         {
           "removed": "fanin",
@@ -5466,10 +5460,10 @@
         {
           "removed": "scope",
           "name": "Scope multiplier",
-          "effort_to_cover_90": 0.4280153829775909,
-          "mean_rank_later_exploited": 20582.913223140495,
+          "effort_to_cover_90": 0.3631367434928408,
+          "mean_rank_later_exploited": 19233.801652892562,
           "precision_at_10": 0.0,
-          "delta_vs_full": 0.009241762921168906
+          "delta_vs_full": -0.003479799861606403
         },
         {
           "removed": "asset",
@@ -6264,63 +6258,57 @@
             0.0992,
             0.1322,
             0.2066,
-            0.2727,
+            0.2893,
             0.3306,
-            0.3636,
-            0.405,
             0.4132,
-            0.4298,
-            0.4711,
-            0.4793,
-            0.5124,
-            0.5372,
-            0.5537,
-            0.5702,
-            0.5702,
+            0.4628,
+            0.4876,
+            0.5207,
+            0.5455,
+            0.562,
             0.5868,
             0.6033,
-            0.6198,
+            0.6116,
+            0.6281,
             0.6364,
-            0.6364,
-            0.6364,
-            0.6529,
             0.6612,
-            0.6612,
-            0.6612,
-            0.6694,
-            0.6694,
-            0.6694,
-            0.6694,
+            0.6777,
             0.686,
             0.6942,
             0.6942,
             0.6942,
-            0.6942,
-            0.719,
+            0.7025,
+            0.7025,
             0.7273,
+            0.7273,
+            0.7273,
+            0.7355,
+            0.7355,
             0.7438,
             0.7521,
             0.7603,
             0.7686,
+            0.7769,
+            0.7769,
+            0.7769,
+            0.7769,
+            0.7769,
+            0.7769,
+            0.7851,
             0.7934,
+            0.8017,
+            0.8017,
+            0.8017,
+            0.8017,
             0.8017,
             0.8099,
             0.8182,
-            0.8182,
             0.8347,
-            0.8347,
-            0.8347,
-            0.8347,
-            0.8512,
-            0.8512,
+            0.843,
+            0.843,
+            0.843,
             0.8512,
             0.8595,
-            0.8678,
-            0.8678,
-            0.8678,
-            0.8678,
-            0.8678,
-            0.8678,
             0.876,
             0.876,
             0.876,
@@ -6329,24 +6317,39 @@
             0.876,
             0.876,
             0.876,
-            0.876,
-            0.876,
-            0.8843,
-            0.8843,
-            0.8843,
-            0.8843,
-            0.8843,
-            0.8843,
-            0.8843,
             0.8843,
             0.8843,
             0.8843,
             0.8843,
             0.8926,
             0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
             0.9008,
             0.9008,
             0.9008,
+            0.9008,
+            0.9008,
+            0.9008,
+            0.9008,
+            0.9091,
+            0.9091,
+            0.9091,
+            0.9091,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
+            0.9174,
             0.9174,
             0.9256,
             0.9256,
@@ -6361,13 +6364,10 @@
             0.9339,
             0.9339,
             0.9339,
-            0.9421,
-            0.9421,
-            0.9421,
-            0.9421,
-            0.9421,
-            0.9421,
-            0.9421,
+            0.9339,
+            0.9339,
+            0.9339,
+            0.9339,
             0.9421,
             0.9421,
             0.9421,
@@ -6375,6 +6375,19 @@
             0.9421,
             0.9504,
             0.9504,
+            0.9504,
+            0.9504,
+            0.9504,
+            0.9504,
+            0.9504,
+            0.9504,
+            0.9504,
+            0.9587,
+            0.9587,
+            0.9587,
+            0.9587,
+            0.9587,
+            0.9587,
             0.9587,
             0.9587,
             0.9587,
@@ -6383,66 +6396,47 @@
             0.9669,
             0.9669,
             0.9669,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9752,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
             0.9835,
             0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
             1.0,
             1.0,
             1.0,
@@ -7073,80 +7067,56 @@
           ],
           "y": [
             0.0,
-            0.0744,
-            0.1736,
-            0.1983,
-            0.2562,
+            0.124,
+            0.2314,
             0.2893,
-            0.3388,
-            0.3719,
-            0.3884,
+            0.314,
+            0.3471,
+            0.3554,
             0.4215,
-            0.438,
-            0.438,
-            0.4463,
-            0.4463,
-            0.4876,
+            0.4628,
+            0.4628,
+            0.4793,
             0.4959,
-            0.5124,
-            0.5124,
             0.5207,
             0.5372,
-            0.5455,
-            0.5455,
-            0.5702,
-            0.595,
+            0.562,
+            0.562,
+            0.5785,
+            0.5868,
+            0.5868,
+            0.5868,
+            0.5868,
             0.6116,
-            0.6116,
-            0.6116,
-            0.6116,
+            0.6198,
             0.6281,
-            0.6529,
+            0.6281,
+            0.6281,
+            0.6612,
             0.6694,
             0.686,
             0.6942,
             0.6942,
-            0.7025,
+            0.6942,
+            0.6942,
             0.7025,
             0.7107,
+            0.7107,
             0.719,
-            0.7355,
-            0.7355,
-            0.7355,
-            0.7355,
-            0.7355,
+            0.7273,
+            0.7273,
+            0.7273,
             0.7438,
-            0.7438,
-            0.7438,
-            0.7438,
-            0.7521,
-            0.7603,
-            0.7603,
-            0.7603,
             0.7603,
             0.7603,
             0.7686,
             0.7686,
-            0.7686,
-            0.7769,
-            0.7769,
-            0.7769,
             0.7769,
             0.7851,
             0.7851,
-            0.7851,
-            0.7851,
-            0.7851,
-            0.7851,
-            0.7851,
-            0.7851,
-            0.7851,
+            0.7934,
             0.8017,
             0.8017,
-            0.8017,
-            0.8017,
-            0.8017,
-            0.8099,
             0.8099,
             0.8099,
             0.8099,
@@ -7157,18 +7127,27 @@
             0.8182,
             0.8182,
             0.8182,
+            0.8264,
+            0.8264,
+            0.8264,
+            0.8264,
+            0.8264,
             0.8264,
             0.8264,
             0.8347,
             0.843,
             0.843,
-            0.8512,
-            0.8512,
+            0.843,
             0.8512,
             0.8512,
             0.8678,
             0.876,
             0.876,
+            0.876,
+            0.8843,
+            0.8843,
+            0.8843,
+            0.8843,
             0.8843,
             0.8926,
             0.8926,
@@ -7176,40 +7155,51 @@
             0.8926,
             0.8926,
             0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
+            0.8926,
             0.9008,
             0.9008,
-            0.9174,
-            0.9174,
-            0.9174,
-            0.9174,
-            0.9174,
-            0.9174,
-            0.9174,
-            0.9174,
+            0.9008,
+            0.9008,
+            0.9091,
+            0.9091,
+            0.9091,
+            0.9091,
             0.9256,
             0.9256,
+            0.9256,
+            0.9256,
+            0.9339,
+            0.9339,
+            0.9339,
+            0.9339,
+            0.9339,
+            0.9339,
+            0.9339,
+            0.9339,
             0.9339,
             0.9421,
             0.9421,
             0.9421,
-            0.9421,
-            0.9421,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
-            0.9504,
             0.9504,
             0.9504,
             0.9504,
@@ -7217,22 +7207,12 @@
             0.9587,
             0.9587,
             0.9587,
-            0.9587,
-            0.9587,
-            0.9587,
-            0.9587,
-            0.9587,
-            0.9587,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
-            0.9835,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9669,
+            0.9752,
+            0.9752,
             0.9835,
             0.9835,
             0.9917,
@@ -7245,30 +7225,44 @@
             0.9917,
             0.9917,
             0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
-            0.9917,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
             1.0,
             1.0,
             1.0
@@ -7317,9 +7311,9 @@
             "name": "Formula + ML",
             "n": 150298,
             "positives": 121,
-            "effort_to_cover_90": 0.4187747009274907,
-            "findings_to_cover_90": 62941.0,
-            "mean_rank_later_exploited": 20518.144628099173,
+            "effort_to_cover_90": 0.36661166482587926,
+            "findings_to_cover_90": 55101.0,
+            "mean_rank_later_exploited": 19273.314049586777,
             "precision_at_10": 0.0,
             "recall_at_10": 0.0,
             "precision_at_25": 0.0,
@@ -7343,13 +7337,13 @@
             "name": "ML probability only (diagnostic)",
             "n": 150298,
             "positives": 121,
-            "effort_to_cover_90": 0.5212577679011031,
-            "findings_to_cover_90": 78344.0,
-            "mean_rank_later_exploited": 26256.96694214876,
-            "precision_at_10": 0.0,
-            "recall_at_10": 0.0,
-            "precision_at_25": 0.0,
-            "recall_at_25": 0.0
+            "effort_to_cover_90": 0.5512781274534592,
+            "findings_to_cover_90": 82856.0,
+            "mean_rank_later_exploited": 22907.73140495868,
+            "precision_at_10": 0.1,
+            "recall_at_10": 0.008264462809917356,
+            "precision_at_25": 0.04,
+            "recall_at_25": 0.008264462809917356
           }
         ],
         "table2_open_only": [
@@ -7384,13 +7378,13 @@
             "name": "Formula + ML",
             "n": 149376,
             "positives": 121,
-            "effort_to_cover_90": 0.41518717866323906,
-            "findings_to_cover_90": 62019.0,
-            "mean_rank_later_exploited": 19673.334710743802,
+            "effort_to_cover_90": 0.3627021743787489,
+            "findings_to_cover_90": 54179.0,
+            "mean_rank_later_exploited": 18434.297520661155,
             "precision_at_10": 0.0,
             "recall_at_10": 0.0,
-            "precision_at_25": 0.12,
-            "recall_at_25": 0.024793388429752067
+            "precision_at_25": 0.04,
+            "recall_at_25": 0.008264462809917356
           },
           {
             "ranker": "epss",
@@ -7410,13 +7404,13 @@
             "name": "ML probability only (diagnostic)",
             "n": 149376,
             "positives": 121,
-            "effort_to_cover_90": 0.5186241431019709,
-            "findings_to_cover_90": 77470.0,
-            "mean_rank_later_exploited": 25639.322314049587,
-            "precision_at_10": 0.0,
-            "recall_at_10": 0.0,
-            "precision_at_25": 0.0,
-            "recall_at_25": 0.0
+            "effort_to_cover_90": 0.5486825192802056,
+            "findings_to_cover_90": 81960.0,
+            "mean_rank_later_exploited": 22323.504132231406,
+            "precision_at_10": 0.1,
+            "recall_at_10": 0.008264462809917356,
+            "precision_at_25": 0.08,
+            "recall_at_25": 0.01652892561983471
           }
         ]
       }

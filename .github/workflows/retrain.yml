@@ -30,11 +30,11 @@ jobs:
         run: |
           # past years rarely change: reuse cached files, always refresh the last two years
           rm -f data/raw/nvd/CVE-$(date +%Y).json.xz data/raw/nvd/CVE-$(( $(date +%Y) - 1 )).json.xz
-          python -m train.fetch_data --years 2015-$(date +%Y) --freeze 2025-01-01 --skip-existing
-      - run: python -m train.build_features --years 2015-$(date +%Y) --freeze 2025-01-01 --out data/features.parquet
+          python -m train.fetch_data --years 2015-$(date +%Y) --freeze 2024-01-01 --skip-existing
+      - run: python -m train.build_features --years 2015-$(date +%Y) --freeze 2024-01-01 --out data/features.parquet
       - run: python -m train.train --features data/features.parquet --out models/
       - run: python -m train.export --features data/features.parquet --models models/ --site site/
-      - run: python -m backtest.run_backtest --features data/features.parquet --freeze 2025-01-01 --out site/backtest.json
+      - run: python -m backtest.run_backtest --features data/features.parquet --freeze 2024-01-01 --out site/backtest.json --primary kev-app
       - run: python -m scripts.make_results_md
       - name: Unit + parity tests
         run: python -m tests.run_tests
