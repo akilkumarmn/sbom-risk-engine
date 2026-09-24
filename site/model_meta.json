@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "release": "bd13b79-dirty",
+  "release": "v1.0-cap2",
   "data_source": "public-feeds",
   "trained_at": "2026-09-24T10:36:21+00:00",
-  "exported_at": "2026-09-24T10:38:13+00:00",
+  "exported_at": "2026-09-24T10:50:41+00:00",
   "algo": "lightgbm",
   "label": "CVE listed in CISA KEV",
   "split": {
