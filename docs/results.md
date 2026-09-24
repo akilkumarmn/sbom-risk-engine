@@ -1,6 +1,6 @@
 # Results
 
-Model: `lightgbm`, trained 2026-09-22; data source `public-feeds`; KEV catalogue 2026.09.22; EPSS scores of 2026-09-22.
+Model: `lightgbm`, trained 2026-09-23; data source `public-feeds`; KEV catalogue 2026.09.23; EPSS scores of 2026-09-23.
 
 Split by NVD published date: train 108,024 CVEs (784 KEV), validate 39,944 (160), test 47,969 (197, 0.41%).
 
@@ -11,7 +11,7 @@ Split by NVD published date: train 108,024 CVEs (784 KEV), validate 39,944 (160)
 | CVSS base score | 0.765 | 0.017 | 0.086 | 0.125 | 60.0% |
 | EPSS (FIRST) | 0.972 | 0.464 | 0.690 | 0.665 | 5.0% |
 | Our model, without EPSS | 0.917 | 0.221 | 0.410 | 0.508 | 25.2% |
-| Our model, with EPSS | 0.982 | 0.545 | 0.740 | 0.802 | 3.9% |
+| Our model, with EPSS | 0.982 | 0.544 | 0.730 | 0.802 | 3.9% |
 | Logistic regression (explainability baseline) | 0.920 | 0.128 | 0.260 | 0.442 | 20.7% |
 | Our model + time features (diagnostic) | 0.890 | 0.078 | 0.250 | 0.339 | 37.0% |
 

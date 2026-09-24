@@ -1,6 +1,6 @@
 {
-  "trained_at": "2026-09-22T23:45:34+00:00",
-  "snapshot_date": "2026-09-22",
+  "trained_at": "2026-09-23T23:54:58+00:00",
+  "snapshot_date": "2026-09-23",
   "data_source": "public-feeds",
   "algo": "lightgbm",
   "split": {
@@ -205,10 +205,10 @@
       "name": "EPSS (FIRST)",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9720253798605984,
-      "pr_auc": 0.4639133764400929,
-      "effort_to_cover_90": 0.05003231253517897,
-      "mean_rank_of_positives": 1435.4035532994924,
+      "auc_roc": 0.9720058815753849,
+      "pr_auc": 0.46361170324409573,
+      "effort_to_cover_90": 0.050074006128958286,
+      "mean_rank_of_positives": 1436.3350253807107,
       "precision_at_100": 0.69,
       "precision_at_500": 0.23,
       "recall_at_1000": 0.6649746192893401
@@ -218,10 +218,10 @@
       "name": "Our model, without EPSS",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9166660291205562,
-      "pr_auc": 0.22127408099026266,
+      "auc_roc": 0.9166656040898159,
+      "pr_auc": 0.22127404835393816,
       "effort_to_cover_90": 0.2524547103337572,
-      "mean_rank_of_positives": 4080.0304568527918,
+      "mean_rank_of_positives": 4080.0507614213197,
       "precision_at_100": 0.41,
       "precision_at_500": 0.154,
       "recall_at_1000": 0.5076142131979695
@@ -231,12 +231,12 @@
       "name": "Our model, with EPSS",
       "n": 47969,
       "positives": 197,
-      "auc_roc": 0.9820900546632035,
-      "pr_auc": 0.5445584000715976,
-      "effort_to_cover_90": 0.03879588901165336,
-      "mean_rank_of_positives": 954.5939086294417,
-      "precision_at_100": 0.74,
-      "precision_at_500": 0.286,
+      "auc_roc": 0.9815794864863601,
+      "pr_auc": 0.5438285650992772,
+      "effort_to_cover_90": 0.038670808230315414,
+      "mean_rank_of_positives": 978.984771573604,
+      "precision_at_100": 0.73,
+      "precision_at_500": 0.284,
       "recall_at_1000": 0.8020304568527918
     },
     {
@@ -285,10 +285,10 @@
       "name": "EPSS (FIRST)",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9718462418903909,
-      "pr_auc": 0.47078189562750955,
-      "effort_to_cover_90": 0.05002646903123346,
-      "mean_rank_of_positives": 1369.8324873096446,
+      "auc_roc": 0.9718268994936453,
+      "pr_auc": 0.4704687556797823,
+      "effort_to_cover_90": 0.05007058408328922,
+      "mean_rank_of_positives": 1370.7055837563453,
       "precision_at_100": 0.7,
       "precision_at_500": 0.23,
       "recall_at_1000": 0.6700507614213198
@@ -298,10 +298,10 @@
       "name": "Our model, without EPSS",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9129907022673225,
-      "pr_auc": 0.22129423302396398,
+      "auc_roc": 0.9129902524441424,
+      "pr_auc": 0.22129420003441097,
       "effort_to_cover_90": 0.265528498323628,
-      "mean_rank_of_positives": 4026.51269035533,
+      "mean_rank_of_positives": 4026.532994923858,
       "precision_at_100": 0.41,
       "precision_at_500": 0.154,
       "recall_at_1000": 0.5076142131979695
@@ -311,12 +311,12 @@
       "name": "Our model, with EPSS",
       "n": 45336,
       "positives": 197,
-      "auc_roc": 0.9816318078067487,
-      "pr_auc": 0.5468237459366235,
-      "effort_to_cover_90": 0.03981383448032469,
-      "mean_rank_of_positives": 928.1218274111675,
-      "precision_at_100": 0.74,
-      "precision_at_500": 0.29,
+      "auc_roc": 0.9811149609727786,
+      "pr_auc": 0.5459564443221828,
+      "effort_to_cover_90": 0.03972560437621316,
+      "mean_rank_of_positives": 951.4517766497462,
+      "precision_at_100": 0.73,
+      "precision_at_500": 0.288,
       "recall_at_1000": 0.8020304568527918
     },
     {
@@ -346,8 +346,8 @@
       "recall_at_1000": 0.3395488014840886
     }
   ],
-  "test_auc": 0.9166660291205562,
-  "test_pr_auc": 0.22127408099026266,
+  "test_auc": 0.9166656040898159,
+  "test_pr_auc": 0.22127404835393816,
   "importance_kind": "gain",
   "importance": [
     {
@@ -430,77 +430,77 @@
     {
       "feature": "product_kev_rate",
       "label": "Product's historical KEV rate",
-      "value": 0.6201652727001609
+      "value": 0.6201585663038102
     },
     {
       "feature": "cvss_base",
       "label": "CVSS base score",
-      "value": 0.5903680225172899
+      "value": 0.5903672198470286
     },
     {
       "feature": "ref_vendor_advisory",
       "label": "Vendor advisories",
-      "value": 0.42382898599025937
+      "value": 0.42381924142150856
     },
     {
       "feature": "vendor_kev_rate",
       "label": "Vendor's historical KEV rate",
-      "value": 0.3536089830441171
+      "value": 0.35361856511393536
     },
     {
       "feature": "ref_total",
       "label": "Number of references",
-      "value": 0.34609652462828755
+      "value": 0.34609424338024425
     },
     {
       "feature": "dom_github",
       "label": "GitHub reference",
-      "value": 0.32882735351777276
+      "value": 0.32882121641406464
     },
     {
       "feature": "desc_len",
       "label": "Description length",
-      "value": 0.2446477849207701
+      "value": 0.2446619426093209
     },
     {
       "feature": "ref_exploit",
       "label": "References tagged Exploit",
-      "value": 0.21366009996382315
+      "value": 0.21366221726001353
     },
     {
       "feature": "cwe_79",
       "label": "CWE-79",
-      "value": 0.21247315752174095
+      "value": 0.21247431328555644
     },
     {
       "feature": "cwe_other",
       "label": "Other CWE",
-      "value": 0.208686069602061
+      "value": 0.2086910832441694
     },
     {
       "feature": "kw_unauth",
       "label": "Mentions unauthenticated",
-      "value": 0.17756907480879114
+      "value": 0.1775685236834724
     },
     {
       "feature": "ui_N",
       "label": "No user interaction",
-      "value": 0.17454688527210924
+      "value": 0.17454921760931094
     },
     {
       "feature": "c_H",
       "label": "High confidentiality impact",
-      "value": 0.16389467746730293
+      "value": 0.1638954619364111
     },
     {
       "feature": "c_N",
       "label": "No confidentiality impact",
-      "value": 0.13126699481191936
+      "value": 0.13126680021489295
     },
     {
       "feature": "poc_github",
       "label": "Public PoC on GitHub (<=30d)",
-      "value": 0.12578535833076293
+      "value": 0.12578605390220535
     }
   ],
   "logreg_coefficients": [
@@ -581,32 +581,32 @@
     }
   ],
   "features_meta": {
-    "built_at": "2026-09-22T23:44:40+00:00",
-    "n_cves": 306899,
+    "built_at": "2026-09-23T23:54:04+00:00",
+    "n_cves": 307346,
     "years": [
       2015,
       2026
     ],
     "kev": {
-      "catalogVersion": "2026.09.22",
-      "dateReleased": "2026-09-22T19:02:09.9788Z",
+      "catalogVersion": "2026.09.23",
+      "dateReleased": "2026-09-23T12:51:35.821Z",
       "count": 1721
     },
-    "kev_cves_in_nvd": 1562,
+    "kev_cves_in_nvd": 1565,
     "epss_current": {
       "model_version": "v2026.06.15",
-      "score_date": "2026-09-22T12:02:55Z"
+      "score_date": "2026-09-23T12:00:20Z"
     },
     "epss_freeze": {
       "model_version": "v2023.03.01",
       "score_date": "2025-01-01T00:00:00+0000"
     },
     "freeze_date": "2025-01-01",
-    "poc_github_cves": 10864,
+    "poc_github_cves": 10871,
     "exploitdb_cves": 25086,
-    "cvss_missing": 14336,
+    "cvss_missing": 14362,
     "fetch": {
-      "fetched_at": "2026-09-22T23:42:58+00:00",
+      "fetched_at": "2026-09-23T23:52:27+00:00",
       "files": {
         "nvd": [
           "CVE-2015.json.xz",
