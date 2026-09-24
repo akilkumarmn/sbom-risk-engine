@@ -491,14 +491,23 @@ def s_backtest(slide, bt, synthetic):
     lines.append((f"population: Formula + ML {pct(hp['ours'])} · Formula {pct(hp['formula'])} · "
                   f"CVSS {pct(hp['cvss'])} · EPSS {pct(hp['epss'])}", {"size": 11.5}))
     if hp["ours"] is not None and hp["formula"] is not None and hp["formula"] <= hp["ours"]:
-        lines.append(("At the 90% mark the formula without ML is level with Formula + ML; the ML term shows up in "
-                      "mean rank and in the ablation, not in this one cut-off.", {"size": 10.5, "color": MUTED}))
+        lines.append(("At 90% the formula without ML is level; the ML term shows in mean rank and the ablation.",
+                      {"size": 10, "color": MUTED}))
     if ablp is not None:
         lines.append((f"Removing the ML probability costs {100 * ablp:+.1f} pp of patch effort (ablation).",
                       {"size": 11, "color": INK}))
+    c50, c75 = hp.get("coverage_50") or {}, hp.get("coverage_75") or {}
+    if c50.get("ml") is not None:
+        lines.append((f"50% / 75% coverage: ours {pct(c50['ml'], 0)} / {pct(c75.get('ml'), 0)} · CVSS "
+                      f"{pct(c50['cvss'], 0)} / {pct(c75.get('cvss'), 0)} · EPSS {pct(c50.get('epss'), 0)} / "
+                      f"{pct(c75.get('epss'), 0)}", {"size": 10, "color": MUTED}))
+    if case.get("constructed"):
+        lines.append(("SBOM case below: constructed validation fixture, not an application. The population case "
+                      "carries the claim.", {"size": 10, "color": RED}))
 
-    text(slide, 0.5, 3.5, 4.0, 1.85, lines)
-    rows = [[f"{case.get('app', case['name'])}: N={case['n_findings']}, M={case['later_exploited']}",
+    text(slide, 0.5, 3.35, 4.0, 2.2, lines)
+    label = f"{case.get('app', case['name'])}{' (fixture)' if case.get('constructed') else ''}"
+    rows = [[f"{label}: N={case['n_findings']}, M={case['later_exploited']}",
              "Mean rank", "P@10 open", "Effort 90%"]]
     names = {"cvss": "CVSS-only", "legacy": "Formula", "ml": "Formula + ML", "epss": "EPSS-only (ref.)"}
     t = {r["ranker"]: r for r in case["table2"]}
@@ -507,7 +516,7 @@ def s_backtest(slide, bt, synthetic):
         rows.append([n, "n/a" if t[k]["mean_rank_later_exploited"] is None
                      else f"{t[k]['mean_rank_later_exploited']:.1f}",
                      f3(o[k]["precision_at_10"]), pct(t[k]["effort_to_cover_90"])])
-    table(slide, 0.5, 5.4, 4.0, rows, [1.55, 0.85, 0.85, 0.75], size=10.5, highlight=3, row_h=0.30)
+    table(slide, 0.5, 5.65, 4.0, rows, [1.55, 0.85, 0.85, 0.75], size=9.5, highlight=3, row_h=0.26)
     _coverage_chart(slide, case, 4.8, 1.6, 8.1, 5.2, f"Coverage curve, frozen {bt['freeze_date']}: {case['name']}")
 
 
@@ -644,6 +653,8 @@ def s_limits(slide):
            "Low prevalence limits precision; PR-AUC and precision@k are the honest metrics.",
            "EPSS already encodes much of the signal; the model without EPSS is the independent contribution.",
            "Backtest CVSS is today's NVD value; one SBOM yields few later-exploited CVEs (population case added).",
+           "The generated backtest fixture is a constructed validation set, not an application: its packages carry "
+           "the answer-key CVEs and its dependency tree is one level deep.",
            "SBOM depth and fan-in are not reachability; asset context is user-supplied, not discovered.",
            "Nessus findings without a CPE are skipped (counted in the log)."]
     fut = ["Call-graph reachability analysis for Java dependencies.",

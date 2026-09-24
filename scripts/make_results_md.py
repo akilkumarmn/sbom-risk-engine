@@ -53,25 +53,37 @@ def main():
         title = f"{case.get('app') or case['name']}" if key != "population" else "all CVEs published before the freeze date"
         L += [f"### {key}: {title} — N={case['n_findings']:,} findings, M={case['later_exploited']} later-exploited, "
               f"{case['known_exploited_at_T']} already in KEV", "",
-              "| Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | Effort to cover 90% |",
-              "| --- | --- | --- | --- | --- |"]
+              "| Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | "
+              "Effort to cover 50% | Effort to cover 75% | Effort to cover 90% |",
+              "| --- | --- | --- | --- | --- | --- | --- |"]
+        if case.get("fixture_note"):
+            L = L[:-3] + ["", f"*{case['fixture_note']}*", ""] + L[-3:]
         for r in case["table2"]:
             L.append(f"| {r['name']} | {_f(r['mean_rank_later_exploited'], 1)} | {_f(r['precision_at_10'])} | "
-                     f"{_f(r['precision_at_25'])} | {_p(r['effort_to_cover_90'])} |")
+                     f"{_f(r['precision_at_25'])} | {_p(r.get('effort_to_cover_50'))} | "
+                     f"{_p(r.get('effort_to_cover_75'))} | {_p(r['effort_to_cover_90'])} |")
         if case.get("table2_open_only"):
             o = case["table2_open_only"]
             L += ["", f"Open findings only ({case['known_exploited_at_T']} already-in-KEV findings removed, "
                   f"N={o[0]['n']:,}):", "",
                   "| Ranking method | Mean rank of later-exploited | Precision@10 | Precision@25 | "
-                  "Effort to cover 90% |", "| --- | --- | --- | --- | --- |"]
+                  "Effort to cover 50% | Effort to cover 75% | Effort to cover 90% |",
+                  "| --- | --- | --- | --- | --- | --- | --- |"]
             for r in o:
                 L.append(f"| {r['name']} | {_f(r['mean_rank_later_exploited'], 1)} | {_f(r['precision_at_10'])} | "
-                         f"{_f(r['precision_at_25'])} | {_p(r['effort_to_cover_90'])} |")
+                         f"{_f(r['precision_at_25'])} | {_p(r.get('effort_to_cover_50'))} | "
+                         f"{_p(r.get('effort_to_cover_75'))} | {_p(r['effort_to_cover_90'])} |")
         if case.get("epss_scored_only"):
             L.append(f"\nKeeps only CVEs that EPSS scored on {bt['freeze_date']}; "
                      f"{case['excluded_no_epss_at_T']:,} unscored CVEs "
                      f"({case['excluded_no_epss_later_exploited']} later exploited) are excluded, because filling "
                      "them with 0 would put them in one tied block at the bottom of the EPSS ranking.")
+        f_ = case.get("epss_floor")
+        if f_ and f_.get("n_at_floor", 0) > 1:
+            L.append(f"\nEPSS ties: {f_['n_at_floor']:,} findings ({_p(f_['share_at_floor'])}) share the lowest "
+                     f"published EPSS score of {f_['value']:.5f}, {f_['later_exploited_at_floor']} of them later "
+                     "exploited. EPSS cannot order that block, which is what decides its behaviour at the deepest "
+                     "cut-off; at 50% and 75% coverage it is far ahead of CVSS.")
         if case.get("excluded_published_after_T"):
             L.append(f"\nExcluded (published after the freeze date): {', '.join(case['excluded_published_after_T'])}")
         L += ["", f"![coverage {key}](figures/coverage_backtest_{key}.png)", ""]

@@ -98,6 +98,10 @@ class Ctx:
         self.fm = self.b["frozen_model"]
         self.snap = self.m.get("snapshots", {})
         self.sbom_cases = [k for k in self.b["cases"] if k != "population"]
+        n = len(self.sbom_cases)
+        self.t_backtest_first = "10.2"
+        self.t_backtest_last = f"10.{2 * n + 2}"   # per SBOM case: main + open-only; then the population table
+        self.t_ablation = f"10.{2 * n + 3}"
 
     def t2(self, case):
         return {r["ranker"]: r for r in case["table2"]}
@@ -138,6 +142,8 @@ TITLE = "AI-Based Vulnerability Prioritization Engine using SBOM Context"
 def front_matter(R: Report, X: Ctx):
     a = X.args
     sig = ASSETS / "signature.png"
+    if not sig.exists():
+        sig = None  # kept out of the public repository; the printed report is signed by hand
     R.logo_line()
     R.center("A Project Report", after=10)
     R.center(TITLE, bold=True, size=HEAD, after=14)
@@ -503,15 +509,16 @@ def ch4(R: Report, X: Ctx):
     ])
     R.h2("4.2 Expected Outcome")
     R.p("The expected outcome is a deployed decision-support system whose every claim points to a measured number: "
-        "classifier quality on a held-out year (Table 10.1), ranking quality in the backtest (Tables 10.2 to 10.6) "
-        "and the contribution of each signal (Table 10.7).")
+        f"classifier quality on a held-out year (Table 10.1), ranking quality in the backtest (Tables "
+        f"{X.t_backtest_first} to {X.t_backtest_last}) and the contribution of each signal (Table "
+        f"{X.t_ablation}).")
     R.h2("4.3 Objectives-to-Chapter Mapping")
     R.p("Table 4.1 maps each objective to the sections where it is implemented and evaluated.")
     R.table(4, "Objectives to Chapter Mapping", ["Objective", "Implementation", "Testing, Validation & Results"], [
         ["1. Exploitation-likelihood classifier", "5.4-5.6, 8.2-8.3", "9.2-9.3, 10.2-10.3"],
         ["2. SBOM ingestion, correlation and enrichment", "7.3, 8.4", "9.2, 9.4-9.5"],
-        ["3. Explainable risk score and three rankings", "5.7, 8.5", "9.2, 9.4, 10.4-10.6"],
-        ["4. Time-frozen backtest and ablation", "5.8-5.9, 8.6", "9.2-9.3, 10.4-10.6"],
+        ["3. Explainable risk score and three rankings", "5.7, 8.5", "9.2, 9.4, 10.4-10.7"],
+        ["4. Time-frozen backtest and ablation", "5.8-5.9, 8.6", "9.2-9.3, 10.4-10.7"],
         ["5. Deployment (dashboard, nightly retrain, API)", "8.7-8.9", "9.5-9.6"],
     ], [2.6, 1.6, 2.3])
 
@@ -716,7 +723,7 @@ def ch7(R: Report, X: Ctx):
         [("Scoring (engine/scoring.py and site/engine.js): ", "b"), "CVSS-only, proposal-stage formula and "
          "Formula + ML, with switches for the ablation."],
         [("Training and export (train/): ", "b"), "fetch_data, build_features, train and export scripts."],
-        [("Backtest (backtest/run_backtest.py): ", "b"), "frozen, cross-fitted model and Tables 10.2-10.7."],
+        [("Backtest (backtest/run_backtest.py): ", "b"), f"frozen, cross-fitted model and Tables {X.t_backtest_first}-{X.t_ablation}."],
         [("Dashboard (site/dashboard.html): ", "b"), "uploads, live intelligence, three-way ranking and "
          "explanations."],
         [("API (api/main.py): ", "b"), "FastAPI service using the same Python scoring core."],
@@ -1003,12 +1010,16 @@ def ch10(R: Report, X: Ctx):
     for key in [X.prim_key] + [k for k in X.sbom_cases if k != X.prim_key]:
         case = X.b["cases"][key]
         t2 = X.t2(case)
+        if case.get("fixture_note"):
+            R.p((case["fixture_note"], "i"))
         R.table(10, f"SBOM Backtest, Frozen {X.freeze}: {case.get('app', key)} "
                     f"(N = {case['n_findings']} findings, M = {case['later_exploited']} later-exploited)",
-                ["Ranking Method", "Mean Rank of Later-Exploited", "Precision@10", "Precision@25", "Effort 90%"],
+                ["Ranking Method", "Mean Rank", "P@10", "P@25", "Effort 50%", "Effort 75%", "Effort 90%"],
                 [[RANK[k], rank_f(t2[k]["mean_rank_later_exploited"]), f3(t2[k]["precision_at_10"]),
-                  f3(t2[k]["precision_at_25"]), pct(t2[k]["effort_to_cover_90"])]
-                 for k in ("cvss", "legacy", "ml", "epss")], [2.2, 1.3, 1.0, 1.0, 1.0], highlight_row=3)
+                  f3(t2[k]["precision_at_25"]), pct(t2[k].get("effort_to_cover_50")),
+                  pct(t2[k].get("effort_to_cover_75")), pct(t2[k]["effort_to_cover_90"])]
+                 for k in ("cvss", "legacy", "ml", "epss")], [1.75, 0.85, 0.6, 0.6, 0.9, 0.9, 0.9],
+                highlight_row=3)
         R.p(f"In the {case.get('app', key)} case, {case['known_exploited_at_T']} findings were already in KEV at the "
             f"freeze date and {case['later_exploited']} were added afterwards. The later-exploited CVEs sit at mean "
             f"rank {rank_f(t2['ml']['mean_rank_later_exploited'])} under Formula + ML against "
@@ -1020,10 +1031,12 @@ def ch10(R: Report, X: Ctx):
         o2 = {r["ranker"]: r for r in case["table2_open_only"]}
         R.table(10, f"{case.get('app', key)}: Open Findings Only (the {case['known_exploited_at_T']} CVEs already "
                     f"in KEV at the freeze date removed, N = {o2['ml']['n']})",
-                ["Ranking Method", "Mean Rank of Later-Exploited", "Precision@10", "Precision@25", "Effort 90%"],
+                ["Ranking Method", "Mean Rank", "P@10", "P@25", "Effort 50%", "Effort 75%", "Effort 90%"],
                 [[RANK[k], rank_f(o2[k]["mean_rank_later_exploited"]), f3(o2[k]["precision_at_10"]),
-                  f3(o2[k]["precision_at_25"]), pct(o2[k]["effort_to_cover_90"])]
-                 for k in ("cvss", "legacy", "ml", "epss")], [2.2, 1.3, 1.0, 1.0, 1.0], highlight_row=3)
+                  f3(o2[k]["precision_at_25"]), pct(o2[k].get("effort_to_cover_50")),
+                  pct(o2[k].get("effort_to_cover_75")), pct(o2[k]["effort_to_cover_90"])]
+                 for k in ("cvss", "legacy", "ml", "epss")], [1.75, 0.85, 0.6, 0.6, 0.9, 0.9, 0.9],
+                highlight_row=3)
         R.p("Findings already listed in KEV on the freeze date fill the top of every ranking that uses the KEV "
             "flag, which drives precision@10 towards zero in the table above and hides how the methods order the "
             "unknown findings. The variant that removes them is the sharper comparison: a team patches known "
@@ -1036,10 +1049,12 @@ def ch10(R: Report, X: Ctx):
     t2 = X.t2(X.POP)
     R.table(10, f"Population Backtest, All CVEs Published Before {X.freeze} (N = {X.POP['n_findings']:,}, "
                 f"M = {X.POP['later_exploited']})",
-            ["Ranking Method", "Mean Rank of Later-Exploited", "Precision@10", "Precision@25", "Effort 90%"],
+            ["Ranking Method", "Mean Rank", "P@10", "P@25", "Effort 50%", "Effort 75%", "Effort 90%"],
             [[RANK[k], rank_f(t2[k]["mean_rank_later_exploited"]), f3(t2[k]["precision_at_10"]),
-              f3(t2[k]["precision_at_25"]), pct(t2[k]["effort_to_cover_90"])]
-             for k in ("cvss", "legacy", "ml", "epss", "model")], [2.2, 1.3, 1.0, 1.0, 1.0], highlight_row=3)
+              f3(t2[k]["precision_at_25"]), pct(t2[k].get("effort_to_cover_50")),
+              pct(t2[k].get("effort_to_cover_75")), pct(t2[k]["effort_to_cover_90"])]
+             for k in ("cvss", "legacy", "ml", "epss", "model")], [1.75, 0.85, 0.6, 0.6, 0.9, 0.9, 0.9],
+            highlight_row=3)
     R.p(f"The population case gives the statistically stronger comparison because it contains "
         f"{X.POP['later_exploited']} later-exploited CVEs. The clearest separation is in mean rank: the "
         f"later-exploited CVEs sit at rank {rank_f(t2['ml']['mean_rank_later_exploited'])} under Formula + ML "
@@ -1055,7 +1070,7 @@ def ch10(R: Report, X: Ctx):
             f"coverage with {pct(t2['legacy']['effort_to_cover_90'])} of the backlog, marginally ahead of "
             f"Formula + ML. Effort-to-cover-90% is a single point on the coverage curve and is dominated by the "
             "last few positives; the model's contribution is visible in the mean rank above and in the ablation "
-            "of Section 10.6, where removing it changes the effort by "
+            f"of Section 10.7, where removing it changes the effort by "
             f"{100 * (X.abl(X.POP)['model']['delta_vs_full'] or 0):+.1f} percentage points.")
     if X.POP.get("epss_scored_only"):
         R.p(f"EPSS publishes a score for most but not all CVEs. This case keeps only the CVEs that EPSS scored on "
@@ -1065,8 +1080,29 @@ def ch10(R: Report, X: Ctx):
             "understate the EPSS baseline; the unrestricted numbers are kept in backtest.json for reference.")
     R.p("Because there is no SBOM in this case, the difference between Formula + ML and its likelihood inputs "
         "comes only from the CVSS impact and scope terms.")
+    R.h2("10.6 What the EPSS Comparison Shows")
+    fl = X.POP.get("epss_floor") or {}
+    abl_e = X.abl(X.POP).get("epss", {})
+    R.p(f"EPSS estimates exploitation activity in the next 30 days. The positives of this backtest are the "
+        "opposite case: CVEs published long before the freeze date that CISA listed months or years later, which "
+        "is not what a 30-day activity signal is built to predict. The cut-off therefore matters. At 50% coverage "
+        f"EPSS needs {pct(t2['epss'].get('effort_to_cover_50'))} of the backlog against "
+        f"{pct(t2['cvss'].get('effort_to_cover_50'))} for CVSS, and at 75% "
+        f"{pct(t2['epss'].get('effort_to_cover_75'))} against {pct(t2['cvss'].get('effort_to_cover_75'))}; by 90% "
+        f"it needs {pct(t2['epss']['effort_to_cover_90'])} against {pct(t2['cvss']['effort_to_cover_90'])}. Its "
+        f"mean rank of {rank_f(t2['epss']['mean_rank_later_exploited'])} is still better than the "
+        f"{rank_f(t2['cvss']['mean_rank_later_exploited'])} of CVSS.")
+    if fl.get("n_at_floor", 0) > 1:
+        R.p(f"The tail explains the rest: {fl['n_at_floor']:,} CVEs ({pct(fl.get('share_at_floor'))} of the "
+            f"population) share the lowest published EPSS score of {fl['value']:.5f}, and "
+            f"{fl['later_exploited_at_floor']} of the later-exploited CVEs sit inside that unordered block. EPSS "
+            "cannot separate them, so the deepest cut-off is decided by a tie, not by a ranking.")
+    R.p("The practical reading is that EPSS is strong at the top of the list and weak in the tail, while a model "
+        "trained on KEV listing looks further ahead. They are complementary, which is why the formula keeps both: "
+        f"removing EPSS from Formula + ML changes the patch effort by "
+        f"{100 * (abl_e.get('delta_vs_full') or 0):+.1f} percentage points (Section 10.7).")
     R.figure(FIG / "coverage_backtest_population.png", 10, "Population Backtest Coverage Curve", 5.0)
-    R.h2("10.6 Ablation")
+    R.h2("10.7 Ablation")
     prim_abl, pop_abl = X.abl(X.P), X.abl(X.POP)
     rows = []
     for key, r in prim_abl.items():
@@ -1098,7 +1134,7 @@ def ch10(R: Report, X: Ctx):
     R.bullets(lines)
     R.p("A positive change means that removing the signal increased the patch effort. A signal that hurts on a case "
         "is reported rather than hidden; the fan-in and asset terms exist only in the SBOM cases.")
-    R.h2("10.7 Discussion")
+    R.h2("10.8 Discussion")
     R.p("Three conclusions follow from the results. First, a model trained only on information available at "
         "publication ranks CVEs by later exploitation differently from, and on this run "
         f"{'better than' if (a_m or 0) > (a_c or 0) else 'not better than'}, CVSS, which answers whether the "
@@ -1106,7 +1142,7 @@ def ch10(R: Report, X: Ctx):
         "complementary to it and can be retrained on organization-specific labels, which EPSS cannot. Third, the "
         "time-frozen backtest turns the proposal's claim into a measured statement about patch effort, and the "
         "ablation shows which parts of the formula carry that improvement.")
-    R.h2("10.8 Limitations")
+    R.h2("10.9 Limitations")
     R.numbered([
         "KEV is an incomplete label biased towards vulnerabilities relevant to US federal systems; a CVE not in KEV "
         "is not proven unexploited.",
@@ -1117,6 +1153,9 @@ def ch10(R: Report, X: Ctx):
         "Backtest CVSS values are current NVD values, not the values on the freeze date.",
         "SBOM dependency depth and fan-in are not code-level reachability, and asset context is user-supplied.",
         "Each SBOM case contains few later-exploited CVEs; statistical claims rely on the population case.",
+        "The generated backtest fixture is a constructed validation set, not an application: its packages were "
+        "chosen because they carry the answer-key CVEs, and its dependency tree is one level deep, so it tests "
+        "ordering within a package set rather than end-to-end realism.",
         "The likelihood weights (0.5, 0.3, 0.2) and the asset multipliers are hand-set; the ablation measures their "
         "effect but does not learn them.",
     ])
@@ -1220,7 +1259,8 @@ def appendix(R: Report, X: Ctx):
     R.h2("Appendix A: Project Presentation Summary")
     R.p("The results presentation for this phase contains seventeen slides: title, agenda, background, literature "
         "review, problem statement, objectives, architecture and methodology, dataset and split, model results "
-        "(Table 10.1 and feature importance), backtest (Table 10.2 and coverage curve), ablation (Table 10.7), live "
+        f"(Table 10.1 and feature importance), backtest (Table {X.t_backtest_first} and coverage curve), ablation "
+        f"(Table {X.t_ablation}), live "
         "dashboard, MLOps, outcomes against the proposal-stage expectations, limitations and future work, "
         "references, and closing. It is generated by scripts/build_deck.py from the same result files as this "
         "report, so the two always quote the same numbers.")
@@ -1339,11 +1379,12 @@ def main(argv=None):
     bibliography(R)
     appendix(R, X)
     back_matter(R, X)
+    # the text cross-references these by number, so fail loudly if the order moved
+    assert R.tables[-3:] == [f"Table {X.t_ablation}", "Table C.1", "Table C.2"], R.tables
+    assert R.figures[-4:] == ["Fig. 10.1", "Fig. 10.2", "Fig. 10.3", "Fig. 10.4"], R.figures
     args.out.parent.mkdir(parents=True, exist_ok=True)
     R.doc.save(str(args.out))
     print(f"wrote {args.out}{'  [SYNTHETIC numbers - rebuild after the real pipeline run]' if X.synthetic else ''}")
-    assert R.tables[-3:] == ["Table 10.7", "Table C.1", "Table C.2"], R.tables  # cross-references in the text
-    assert R.figures[-4:] == ["Fig. 10.1", "Fig. 10.2", "Fig. 10.3", "Fig. 10.4"], R.figures
     print(f"  {len(R.figures)} figures, {len(R.tables)} tables")
 
 

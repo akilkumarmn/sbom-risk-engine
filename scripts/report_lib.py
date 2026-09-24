@@ -336,7 +336,7 @@ class Report:
                 para.style = self.doc.styles["Table Text"]
                 para.paragraph_format.space_after = Pt(6)
                 para.add_run(txt)
-                if signature is not None and j == 1 and i == len(left) - 1:
+                if signature is not None and Path(signature).exists() and j == 1 and i == len(left) - 1:
                     para.add_run("  ")
                     para.add_run().add_picture(str(signature), width=Inches(0.98))
         _no_borders(t)
