@@ -25,7 +25,7 @@ Answer key: KEV rows with dateAdded > T. Rows already in KEV at T are
 "known"; they stay in the ranked list (a real team patches them too) and are
 reported separately. An "open findings only" variant drops them.
 
-Two cases, as the guide asks: each SBOM fixture (blast radius and asset
+Two cases: each SBOM fixture (blast radius and asset
 context in play) and the whole CVE population published before T
 (statistically meaningful numbers; no SBOM, so fan-in/asset terms are 0).
 

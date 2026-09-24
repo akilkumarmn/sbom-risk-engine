@@ -8,7 +8,7 @@ Ranks the vulnerabilities in an application by real-world risk instead of CVSS a
 - live **EPSS** and **CISA KEV** threat intelligence, public PoC evidence,
 - the **SBOM dependency graph** (fan-in / blast radius) and optional **asset context** (service tier, exposure),
 
-and proves the ranking is better with a **time-frozen backtest** (freeze 1 Jan 2025, answer key = CVEs CISA
+and proves the ranking is better with a **time-frozen backtest** (freeze 1 Jan 2024, answer key = CVEs CISA
 added to KEV afterwards).
 
 > **How to read the numbers.** Everything in `site/model_meta.json`, `site/backtest.json`, `docs/results.md`
@@ -33,12 +33,12 @@ Tests: `python -m tests.run_tests` (unit, Python/JavaScript parity, leakage trap
 | Features | `python -m train.build_features --out data/features.parquet` | feature table + `features_meta.json` |
 | Train (Table 1) | `python -m train.train` | `models/`, `train_report.json`, figures |
 | Export | `python -m train.export` | `site/model_meta.json`, `site/data/cve/*.json`, `site/data/kev.json` |
-| Backtest (Tables 2-3) | `python -m backtest.run_backtest --freeze 2025-01-01` | `backtest/results/`, `site/backtest.json`, figures |
+| Backtest (Tables 2-3) | `python -m backtest.run_backtest --freeze 2024-01-01` | `backtest/results/`, `site/backtest.json`, figures |
 | Write-up | `python -m scripts.make_results_md` | `docs/results.md` |
 | Gate | `python -m scripts.gate` | fails unless test AUC > 0.80 on real data |
 | Report | `python -m scripts.build_report --date "<submission date>" --month "<Month Year>"` | `docs/report/CS10_Capstone2_SBOM_Risk_Engine_Akil_Report.docx` |
 | Deck | `python -m scripts.build_deck --date "<viva date>" --url <pages URL>` | `docs/deck/Cap2_SBOM_Risk_Engine_results.pptx` |
-| KEV backtest fixture | `python -m scripts.make_backtest_fixture` then `scripts/build_kev_fixture.ps1` (Windows) or `.sh` | `backtest/fixtures/kev-2025-app/` (real Syft + Trivy output) |
+| KEV backtest fixture | `python -m scripts.make_backtest_fixture` then `scripts/build_kev_fixture.ps1` (Windows) or `.sh` | `backtest/fixtures/kev-app/` (real Syft + Trivy output) |
 
 ## Dashboard (`site/dashboard.html`)
 Runs entirely in the browser. Upload a CycloneDX SBOM, a scan (Trivy JSON, Nessus, CSV) and optionally
@@ -46,7 +46,7 @@ Runs entirely in the browser. Upload a CycloneDX SBOM, a scan (Trivy JSON, Nessu
 shows its formula breakdown, the model probability and its top three contributing features. EPSS and KEV are
 fetched live (cached 24 h in localStorage) with a dated snapshot fallback. Only CVE IDs are sent to FIRST; the
 SBOM and scan never leave the page. Deployed by `.github/workflows/pages.yml` to
-`https://<github-user>.github.io/sbom-risk-engine/`.
+`https://akilkumarmn.github.io/sbom-risk-engine/`.
 
 ## API (`api/`)
 ```bash
@@ -60,7 +60,7 @@ Swagger UI at `http://localhost:8080/docs`. Same scoring code and exported model
 ```
 engine/      shared Python core: sources, features, model, metrics, CVSS, SBOM/scan ingestion, scoring, service
 train/       fetch_data.py, build_features.py, train.py, export.py, requirements.txt
-backtest/    run_backtest.py, fixtures/{acme,legacy-java-app}/ (SBOM + Trivy + asset context), results/
+backtest/    run_backtest.py, fixtures/{acme,kev-app,legacy-java-app}/ (SBOM + Trivy + asset context), results/
 site/        dashboard.html, engine.js (browser mirror of engine/), model_meta.json, backtest.json, data/, samples/
 api/         main.py (FastAPI), Dockerfile
 notebooks/   01_eda, 02_model, 03_backtest

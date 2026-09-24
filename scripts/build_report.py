@@ -154,8 +154,8 @@ def front_matter(R: Report, X: Ctx):
     R.center("Akil Kumar M N", bold=True, after=2)
     R.center("R22MTC51", after=14)
     R.center("Under the Guidance of")
-    R.center("Dhruv Kalaan", bold=True, after=2)
-    R.center("Director – Cybersecurity & IT", bold=True, after=14)
+    R.center(a.guide, bold=True, after=2)
+    R.center(a.guide_title, bold=True, after=14)
     for line in ("REVA Academy for Corporate Excellence", "REVA University", "Rukmini Knowledge Park, Kattigenahalli,",
                  "Yelahanka, Bangalore – 560064"):
         R.center(line, after=2)
@@ -189,7 +189,7 @@ def front_matter(R: Report, X: Ctx):
     R.p("The project report has been prepared in accordance with the academic requirements prescribed for the "
         "Capstone Project 2 (Phase 2). The report may be considered for evaluation subject to the verification and "
         "approval of the project guide and the institution.")
-    R.sign_block(["Signature of the Guide", "", "Dhruv Kalaan", "Guide"],
+    R.sign_block(["Signature of the Guide", "", a.guide, a.guide_title],
                  ["Signature of the Director", "", "Dr. Shinu Abhi", "Director, Corporate Training"])
     R.p(("External Viva", "b"), style="Normal")
     R.p("Names of the Examiners")
@@ -205,7 +205,7 @@ def front_matter(R: Report, X: Ctx):
     R.p("I would like to acknowledge the support and encouragement provided by the Director, Corporate Training for "
         "RACE, the RACE faculty, and the administrative and infrastructure teams who contribute to the successful "
         "delivery of the M.Tech program.")
-    R.p("I am grateful to my project guide, Dhruv Kalaan, for the technical direction given during this phase, in "
+    R.p(f"I am grateful to my project guide, {a.guide}, for the technical direction given during this phase, in "
         "particular the guidance to support every claim with a trained model, a measured comparison against CVSS "
         "and a deployed, reproducible system.")
     R.p("I also acknowledge the public data providers whose openly available datasets made this work possible: NIST "
@@ -223,7 +223,7 @@ def front_matter(R: Report, X: Ctx):
     R.p("Date of Report Generation: ____________________")
     R.p("Similarity Index in %: ____________________")
     R.p("Total word count: ____________________")
-    R.p("Name of the Guide: Dhruv Kalaan")
+    R.p(f"Name of the Guide: {a.guide}")
     R.sign_block(["Place: Bengaluru", f"Date: {a.date}"],
                  ["Name of the Student: Akil Kumar M N", "Signature of Student:"], sig)
     R.p("Verified by: Irshad Ahmed")
@@ -610,7 +610,8 @@ def ch5(R: Report, X: Ctx):
         "supplied but the finding maps to no service. Values above 90 are compressed by a soft ceiling, "
         "100 \u2212 10\u00b7e^(\u2212(raw \u2212 90)/10), so that scores stay below 100 without collapsing. "
         "Tiers are Critical (75 and above), High (50-75), Medium (25-50) and Low (below 25).")
-    R.p("The implementation guide wrote the impact term as CVSS_impact/10. The CVSS v3 impact sub-score has a "
+    R.p("The initial design for this phase wrote the impact term as CVSS_impact/10. The CVSS v3 impact "
+        "sub-score has a "
         "maximum of 6.0 [1], so dividing by 10 would cap the term at 0.6; dividing by 6 normalizes it to the range "
         "0-1, as the proposal-stage dashboard already did. This deviation is deliberate and documented.")
     R.h2("5.8 Evaluation Metrics")
@@ -749,7 +750,7 @@ def ch7(R: Report, X: Ctx):
         ["cvss / legacy / ml", "Score blocks with every term, tier and rank", "raw, risk, tier, rank"],
     ], [2.0, 2.6, 1.9])
     R.h2("7.5 Delivering the Model to the Browser")
-    R.p("The implementation guide suggested transpiling the model to JavaScript. The model's inputs, however, are "
+    R.p("The initial design proposed transpiling the model to JavaScript. The model\u2019s inputs, however, are "
         "NVD fields (vector, CWE, CPE vendor, references, PoC dates) that a scanner report does not contain, so the "
         "browser would have to download per-CVE features anyway. Instead the nightly job scores every CVE and "
         "publishes the output in one JSON file per CVE-ID year. The dashboard loads only the years present in the "
@@ -905,7 +906,7 @@ def ch9(R: Report, X: Ctx):
         "on every push without network access.")
     R.h2("9.2 Automated Test Suite")
     R.table(9, "Automated Tests (python -m tests.run_tests)", ["Area", "Test", "Expected Outcome"], [
-        ["Metrics", "No ties equal the guide's definition", "Tie-free results match the reference formula"],
+        ["Metrics", "No ties equal the textbook definition", "Tie-free results match the reference formula"],
         ["Metrics", "Ties are expected values", "Tied blocks give the exact expected value"],
         ["Scoring", "CVSS impact matches NVD", "Impact sub-score equals published values"],
         ["Scoring", "Guide formula by hand", "Formula + ML equals a hand calculation"],
@@ -1349,6 +1350,9 @@ def main(argv=None):
     ap.add_argument("--date", default=f"{ordinal(today.day)} {today.strftime('%B %Y')}",
                     help='date on the declaration pages, e.g. "21st September 2026"')
     ap.add_argument("--month", default=today.strftime("%B %Y"), help='cover date, e.g. "September 2026"')
+    ap.add_argument("--guide", default="Dhruv Kalaan", help="project guide's name")
+    ap.add_argument("--guide-title", default="Director \u2013 Cybersecurity & IT",
+                    help="project guide's designation, exactly as it should appear")
     ap.add_argument("--repo", default="https://github.com/akilkumarmn/sbom-risk-engine")
     ap.add_argument("--site-url", default="https://akilkumarmn.github.io/sbom-risk-engine/")
     ap.add_argument("--sbom-from-syft", action="store_true",

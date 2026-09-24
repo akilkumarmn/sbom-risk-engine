@@ -10,3 +10,4 @@ docs/viva.md
 tools/
 docs/report/assets/signature.png
 .venv312/
+docs/report/*.docx

@@ -55,7 +55,7 @@ the uploaded scan. The SBOM and scan never leave the browser; with live intel on
 Exploit-DB 0.9, GitHub PoC 0.5, none 0.05); Impact = 0.5·CVSSimpact/6 + 0.5·BlastRadius; ×1.15 scope changed,
 ×1.08 if the component crosses a trust boundary; soft ceiling above 90.
 
-**Formula + ML (implementation guide):**
+**Formula + ML (this phase's design):**
 Risk = 100 · (0.5·P_model + 0.3·EPSS + 0.2·KEV) · ((0.5·CVSSimpact/6 + 0.5·fan-in/max fan-in) · Crit_asset) · (1.15 if scope changed).
 Crit_asset = 1.5 / 1.25 / 1.0 for tier 1 / 2 / 3, ×1.2 if internet-facing; 1.0 with no asset context; tier 2
 when context is supplied but the finding maps to no service. The guide writes CVSSimpact/10; the v3 impact
